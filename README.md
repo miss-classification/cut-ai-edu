@@ -4,8 +4,6 @@
 
 [Open the live lesson](https://cut-ai-edu.pages.dev/) | [Start offline](START_HERE.md) | [Teaching guide](docs/TEACHING_GUIDE.md) | [Reproducibility record](docs/REPRODUCIBILITY.md)
 
-Prepared for the NeurIPS 2026 Education Track by Alicia Chua, Pawarit Laosunthara, and Eric Tang, Anyscale.
-
 [![A moving preview of the source drive transformed into several weather and lighting conditions](docs/assets/weather-montage.gif)](interactive/media/montage-rain-fog-night-clear.mp4)
 
 *One recorded scene, restaged across rain, fog, night, and clear conditions. Click the preview for the MP4.*
