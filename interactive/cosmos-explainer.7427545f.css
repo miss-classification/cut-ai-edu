@@ -1,0 +1,1310 @@
+/* Conceptual Cosmos Transfer 2.5 explainer. Original diagram for this lesson. */
+.cosmos-lesson-board {
+  border-color: #566371;
+  box-shadow: 0 26px 80px #0009, 0 0 55px #7ee7e10c;
+}
+
+.cosmos-story-canvas {
+  display: grid;
+  grid-template-columns: minmax(132px, .86fr) 42px minmax(190px, 1.15fr) 42px minmax(150px, .94fr);
+  gap: 9px;
+  align-items: center;
+  min-height: 294px;
+  padding: 18px;
+  background:
+    radial-gradient(circle at 53% 44%, #183147 0, transparent 36%),
+    linear-gradient(#ffffff07 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff07 1px, transparent 1px),
+    #080b0f;
+  background-size: auto, 24px 24px, 24px 24px, auto;
+}
+
+.control-build {
+  display: grid;
+  gap: 7px;
+}
+
+.control-film,
+.cosmos-output {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #4a5662;
+  border-radius: 8px;
+  background: #020304;
+}
+
+.control-film video,
+.cosmos-output video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.control-film > span,
+.cosmos-output > span {
+  position: absolute;
+  left: 7px;
+  bottom: 7px;
+  z-index: 2;
+  padding: 3px 6px;
+  border: 1px solid #ffffff38;
+  border-radius: 4px;
+  background: #050709e8;
+  color: var(--ink);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .64rem;
+  font-weight: 900;
+  letter-spacing: .06em;
+}
+
+.edge-film {
+  animation: edgeCardRead 7.5s ease-in-out infinite;
+}
+
+.extract-step {
+  position: relative;
+  height: 17px;
+  color: #9ca4ad;
+  font-size: .6rem;
+  text-align: center;
+}
+
+.extract-step::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -2px;
+  width: 1px;
+  height: 19px;
+  background: #7ee7e16b;
+}
+
+.extract-step i {
+  position: absolute;
+  left: calc(50% - 3px);
+  top: -2px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 12px #7ee7e1;
+  animation: extractDrop 2s ease-in-out infinite;
+}
+
+.extract-step small {
+  position: relative;
+  z-index: 1;
+  padding: 1px 5px;
+  background: #080b0f;
+}
+
+.condition-token {
+  padding: 8px 10px;
+  border: 1px solid #ffb44472;
+  border-radius: 7px;
+  background: #ffb4440e;
+}
+
+.condition-token small,
+.condition-token b {
+  display: block;
+}
+
+.condition-token small {
+  color: var(--amber);
+  font-size: .58rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.condition-token b {
+  margin-top: 2px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .7rem;
+}
+
+.model-flow-arrow {
+  position: relative;
+  height: 42px;
+}
+
+.model-flow-arrow span {
+  position: absolute;
+  left: 0;
+  right: 5px;
+  top: 21px;
+  height: 1px;
+  background: linear-gradient(90deg, #7ee7e150, #7ee7e1);
+}
+
+.model-flow-arrow span::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: -4px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid var(--cyan);
+  border-right: 2px solid var(--cyan);
+  transform: rotate(45deg);
+}
+
+.model-flow-arrow i {
+  position: absolute;
+  left: 0;
+  top: 18px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 13px #7ee7e1;
+  animation: cosmosSignal 2.2s ease-in-out infinite;
+}
+
+.model-flow-arrow small {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  color: #959da6;
+  font-size: .58rem;
+  transform: translateX(-50%);
+}
+
+.output-arrow span {
+  background: linear-gradient(90deg, #ffb44455, #ffb444);
+}
+
+.output-arrow span::after {
+  border-color: var(--amber);
+}
+
+.output-arrow i {
+  background: var(--amber);
+  box-shadow: 0 0 13px #ffb444;
+  animation-delay: .8s;
+}
+
+.cosmos-neural-core {
+  position: relative;
+  overflow: hidden;
+  padding: 13px 12px 11px;
+  border: 1px solid #7ee7e18f;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #111a21, #071017);
+  box-shadow: inset 0 0 32px #7ee7e108, 0 0 28px #7ee7e10d;
+  animation: coreBreathe 7.5s ease-in-out infinite;
+}
+
+.core-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ffffff12;
+}
+
+.core-title small {
+  color: #8b96a1;
+  font-size: .54rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.core-title b {
+  color: var(--cyan);
+  font-size: .78rem;
+  line-height: 1.06;
+  text-align: right;
+}
+
+.neural-field {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  min-height: 112px;
+  margin: 4px 0;
+  background:
+    linear-gradient(27deg, transparent 48%, #7ee7e11f 49%, #7ee7e11f 51%, transparent 52%),
+    linear-gradient(-27deg, transparent 48%, #ffb44417 49%, #ffb44417 51%, transparent 52%);
+  background-size: 31% 39px;
+}
+
+.neural-layer {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 92px;
+}
+
+.neural-layer i {
+  width: 9px;
+  height: 9px;
+  border: 1px solid #7ee7e1bf;
+  border-radius: 50%;
+  background: #0a1b21;
+  box-shadow: 0 0 0 3px #7ee7e10a;
+  animation: neuralPulse 2.8s ease-in-out infinite;
+}
+
+.layer-mix i,
+.layer-denoise i {
+  border-color: #ffb444b8;
+  background: #23180b;
+}
+
+.layer-mix i:nth-child(2),
+.layer-denoise i:nth-child(4) {
+  animation-delay: .35s;
+}
+
+.layer-video i {
+  animation-delay: .7s;
+}
+
+.latent-packet {
+  position: absolute;
+  left: 4%;
+  width: 19px;
+  height: 5px;
+  border-radius: 99px;
+  background: var(--cyan);
+  box-shadow: 0 0 13px #7ee7e1;
+  opacity: 0;
+  animation: latentTravel 3.3s ease-in-out infinite;
+}
+
+.packet-one { top: 30%; }
+.packet-two { top: 50%; animation-delay: .8s; background: var(--amber); box-shadow: 0 0 13px #ffb444; }
+.packet-three { top: 70%; animation-delay: 1.6s; }
+
+.core-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  color: #8f98a2;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .49rem;
+  text-align: center;
+}
+
+.cosmos-output {
+  border-color: #ffb44486;
+  box-shadow: 0 0 28px #ffb4440e;
+  animation: outputResolve 7.5s ease-in-out infinite;
+}
+
+.cosmos-output > span b {
+  color: var(--amber);
+}
+
+.cosmos-output > small {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  padding: 3px 5px;
+  border-radius: 4px;
+  background: #06120ddc;
+  color: var(--green);
+  font-size: .54rem;
+}
+
+.cosmos-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid #2d343c;
+  background: #0a0e12;
+}
+
+.cosmos-steps > div {
+  display: grid;
+  grid-template-columns: 25px 1fr;
+  column-gap: 8px;
+  padding: 11px 12px;
+  border-right: 1px solid #2d343c;
+}
+
+.cosmos-steps > div:last-child {
+  border-right: 0;
+}
+
+.cosmos-steps span {
+  grid-row: 1 / span 2;
+  color: var(--amber);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .62rem;
+  font-weight: 900;
+}
+
+.cosmos-steps b {
+  font-size: .68rem;
+}
+
+.cosmos-steps small {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: .59rem;
+  line-height: 1.35;
+}
+
+.judge-evidence-flow article a {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--cyan);
+  font-size: .7rem;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+@keyframes extractDrop {
+  0% { transform: translateY(0); opacity: 0; }
+  18% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(16px); opacity: 0; }
+}
+
+@keyframes cosmosSignal {
+  0% { left: 0; opacity: 0; }
+  18% { opacity: 1; }
+  82% { opacity: 1; }
+  100% { left: calc(100% - 9px); opacity: 0; }
+}
+
+@keyframes neuralPulse {
+  0%, 100% { transform: scale(.82); opacity: .52; }
+  45%, 62% { transform: scale(1.25); opacity: 1; box-shadow: 0 0 16px currentColor; }
+}
+
+@keyframes latentTravel {
+  0% { left: 4%; opacity: 0; transform: scaleX(.45); }
+  12% { opacity: 1; }
+  83% { opacity: 1; }
+  100% { left: calc(96% - 19px); opacity: 0; transform: scaleX(1); }
+}
+
+@keyframes edgeCardRead {
+  0%, 100% { border-color: #4a5662; box-shadow: none; }
+  34%, 58% { border-color: #7ee7e1a8; box-shadow: 0 0 22px #7ee7e116; }
+}
+
+@keyframes coreBreathe {
+  0%, 100% { border-color: #7ee7e15f; }
+  44%, 68% { border-color: #7ee7e1c7; box-shadow: inset 0 0 34px #7ee7e110, 0 0 35px #7ee7e118; }
+}
+
+@keyframes outputResolve {
+  0%, 34% { filter: saturate(.65); opacity: .72; }
+  58%, 100% { filter: saturate(1); opacity: 1; }
+}
+
+@media (max-width: 930px) {
+  .cosmos-story-canvas {
+    grid-template-columns: minmax(125px, .9fr) 28px minmax(180px, 1.1fr) 28px minmax(135px, .9fr);
+    padding: 14px;
+  }
+
+  .model-flow-arrow small,
+  .cosmos-output > small {
+    display: none;
+  }
+}
+
+@media (max-width: 800px) {
+  .cosmos-story-canvas {
+    grid-template-columns: 1fr;
+  }
+
+  .control-build {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .extract-step {
+    display: none;
+  }
+
+  .condition-token {
+    grid-column: 1 / -1;
+  }
+
+  .model-flow-arrow {
+    width: 42px;
+    margin: 0 auto;
+    transform: rotate(90deg);
+  }
+
+  .cosmos-neural-core {
+    width: min(310px, 100%);
+    margin: 0 auto;
+  }
+
+  .cosmos-output {
+    width: min(330px, 100%);
+    margin: 0 auto;
+  }
+
+  .cosmos-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .cosmos-steps > div {
+    border-right: 0;
+    border-bottom: 1px solid #2d343c;
+  }
+
+  .cosmos-steps > div:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .edge-film,
+  .cosmos-neural-core,
+  .cosmos-output,
+  .neural-layer i {
+    animation: none;
+  }
+
+  .latent-packet,
+  .model-flow-arrow i,
+  .extract-step i {
+    display: none;
+  }
+}
+
+.motion-paused .edge-film,
+.motion-paused .cosmos-neural-core,
+.motion-paused .cosmos-output,
+.motion-paused .neural-layer i,
+.motion-paused .latent-packet,
+.motion-paused .model-flow-arrow i,
+.motion-paused .extract-step i {
+  animation-play-state: paused !important;
+}
+
+/* Episode 02: a compact four-step teaching flow. */
+.cosmos-story-canvas.cosmos-four-step {
+  grid-template-columns: minmax(140px, 1fr) 24px minmax(140px, 1fr) 24px minmax(140px, 1fr) 24px minmax(140px, 1fr);
+  gap: 8px;
+  align-items: stretch;
+  min-height: 252px;
+  padding: 16px;
+}
+
+.cosmos-flow-card {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 9px;
+  padding: 10px;
+  border: 1px solid #4a5662;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #111820, #070b0f);
+  box-shadow: inset 0 0 22px #ffffff05;
+}
+
+.cosmos-flow-card header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 25px;
+}
+
+.cosmos-flow-card header > span {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  place-items: center;
+  border: 1px solid #ffb44485;
+  border-radius: 50%;
+  color: var(--amber);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .56rem;
+  font-weight: 900;
+}
+
+.cosmos-flow-card header b {
+  font-size: .69rem;
+  line-height: 1.15;
+}
+
+.cosmos-flow-card header b span {
+  color: var(--amber);
+}
+
+.cosmos-flow-card video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: auto 0;
+  border: 1px solid #ffffff1f;
+  border-radius: 6px;
+  background: #020304;
+  object-fit: cover;
+}
+
+.cosmos-flow-card > small {
+  color: #b4bdc6;
+  font-size: .61rem;
+  line-height: 1.3;
+}
+
+.edge-card {
+  border-color: #7ee7e17d;
+  animation: edgeCardRead 7.5s ease-in-out infinite;
+}
+
+.request-card {
+  border-color: #ffb44478;
+}
+
+.request-card .condition-token {
+  margin-top: auto;
+}
+
+.mini-neural {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  min-height: 64px;
+  background:
+    linear-gradient(24deg, transparent 47%, #7ee7e12b 48%, #7ee7e12b 50%, transparent 51%),
+    linear-gradient(-24deg, transparent 47%, #ffb44424 48%, #ffb44424 50%, transparent 51%);
+  background-size: 42% 30px;
+}
+
+.mini-neural i {
+  width: 9px;
+  height: 9px;
+  margin: auto;
+  border: 1px solid #7ee7e1c2;
+  border-radius: 50%;
+  background: #0a1b21;
+  box-shadow: 0 0 0 3px #7ee7e10a;
+  animation: neuralPulse 2.8s ease-in-out infinite;
+}
+
+.mini-neural i:nth-child(2n) {
+  border-color: #ffb444c2;
+  background: #23180b;
+  animation-delay: .35s;
+}
+
+.output-card {
+  border-color: #ffb44490;
+  animation: outputResolve 7.5s ease-in-out infinite;
+}
+
+.cosmos-step-arrow {
+  position: relative;
+  align-self: center;
+  height: 38px;
+}
+
+.cosmos-step-arrow::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 4px;
+  top: 19px;
+  height: 1px;
+  background: linear-gradient(90deg, #7ee7e140, #7ee7e1);
+}
+
+.cosmos-step-arrow::after {
+  content: "";
+  position: absolute;
+  right: 1px;
+  top: 15px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid var(--cyan);
+  border-right: 2px solid var(--cyan);
+  transform: rotate(45deg);
+}
+
+.cosmos-step-arrow i {
+  position: absolute;
+  left: 0;
+  top: 16px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 12px #7ee7e1;
+  animation: cosmosSignal 2.2s ease-in-out infinite;
+}
+
+.cosmos-step-arrow.output-arrow::before {
+  background: linear-gradient(90deg, #ffb44440, #ffb444);
+}
+
+.cosmos-step-arrow.output-arrow::after {
+  border-color: var(--amber);
+}
+
+.cosmos-step-arrow.output-arrow i {
+  background: var(--amber);
+  box-shadow: 0 0 12px #ffb444;
+}
+
+@media (max-width: 800px) {
+  .cosmos-story-canvas.cosmos-four-step {
+    grid-template-columns: 1fr;
+  }
+
+  .cosmos-flow-card {
+    width: min(430px, 100%);
+    margin: 0 auto;
+  }
+
+  .cosmos-step-arrow {
+    width: 38px;
+    margin: -5px auto;
+    transform: rotate(90deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .edge-card,
+  .mini-neural i,
+  .output-card {
+    animation: none;
+  }
+
+  .cosmos-step-arrow i {
+    display: none;
+  }
+}
+
+.motion-paused .edge-card,
+.motion-paused .mini-neural i,
+.motion-paused .output-card,
+.motion-paused .cosmos-step-arrow i {
+  animation-play-state: paused !important;
+}
+
+/* Episode 02: simplified view of the published Transfer architecture. */
+.cosmos-story-canvas.cosmos-architecture {
+  grid-template-columns: minmax(150px, .82fr) 34px minmax(260px, 1.55fr) 34px minmax(155px, .88fr);
+  gap: 10px;
+  align-items: stretch;
+  min-height: 340px;
+  padding: 16px;
+}
+
+.architecture-inputs {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.input-arrow {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+}
+
+.architecture-model {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.output-arrow {
+  grid-column: 4;
+  grid-row: 1;
+  align-self: center;
+}
+
+.architecture-inputs,
+.architecture-output {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 8px;
+  padding: 11px;
+  border: 1px solid #4a5662;
+  border-radius: 11px;
+  background: #0b1015e8;
+}
+
+.architecture-inputs h3,
+.architecture-output h3 {
+  margin: 0;
+  color: #c5ccd3;
+  font-size: .78rem;
+  letter-spacing: .04em;
+}
+
+.architecture-prompt {
+  padding: 8px;
+  border: 1px solid #ffb44475;
+  border-radius: 7px;
+  background: #ffb4440d;
+}
+
+.architecture-prompt small,
+.architecture-prompt b {
+  display: block;
+}
+
+.architecture-prompt small {
+  color: var(--amber);
+  font-size: .61rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.architecture-prompt b {
+  margin-top: 2px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .7rem;
+}
+
+.architecture-video-card {
+  overflow: hidden;
+  border: 1px solid #3c4650;
+  border-radius: 7px;
+  background: #030506;
+}
+
+.architecture-video-card video,
+.architecture-output video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #020304;
+  object-fit: cover;
+}
+
+.architecture-video-card > span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  padding: 6px 7px;
+  color: #c6ced6;
+  font-size: .65rem;
+  font-weight: 800;
+}
+
+.architecture-video-card > span b {
+  color: var(--cyan);
+  font-size: .5rem;
+  letter-spacing: .06em;
+}
+
+.active-control {
+  border-color: #7ee7e199;
+  box-shadow: 0 0 20px #7ee7e10d;
+  animation: edgeCardRead 7.5s ease-in-out infinite;
+}
+
+.other-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: auto;
+}
+
+.other-controls span {
+  padding: 4px 6px;
+  border: 1px solid #343d46;
+  border-radius: 5px;
+  color: #7f8993;
+  font-size: .54rem;
+}
+
+.architecture-model {
+  position: relative;
+  display: grid;
+  grid-template-rows: .92fr 22px 1fr;
+  gap: 0;
+  min-width: 0;
+}
+
+.diffusion-backbone,
+.adaptive-control-block {
+  position: relative;
+  overflow: hidden;
+  padding: 12px;
+  border: 1px solid #7ee7e187;
+  border-radius: 11px;
+  background: linear-gradient(145deg, #111b22, #071017);
+  box-shadow: inset 0 0 30px #7ee7e108;
+}
+
+.architecture-block-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.architecture-block-title small,
+.adaptive-control-block > small {
+  color: #8f9ba6;
+  font-size: .57rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.architecture-block-title b {
+  color: var(--cyan);
+  font-size: .72rem;
+  text-align: right;
+}
+
+.architecture-neural {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 12px;
+  align-items: center;
+  min-height: 86px;
+  margin-top: 5px;
+}
+
+.noise-field {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+  padding: 11px 7px 20px;
+  border: 1px dashed #505b66;
+  border-radius: 7px;
+  background: #06090c;
+}
+
+.noise-field i {
+  width: 5px;
+  height: 5px;
+  margin: auto;
+  border-radius: 50%;
+  background: #9aa4ae;
+  opacity: .35;
+  animation: noiseFlicker 1.4s steps(2) infinite;
+}
+
+.noise-field i:nth-child(2n) {
+  animation-delay: .35s;
+}
+
+.noise-field small {
+  position: absolute;
+  right: 6px;
+  bottom: 4px;
+  color: #77818b;
+  font-size: .52rem;
+}
+
+.neural-nodes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px 18px;
+  padding: 10px 12px;
+  background:
+    linear-gradient(28deg, transparent 47%, #7ee7e12e 48%, #7ee7e12e 50%, transparent 51%),
+    linear-gradient(-28deg, transparent 47%, #ffb44420 48%, #ffb44420 50%, transparent 51%);
+  background-size: 43% 36px;
+}
+
+.neural-nodes i {
+  width: 10px;
+  height: 10px;
+  margin: auto;
+  border: 1px solid #7ee7e1c9;
+  border-radius: 50%;
+  background: #0b2127;
+  box-shadow: 0 0 0 3px #7ee7e10b;
+  animation: neuralPulse 2.8s ease-in-out infinite;
+}
+
+.neural-nodes i:nth-child(2n) {
+  border-color: #ffb444c2;
+  background: #261a0d;
+  animation-delay: .4s;
+}
+
+.diffusion-backbone > p,
+.adaptive-control-block p {
+  margin: 2px 0 0;
+  color: #aeb7c0;
+  font-size: .62rem;
+  line-height: 1.35;
+}
+
+.adaptive-control-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-color: #ffb44470;
+  background: linear-gradient(145deg, #1c160d, #0d0b08);
+}
+
+.adaptive-control-block b {
+  margin-top: 5px;
+  color: var(--amber);
+  font-size: .74rem;
+}
+
+.control-connector {
+  position: relative;
+  width: 1px;
+  height: 22px;
+  margin: 0 auto;
+  background: linear-gradient(#ffb444, #7ee7e1);
+}
+
+.control-connector::after {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid var(--cyan);
+  border-left: 2px solid var(--cyan);
+  transform: rotate(45deg);
+}
+
+.control-connector i {
+  position: absolute;
+  left: -3px;
+  bottom: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 11px #ffb444;
+  animation: controlRise 2s ease-in-out infinite;
+}
+
+.architecture-arrow {
+  position: relative;
+  align-self: center;
+  height: 42px;
+}
+
+.architecture-arrow::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 5px;
+  top: 21px;
+  height: 1px;
+  background: linear-gradient(90deg, #7ee7e145, #7ee7e1);
+}
+
+.architecture-arrow::after {
+  content: "";
+  position: absolute;
+  right: 1px;
+  top: 17px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid var(--cyan);
+  border-right: 2px solid var(--cyan);
+  transform: rotate(45deg);
+}
+
+.architecture-arrow i {
+  position: absolute;
+  left: 0;
+  top: 18px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 12px #7ee7e1;
+  animation: cosmosSignal 2.2s ease-in-out infinite;
+}
+
+.architecture-arrow.output-arrow::before {
+  background: linear-gradient(90deg, #ffb44445, #ffb444);
+}
+
+.architecture-arrow.output-arrow::after {
+  border-color: var(--amber);
+}
+
+.architecture-arrow.output-arrow i {
+  background: var(--amber);
+  box-shadow: 0 0 12px #ffb444;
+}
+
+.architecture-output {
+  grid-column: 5;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 12px;
+  border-color: #ffb44480;
+  background: linear-gradient(155deg, #14110c, #080b0f 72%);
+  box-shadow: inset 0 1px #ffffff0b, 0 0 24px #ffb4440b;
+  animation: outputResolve 7.5s ease-in-out infinite;
+}
+
+.architecture-output-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 7px;
+}
+
+.architecture-output-head > span {
+  color: var(--amber);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .49rem;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-align: right;
+}
+
+.architecture-output-frame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ffb44466;
+  border-radius: 8px;
+  background: #020304;
+  box-shadow: 0 12px 24px #0008;
+}
+
+.output-condition {
+  position: absolute;
+  left: 7px;
+  bottom: 7px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 7px;
+  border: 1px solid #ffb44475;
+  border-radius: 999px;
+  background: #07090ce8;
+}
+
+.output-condition i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 9px #ffb444;
+}
+
+.output-condition b {
+  color: #f4f6f8;
+  font-size: .59rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.architecture-output-copy {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  padding: 9px;
+  border: 1px solid #ffffff14;
+  border-radius: 7px;
+  background: #ffffff06;
+  text-align: center;
+}
+
+.architecture-output-copy b {
+  color: #e8ebee;
+  font-size: .84rem;
+}
+
+.architecture-output-copy small {
+  color: var(--amber);
+  font-size: .54rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.architecture-output-copy p {
+  margin: 0;
+  color: #aeb6bf;
+  font-size: .65rem;
+  line-height: 1.4;
+}
+
+.output-traces {
+  display: grid;
+  gap: 5px;
+  margin-top: 4px;
+}
+
+.output-traces i {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: 3px;
+  border-radius: 99px;
+  background: #2b333b;
+}
+
+.output-traces i::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, var(--amber), var(--cyan), transparent);
+  transform: translateX(-110%);
+  animation: outputTrace 3s ease-in-out infinite;
+}
+
+.output-traces i:nth-child(2)::after {
+  animation-delay: .35s;
+}
+
+.output-traces i:nth-child(3)::after {
+  animation-delay: .7s;
+}
+
+@keyframes noiseFlicker {
+  0%, 100% { opacity: .2; transform: scale(.8); }
+  50% { opacity: .9; transform: scale(1.25); }
+}
+
+@keyframes controlRise {
+  0% { bottom: 0; opacity: 0; }
+  18%, 82% { opacity: 1; }
+  100% { bottom: calc(100% - 7px); opacity: 0; }
+}
+
+@keyframes outputTrace {
+  0%, 15% { transform: translateX(-110%); opacity: 0; }
+  35%, 75% { opacity: 1; }
+  100% { transform: translateX(110%); opacity: 0; }
+}
+
+@media (max-width: 900px) {
+  .cosmos-story-canvas.cosmos-architecture {
+    grid-template-columns: minmax(145px, .9fr) 25px minmax(230px, 1.35fr) 25px minmax(145px, .9fr);
+    gap: 7px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 760px) {
+  .cosmos-story-canvas.cosmos-architecture {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+
+  .architecture-inputs,
+  .architecture-model,
+  .architecture-output {
+    grid-column: 1;
+    grid-row: auto;
+    width: min(440px, 100%);
+    margin: 0 auto;
+  }
+
+  .architecture-arrow {
+    grid-column: 1;
+    grid-row: auto;
+    width: 42px;
+    margin: -4px auto;
+    transform: rotate(90deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .active-control,
+  .noise-field i,
+  .neural-nodes i,
+  .control-connector i,
+  .architecture-arrow i,
+  .architecture-output,
+  .output-traces i::after {
+    animation: none;
+  }
+}
+
+.motion-paused .active-control,
+.motion-paused .noise-field i,
+.motion-paused .neural-nodes i,
+.motion-paused .control-connector i,
+.motion-paused .architecture-arrow i,
+.motion-paused .architecture-output,
+.motion-paused .output-traces i::after {
+  animation-play-state: paused !important;
+}
+
+.temporal-filmstrip {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+  overflow: hidden;
+  margin: 9px 0 5px;
+  padding: 6px;
+  border: 1px solid #ffb4443d;
+  border-radius: 7px;
+  background: #050709;
+}
+
+.temporal-filmstrip::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: -12%;
+  width: 2px;
+  background: var(--cyan);
+  box-shadow: 0 0 11px #7ee7e1;
+  opacity: .8;
+  animation: temporalScan 3.4s ease-in-out infinite;
+}
+
+.temporal-filmstrip figure {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid #7ee7e15c;
+  border-radius: 5px;
+  background: #020304;
+}
+
+.temporal-filmstrip video {
+  display: block;
+  width: 100%;
+  min-height: 58px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.temporal-filmstrip span {
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: #020405d9;
+  color: var(--cyan);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .56rem;
+  font-weight: 900;
+}
+
+@keyframes temporalScan {
+  0% { left: -12%; opacity: 0; }
+  12%, 82% { opacity: .8; }
+  100% { left: 112%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .temporal-filmstrip::after {
+    animation: none;
+  }
+}
+
+.motion-paused .temporal-filmstrip::after {
+  animation-play-state: paused !important;
+}

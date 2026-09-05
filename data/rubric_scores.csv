@@ -1,0 +1,9 @@
+candidate,seed,weather_fidelity,structure_preservation,temporal_stability,annotation_note,provenance
+take01,2025,46,91,90,"Stable and conservative; fog expression is limited.",fixed illustrative visual annotation
+take02,7319,72,70,64,"Atmospheric, with a visible pink cast and weaker structural fidelity.",fixed illustrative visual annotation
+take03,18427,25,96,93,"Sharp and stable, but the requested fog is weak.",fixed illustrative visual annotation
+take04,29063,84,91,89,"Balanced weather expression, structure, and temporal coherence.",fixed illustrative visual annotation
+take05,41851,50,89,87,"Stable and conservative; weather expression remains light.",fixed illustrative visual annotation
+take06,57203,58,92,90,"Clean structure and stable motion, with lighter fog.",fixed illustrative visual annotation
+take07,70439,96,54,48,"Very strong atmosphere, but the effect resembles a smoke-like plume.",fixed illustrative visual annotation
+take08,91873,86,68,61,"Strong mood and fog expression, with visible light bloom.",fixed illustrative visual annotation

@@ -1,0 +1,48 @@
+name: weather_replication
+output_dir: /mnt/user_storage/cosmos-runs/weather_replication
+model: edge/distilled
+
+base:
+  video_path: /mnt/user_storage/cosmos-tests/car/car_input.mp4
+  num_steps: 4
+  guidance: 4
+  max_frames: 93
+  controls:
+    - kind: edge
+      weight: 0.65
+
+axes:
+  weather:
+    - tag: rain
+      prompt: >-
+        The video is a driving scene through a modern urban environment,
+        captured from a dashcam inside a vehicle. The scene unfolds on a
+        wide multi-lane road flanked by tall modern buildings with glass
+        facades. A black car travels directly ahead. Trees and pedestrians
+        line the sidewalks, and traffic cones guide vehicles on the road.
+        Steady rain falls across the street: the road is dark and wet,
+        reflections shimmer beneath the vehicles, fine rain streaks remain
+        visible, and distant buildings are softened by rainfall while nearby
+        vehicles and road markings remain clearly visible.
+
+    - tag: snow
+      prompt: >-
+        The video is a driving scene through a modern urban environment,
+        captured from a dashcam inside a vehicle. The scene unfolds on a
+        wide multi-lane road flanked by tall modern buildings with glass
+        facades. A black car travels directly ahead. Trees and pedestrians
+        line the sidewalks, and traffic cones guide vehicles on the road.
+        Light-to-moderate snow falls across the street: snowflakes remain
+        visible against the buildings, a thin accumulation covers sidewalks
+        and curbs, the road remains dark and passable, and distant buildings
+        are softened while nearby vehicles and road markings remain visible.
+
+  take:
+    - tag: take01
+      seed: 2025
+    - tag: take02
+      seed: 7319
+    - tag: take03
+      seed: 18427
+    - tag: take04
+      seed: 29063

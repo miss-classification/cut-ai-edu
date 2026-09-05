@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080b0f">
+  <meta name="description" content="A visual primer on verifier-guided test-time scaling, controllable video, Best-of-N selection, and selector design.">
+  <meta name="author" content="Alicia Chua, Pawarit Laosunthara, and Eric Tang">
+  <title>CUT! A Best-of-N Audition</title>
+  <link rel="stylesheet" href="styles.a8315358.css">
+  <link rel="stylesheet" href="flow.88920b6c.css">
+  <link rel="stylesheet" href="judge-explainer.e5fd995b.css">
+  <link rel="stylesheet" href="cosmos-explainer.7427545f.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to lesson</a>
+  <header class="topbar">
+    <a class="wordmark" href="#main" aria-label="CUT! home"><span>CUT!</span><small>Best-of-N Studio</small></a>
+    <div class="top-actions">
+      <span class="live-dot"><i></i> 15-minute self-guided lesson</span>
+      <button class="sound-button" id="motionToggle" type="button" aria-pressed="false">Pause motion</button>
+      <button class="sound-button" id="resetLesson" type="button">Reset</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="context-stage stage lean-context" aria-labelledby="context-title">
+      <div class="eyebrow"><span>NeurIPS 2026 · Education Track</span><span>Visual primer · no code required</span></div>
+      <div class="lead-copy">
+        <p class="kicker">A visual lesson for autonomous driving</p>
+        <h1 id="context-title">How do you test weather<br><em>you cannot schedule?</em></h1>
+      </div>
+
+      <div class="context-primer" aria-label="From an autonomous driving data gap to a controllable world generation system">
+        <div>
+          <span>THE PROBLEM</span>
+          <b>Critical cases are scarce</b>
+          <p>A real test fleet records whatever the road provides. It cannot safely or reliably stage dense fog, severe glare, or a nighttime hazard on demand.</p>
+        </div>
+        <i aria-hidden="true">→</i>
+        <div>
+          <span>EMERGING METHOD</span>
+          <b>Build controlled counterfactuals</b>
+          <p>Teams use simulation and generative world models to expand coverage beyond recorded miles.</p>
+        </div>
+        <i aria-hidden="true">→</i>
+        <div>
+          <span>CONCRETE IMPLEMENTATION</span>
+          <b>NVIDIA Cosmos Transfer 2.5</b>
+          <p>Transforms a recorded drive into controllable weather variants, using spatial guidance to preserve the scene across time.</p>
+        </div>
+      </div>
+      <p class="scope-note context-scope-note">Synthetic variants can probe a data pipeline. They do not certify vehicle safety.</p>
+
+      <div class="lean-episodes">
+        <div class="beat-tabs" role="tablist" aria-label="3-part introduction">
+          <button id="episodeTab1" type="button" role="tab" aria-selected="true" aria-controls="episode1" data-episode-target="episode1"><span>01</span>Missing cases</button>
+          <button id="episodeTab2" type="button" role="tab" aria-selected="false" aria-controls="episode2" data-episode-target="episode2"><span>02</span>Counterfactuals</button>
+          <button id="episodeTab3" type="button" role="tab" aria-selected="false" aria-controls="episode3" data-episode-target="episode3"><span>03</span>Quality gate</button>
+        </div>
+
+        <article class="story-beat" id="episode1" role="tabpanel" tabindex="0" aria-labelledby="episodeTab1">
+          <div class="beat-copy">
+            <p class="episode-number">01 · MISSING CASES</p>
+            <h2>Rare weather is hard to schedule.</h2>
+            <p>Rare combinations of weather, light, traffic, and place matter for validation, yet they are difficult to capture safely and repeatedly.</p>
+            <div class="idea-chips"><span>long-tail coverage</span></div>
+          </div>
+
+          <figure class="motion-board coverage-motion">
+            <div class="motion-board-head"><span>AV DATA COVERAGE</span><b>THE LONG TAIL</b></div>
+            <div class="coverage-motion-canvas" aria-hidden="true">
+              <div class="motion-video-node">
+                <video src="media/source.mp4" muted loop playsinline preload="metadata" data-episode-video data-loop-speed="0.82"></video>
+                <span>RECORDED DRIVE</span>
+              </div>
+              <div class="signal-arrow"><i></i><small>fleet miles</small></div>
+              <div class="condition-rack">
+                <small>CONDITIONS NEEDED</small>
+                <span class="condition captured"><b>Clear</b><i>captured</i></span>
+                <span class="condition sparse"><b>Rain</b><i>sparse</i></span>
+                <span class="condition missing"><b>Fog</b><i>missing</i></span>
+                <span class="condition missing late"><b>Snow</b><i>missing</i></span>
+              </div>
+              <div class="gap-stamp"><small>DATA GAP</small><b>Rare combinations stay missing.</b></div>
+            </div>
+            <figcaption><b>WHY THIS MATTERS</b><span>Rare conditions cannot always be safely staged or reliably collected.</span></figcaption>
+          </figure>
+          <button class="beat-next" type="button" data-next-episode="episode2">See the transfer →</button>
+        </article>
+
+        <article class="story-beat" id="episode2" role="tabpanel" tabindex="0" aria-labelledby="episodeTab2" hidden>
+          <div class="beat-copy">
+            <p class="episode-number">02 · CONTROLLED COUNTERFACTUALS</p>
+            <h2>Keep the scene. Change the weather.</h2>
+            <p>Conditional world generation can build these counterfactuals. NVIDIA Cosmos Transfer 2.5 combines the original drive, a weather prompt, and an edge guide to preserve structure while restaging the conditions.</p>
+            <div class="idea-chips"><span>controllable generation</span></div>
+          </div>
+
+          <figure class="motion-board cosmos-lesson-board">
+            <div class="motion-board-head"><span>COSMOS TRANSFER 2.5</span><b>ACTIVE PATH: EDGE CONTROL</b></div>
+            <div class="cosmos-story-canvas cosmos-architecture" aria-label="Simplified Cosmos Transfer 2.5 architecture with inputs, adaptive control, diffusion backbone, and output video">
+              <section class="architecture-inputs" aria-labelledby="architecture-inputs-title">
+                <h3 id="architecture-inputs-title">Inputs</h3>
+                <div class="architecture-prompt"><small>TEXT PROMPT</small><b id="cosmosCondition">weather: fog</b></div>
+                <div class="architecture-video-card">
+                  <video src="media/source.mp4" muted loop playsinline preload="metadata" data-episode-video data-loop-speed="0.82" aria-label="Original clear-weather dashcam drive"></video>
+                  <span>Original drive</span>
+                </div>
+                <div class="architecture-video-card active-control">
+                  <video src="media/control_edge.mp4" muted loop playsinline preload="metadata" data-episode-video data-loop-speed="0.82" aria-label="Edge control showing the road, cars, and buildings"></video>
+                  <span>Edge video</span>
+                </div>
+                <div class="other-controls" aria-label="Other supported control types"><span>Depth</span><span>Segmentation</span></div>
+              </section>
+
+              <div class="architecture-arrow input-arrow" aria-hidden="true"><i></i></div>
+
+              <section class="architecture-model" aria-labelledby="architecture-model-title">
+                <div class="diffusion-backbone">
+                  <div class="architecture-block-title"><small>DIFFUSION BACKBONE</small><b id="architecture-model-title">COSMOS TRANSFER 2.5</b></div>
+                  <div class="architecture-neural" aria-hidden="true">
+                    <div class="noise-field"><i></i><i></i><i></i><i></i><i></i><i></i><small>noise</small></div>
+                    <div class="neural-nodes"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                  </div>
+                  <p>Builds a clean video over time</p>
+                </div>
+                <div class="control-connector" aria-hidden="true"><i></i></div>
+                <div class="adaptive-control-block">
+                  <small>ADAPTIVE SPATIOTEMPORAL CONTROL</small>
+                  <b>Hold the scene together</b>
+                  <div class="temporal-filmstrip" role="img" aria-label="3 moving edge frames show the control following the scene through time">
+                    <figure><video src="media/control_edge.mp4" muted loop playsinline preload="metadata" data-episode-video data-loop-speed="0.82" data-temporal-offset="0" aria-hidden="true"></video><span>t</span></figure>
+                    <figure><video src="media/control_edge.mp4" muted loop playsinline preload="metadata" data-episode-video data-loop-speed="0.82" data-temporal-offset="0.45" aria-hidden="true"></video><span>t+1</span></figure>
+                    <figure><video src="media/control_edge.mp4" muted loop playsinline preload="metadata" data-episode-video data-loop-speed="0.82" data-temporal-offset="0.9" aria-hidden="true"></video><span>t+2</span></figure>
+                  </div>
+                  <p>The guide follows roads and objects through time.</p>
+                </div>
+              </section>
+
+              <div class="architecture-arrow output-arrow" aria-hidden="true"><i></i></div>
+
+              <section class="architecture-output" aria-labelledby="architecture-output-title">
+                <div class="architecture-output-head"><h3 id="architecture-output-title">Output</h3><span>GENERATED VARIANT</span></div>
+                <div class="architecture-output-frame">
+                  <video id="introWeatherVideo" src="media/directors_cut_take06.mp4" muted loop playsinline preload="metadata" data-episode-video data-loop-speed="0.82" aria-label="Restaged dashcam video with fog"></video>
+                  <span class="output-condition"><i></i><b id="introWeatherLabel">Fog</b></span>
+                </div>
+                <div class="architecture-output-copy">
+                  <small>COUNTERFACTUAL VIDEO</small>
+                  <b>Restaged drive</b>
+                  <p>Prompted weather with edge-guided structure.</p>
+                  <div class="output-traces" aria-hidden="true"><i></i><i></i><i></i></div>
+                </div>
+              </section>
+            </div>
+            <figcaption><b>CONCEPTUAL VIEW</b><span>Information flow is shown at a high level. Internal model layers are simplified.</span></figcaption>
+          </figure>
+
+          <div class="beat-meta">
+            <div class="weather-switch" role="group" aria-label="Restage the drive under different weather">
+              <span>TRY A CONDITION</span>
+              <button type="button" aria-pressed="true" data-intro-weather="fog">Fog</button>
+              <button type="button" aria-pressed="false" data-intro-weather="rain">Rain</button>
+              <button type="button" aria-pressed="false" data-intro-weather="snow">Snow</button>
+            </div>
+            <p class="beat-caveat">Highlighted path: edge control. Depth and segmentation are additional structural controls.</p>
+          </div>
+          <button class="beat-next" type="button" data-next-episode="episode3">See the quality gap →</button>
+        </article>
+
+        <article class="story-beat" id="episode3" role="tabpanel" tabindex="0" aria-labelledby="episodeTab3" hidden>
+          <div class="beat-copy">
+            <p class="episode-number">03 · QUALITY GATE</p>
+            <h2>Generation still needs a quality gate.</h2>
+            <p>The same brief can yield weak weather, warped geometry, or unstable motion. A judge decides what enters the dataset.</p>
+            <div class="idea-chips"><span>selector alignment</span></div>
+          </div>
+
+          <figure class="motion-board judge-motion">
+            <div class="motion-board-head"><span>BEST-OF-N SELECTION</span><b>THE QUALITY GATE</b></div>
+            <div class="judge-motion-canvas">
+              <div class="candidate-motion-node" role="img" aria-label="A pool of unlabeled fog candidates awaiting quality review">
+                <div class="candidate-thumbs" aria-hidden="true">
+                  <video src="media/directors_cut_take01.mp4" muted loop playsinline preload="metadata" data-episode-video data-loop-speed="0.9"></video>
+                  <video src="media/directors_cut_take05.mp4" muted loop playsinline preload="metadata" data-episode-video data-loop-speed="0.9"></video>
+                  <video src="media/directors_cut_take08.mp4" muted loop playsinline preload="metadata" data-episode-video data-loop-speed="0.9"></video>
+                </div>
+                <span>N CANDIDATES</span>
+              </div>
+              <div class="signal-arrow" aria-hidden="true"><i></i><small>inspect</small></div>
+              <div class="judge-motion-node" aria-hidden="true">
+                <small>LESSON VERIFIER</small><b>Fixed illustrative ratings</b>
+                <span>weather<i style="--score:84%"></i></span>
+                <span>road<i style="--score:91%"></i></span>
+                <span>motion<i style="--score:89%"></i></span>
+                <em class="score-provenance">illustrative lesson values</em>
+              </div>
+              <div class="signal-arrow" aria-hidden="true"><i></i><small>rank</small></div>
+              <div class="kept-motion-node selection-secret" aria-hidden="true">
+                <small>REVEALED AFTER YOUR VOTE</small>
+                <div class="secret-frame"><b>?</b></div>
+                <span>SELECTED CLIP</span>
+              </div>
+              <div class="reject-flags" aria-hidden="true"><small>HARD GATE REJECTIONS</small><span>WEATHER TOO WEAK</span><span>STRUCTURE RISK</span></div>
+            </div>
+            <figcaption><b>THE LESSON</b><span>A larger pool helps only when useful candidates exist and the selector can rank them reliably.</span></figcaption>
+          </figure>
+
+          <a class="beat-next" href="#challenge">Judge the clips →</a>
+        </article>
+      </div>
+
+      <p class="ecosystem-note">Demo outputs use Cosmos Transfer 2.5. NVIDIA directs new model development to <a href="https://github.com/NVIDIA/Cosmos" target="_blank" rel="noreferrer">Cosmos 3</a>.</p>
+      <a class="scroll-cue" href="#challenge">Start the audition <span>↓</span></a>
+    </section>
+
+    <section class="hero stage" id="challenge" aria-labelledby="hero-title">
+      <div class="eyebrow"><span>01 · DIRECTOR'S CHALLENGE</span><span>About 8 seconds</span></div>
+      <div class="hero-copy">
+        <p class="kicker">The judge is missing</p>
+        <h1 id="hero-title">Which generated video should <em>we keep?</em></h1>
+        <p class="lede">The winner enters an AV training set. Pick the version with convincing fog and an intact street.</p>
+      </div>
+
+      <div class="cold-open-grid">
+        <div class="film-frame">
+          <div class="frame-head"><span><b>TAKE 03</b></span><span>A</span></div>
+          <video id="heroVideoA" src="media/directors_cut_take03.mp4" muted loop playsinline aria-label="Take 3: a sharp city street with weak fog"></video>
+        </div>
+        <div class="film-frame">
+          <div class="frame-head"><span><b>TAKE 07</b></span><span>B</span></div>
+          <video id="heroVideoB" src="media/directors_cut_take07.mp4" muted loop playsinline aria-label="Take 7: a city street with a strong smoke-like fog plume"></video>
+        </div>
+      </div>
+
+      <div class="hook-card">
+        <div>
+          <p class="micro">CAST YOUR VOTE</p>
+          <h2>Which candidate would you keep?</h2>
+        </div>
+        <div class="binary-choice" role="group" aria-label="Choose between Take 3 and Take 7">
+          <button type="button" data-hook-answer="3" aria-pressed="false">A · Take 03</button>
+          <button type="button" data-hook-answer="7" aria-pressed="false">B · Take 07</button>
+          <button class="icon-button" id="heroReplay" type="button" aria-label="Replay both videos">↻</button>
+        </div>
+        <p id="hookFeedback" class="feedback" aria-live="polite"></p>
+      </div>
+      <div class="hook-twist hidden" id="hookTwist" aria-live="polite">
+        <p class="micro">THE MISSING COMPONENT</p>
+        <h2>You were the judge.</h2>
+        <p>The generator made 2 candidates. Your priorities made the decision. Without a shared rubric, reviewers can disagree.</p>
+        <div class="mini-code" aria-label="Best-of-N pseudocode">
+          <code><span>candidates</span> = generate(seeds[:N])<br><span>winner</span> = judge(candidates, rubric)</code>
+        </div>
+        <div class="learning-ticket" aria-label="Learning goals">
+          <span><b>Generate</b> a pool of options</span>
+          <span><b>Define</b> what quality means</span>
+          <span><b>Understand</b> why more N needs a better judge</span>
+        </div>
+      </div>
+      <a class="scroll-cue hidden" id="startAudition" href="#audition">Open the full audition <span>↓</span></a>
+    </section>
+
+    <section class="lesson-section audition" id="audition" aria-labelledby="audition-title">
+      <div class="section-heading">
+        <div>
+          <p class="chapter">02 · THE AUDITION</p>
+          <h2 id="audition-title">How many candidates can the judge inspect?</h2>
+        </div>
+        <p>Increasing N expands the search. It also creates more work for the judge.</p>
+      </div>
+
+      <div class="budget-console" aria-label="Best-of-N sample budget">
+        <div class="budget-label"><span>Sample budget, N</span><output id="budgetOutput">1 take</output></div>
+        <div class="budget-buttons" role="group" aria-label="Choose number of generated candidates">
+          <button type="button" class="active" data-budget="1" aria-pressed="true"><b>1</b><span>first try</span></button>
+          <button type="button" data-budget="2" aria-pressed="false"><b>2</b><span>1 retry</span></button>
+          <button type="button" data-budget="4" aria-pressed="false"><b>4</b><span>small search</span></button>
+          <button type="button" data-budget="8" aria-pressed="false"><b>8</b><span>full audition</span></button>
+        </div>
+        <div class="budget-track"><i id="budgetFill"></i></div>
+        <p id="budgetNote">N=1 offers no comparison. The first sample ships.</p>
+      </div>
+
+      <div class="sync-bar">
+        <div><span class="pulse"></span><strong id="visibleCount">1 take on screen</strong></div>
+        <div>
+          <button type="button" id="playAll">▶ Play all</button>
+          <button type="button" id="restartAll">↻ Restart</button>
+        </div>
+      </div>
+      <div class="take-grid" id="takeGrid"></div>
+
+      <div class="selection-dock">
+        <div>
+          <p class="micro">YOU ARE THE JUDGE</p>
+        <p id="selectionText" aria-live="polite">Inspect the visible candidates. Select a take.</p>
+        </div>
+        <button class="primary-button" id="lockChoice" type="button" disabled>Submit my ranking →</button>
+      </div>
+    </section>
+
+    <section class="lesson-section reveal hidden" id="reveal" aria-labelledby="reveal-title" tabindex="-1">
+      <div class="reveal-flash" aria-hidden="true">CUT!</div>
+      <div class="section-heading reveal-heading">
+        <div>
+          <p class="chapter">03 · THE REVEAL</p>
+          <h2 id="reveal-title">The lesson's balanced rubric first selects Take 04 at N=4.</h2>
+        </div>
+        <p id="choiceComparison"></p>
+      </div>
+
+      <div class="winner-layout">
+        <div class="winner film-frame">
+          <div class="frame-head"><span><b>DIRECTOR’S CUT · TAKE 04</b></span><span class="badge">LESSON RUBRIC PICK</span></div>
+          <video src="media/directors_cut_take04.mp4" muted loop playsinline controls aria-label="Take 4, the selection under the lesson rubric"></video>
+        </div>
+        <div class="winner-notes">
+          <p class="micro">WHY TAKE 04?</p>
+          <ul>
+            <li><span>01</span><div><b>Prompt adherence</b><small>Fog spreads across the street rather than forming a local smoke cloud.</small></div></li>
+            <li><span>02</span><div><b>Structural fidelity</b><small>Road geometry, lanes, buildings, and vehicles stay coherent.</small></div></li>
+            <li><span>03</span><div><b>Temporal stability</b><small>The atmosphere and object identities remain steady through motion.</small></div></li>
+          </ul>
+          <p class="annotation">Take 03 is sharp. It barely follows the fog prompt. Take 07 is dramatic. Its fog looks like smoke. <strong>Quality has several dimensions.</strong></p>
+        </div>
+      </div>
+
+      <div class="equation-card">
+        <p class="micro">THE SAME IDEA, IN NOTATION</p>
+        <div class="equation"><span>x<sub>1</sub>,…,x<sub>N</sub> ∼ p<sub>θ</sub>(x|c)</span><b>then</b><span>x* = arg max s(x<sub>i</sub>)</span></div>
+        <p>Research papers often call this judge a <b>verifier</b>. First apply hard gates. If no candidate is acceptable, abstain. Otherwise, score the eligible candidates with <b>s</b> and keep the highest score.</p>
+      </div>
+
+      <div class="n-story" aria-label="What changed as the Best-of-N budget grew">
+        <article><span>N=1</span><b>Forced choice</b><p>Take 01 wins because it is the only option.</p></article>
+        <article><span>N=2</span><b>More variety</b><p>We see a stronger atmosphere, but also a pink cast.</p></article>
+        <article class="breakthrough"><span>N=4</span><b>Winner appears</b><p>Take 04 enters the pool and becomes our cut.</p></article>
+        <article><span>N=8</span><b>Diminishing return</b><p>In this run, 4 more samples cost compute and the winner stays.</p></article>
+      </div>
+    </section>
+
+    <section class="lesson-section selector-lab hidden" id="selector" aria-labelledby="selector-title">
+      <div class="section-heading">
+        <div>
+          <p class="chapter">04 · THE SELECTOR BOTTLENECK</p>
+          <h2 id="selector-title">Build the judge.</h2>
+        </div>
+        <p>The videos stay fixed. Change the priorities and watch the winner change.</p>
+      </div>
+      <div class="judge-stage">
+        <div class="judge-controls">
+          <p class="micro">LESSON QUALITY RUBRIC</p>
+          <h3>What should count as good?</h3>
+          <p class="judge-instruction">Try a preset. Then move the sliders. The weights express what your judge values.</p>
+          <div class="judge-presets" role="group" aria-label="Judge presets">
+            <button type="button" class="active" data-judge-preset="balanced" aria-pressed="true">Balanced</button>
+            <button type="button" data-judge-preset="fidelity" aria-pressed="false">Structure first</button>
+            <button type="button" data-judge-preset="fog" aria-pressed="false">Fog only</button>
+          </div>
+          <div class="judge-sliders">
+            <label for="fogWeight">
+              <span><b>Weather match</b><small>Does it look like moderate fog?</small><output id="fogWeightValue" for="fogWeight">40</output></span>
+              <input id="fogWeight" type="range" min="0" max="100" value="40" data-judge-weight="fog">
+            </label>
+            <label for="structureWeight">
+              <span><b>Street fidelity</b><small>Are lanes, cars, and buildings intact?</small><output id="structureWeightValue" for="structureWeight">35</output></span>
+              <input id="structureWeight" type="range" min="0" max="100" value="35" data-judge-weight="structure">
+            </label>
+            <label for="stabilityWeight">
+              <span><b>Motion stability</b><small>Do objects remain coherent over time?</small><output id="stabilityWeightValue" for="stabilityWeight">25</output></span>
+              <input id="stabilityWeight" type="range" min="0" max="100" value="25" data-judge-weight="stability">
+            </label>
+          </div>
+          <p class="rubric-caveat">These fixed 0-to-100 values are illustrative visual ratings for the ranking exercise. Benchmark evaluation requires validated metrics and reference labels.</p>
+        </div>
+        <div class="judge-result" aria-live="polite">
+          <div class="judge-result-head"><p class="micro">JUDGE'S PICK</p><p><b id="judgeComposite">87.7</b> / 100</p></div>
+          <video id="judgeVideo" src="media/directors_cut_take04.mp4" muted loop playsinline aria-label="Current judge winner, Take 4"></video>
+          <div class="judge-verdict">
+            <span class="big-take" id="judgeTake">04</span>
+            <div><h3 id="judgeTitle">Take 04</h3><p id="judgeReason">Balances the requested weather with a coherent street.</p></div>
+          </div>
+          <div class="judge-leaderboard" id="judgeLeaderboard" aria-label="Top 3 candidates under the current rubric"></div>
+        </div>
+      </div>
+      <div class="warning-strip"><span>⚠</span><p><b>Try Fog only.</b> The judge rewards Take 07's smoke-like plume. More candidates give a weak judge more opportunities to optimize the wrong thing.</p></div>
+
+      <section class="judge-explainer" aria-labelledby="judge-source-title">
+        <div class="judge-explainer-copy">
+          <p class="micro">FROM LESSON TO DEPLOYMENT</p>
+          <h3 id="judge-source-title">Who gives the judge its scores?</h3>
+          <p>Here, fixed illustrative ratings make the ranking mechanism easy to inspect. A production AV quality gate would combine calibrated human examples with automated evidence.</p>
+        </div>
+        <div class="judge-evidence-flow" aria-label="4 sources of evidence for a production AV judge">
+          <article><span>01</span><b>Human calibration</b><small>Domain reviewers define what usable means and label a reference set.</small></article>
+          <article><span>02</span><b>Visual diagnostics</b><small>Edge, depth, detection, tracking, and flicker checks test structure and motion.</small></article>
+          <article><span>03</span><b>VLM review</b><small>A video-language model checks condition match and describes visible failures.</small><a href="https://proceedings.neurips.cc/paper_files/paper/2025/hash/4ec03ed08a3fcb59e1c815b5598beff1-Abstract-Datasets_and_Benchmarks_Track.html" target="_blank" rel="noreferrer">WorldModelBench, NeurIPS 2025</a></article>
+          <article><span>04</span><b>Safety gate</b><small>Critical lane, object, or motion failures trigger rejection before ranking.</small></article>
+        </div>
+        <p class="judge-explainer-note"><b>A VLM can contribute evidence within a broader quality gate.</b> Production signals should be calibrated against reviewed examples before they enter the decision rule. The demo uses fixed ratings; a VLM is presented as a possible extension.</p>
+      </section>
+    </section>
+
+    <section class="lesson-section replication" id="replication" aria-labelledby="replication-title">
+      <div class="section-heading">
+        <div>
+          <p class="chapter">05 · CHANGE THE WEATHER</p>
+          <h2 id="replication-title">Roll it again: rain and snow.</h2>
+        </div>
+        <p>Reuse the same 4 seeds. Change only the weather prompt. Variation remains.</p>
+      </div>
+      <div class="weather-tabs" role="group" aria-label="Weather conditions">
+        <button aria-pressed="true" data-weather="fog">Fog <small>8 takes</small></button>
+        <button aria-pressed="false" data-weather="rain">Rain <small>4 takes</small></button>
+        <button aria-pressed="false" data-weather="snow">Snow <small>4 takes</small></button>
+      </div>
+      <div class="weather-intro">
+        <p id="weatherPrompt">“Moderate fog fills the street… distant buildings are softened.”</p>
+        <span>Compare takes under the same weather condition.</span>
+      </div>
+      <div class="weather-grid" id="weatherGrid"></div>
+    </section>
+
+    <section class="lesson-section pipeline" id="pipeline" aria-labelledby="pipeline-title">
+      <details class="production-details">
+      <summary><span><span class="chapter">OPTIONAL · BEHIND THE CAMERA</span><b id="pipeline-title">How were the videos made?</b></span><span>Open production notes +</span></summary>
+      <div class="production-body">
+      <p class="production-lede">Cosmos generated each candidate. Ray ran 4 GPU actors. 8 seeds finished in 2 waves.</p>
+      <div class="stack-strip" aria-label="Technology stack">
+        <span class="tech-badge nvidia"><b>NVIDIA COSMOS</b><small>video generation</small></span>
+        <span class="stack-plus">+</span>
+        <span class="tech-badge ray"><b>RAY</b><small>parallel actors</small></span>
+      </div>
+      <pre class="code-card" aria-label="Ray and Cosmos generation pseudocode"><code><span class="code-accent">@ray.remote</span>(num_gpus=1)
+class CosmosActor:
+    def audition(self, seed):
+        return cosmos.generate(seed=seed)
+
+actors = [CosmosActor.remote() for _ in range(4)]
+takes = ray.get([
+    actors[i % 4].audition.remote(seed)
+    for i, seed in enumerate(seeds)
+])
+winner = select(takes, rubric)</code></pre>
+      <div class="source-compare">
+        <figure><video src="media/source.mp4" muted loop playsinline controls aria-label="Original source driving video"></video><figcaption><b>Source video</b><span>The scene to preserve</span></figcaption></figure>
+        <figure><video src="media/control_edge.mp4" muted loop playsinline controls aria-label="Edge control extracted from the source video"></video><figcaption><b>Edge control</b><span>The structure to preserve</span></figcaption></figure>
+        <figure class="depth-explainer"><div class="depth-preview" role="img" aria-label="Illustrative depth map. Nearby road and car are light. Distant buildings are dark."><i class="depth-building left"></i><i class="depth-building right"></i><i class="depth-road"></i><i class="depth-car"></i><span>FAR</span><b>NEAR</b></div><figcaption><b>Depth control</b><span>Alternative structural control</span></figcaption></figure>
+      </div>
+      <p class="control-disclosure">Transfer 2.5 supports several structured controls. This experiment used the distilled edge checkpoint. The depth view above is illustrative.</p>
+      <div class="pipeline-flow" aria-label="Generation and selection pipeline">
+        <div><span>1</span><b>Condition</b><small>source + prompt + edge</small></div><i>→</i>
+        <div><span>2</span><b>Generate</b><small>Cosmos Transfer 2.5</small></div><i>→</i>
+        <div><span>3</span><b>Parallelize</b><small>4 Ray actors · L40S</small></div><i>→</i>
+        <div><span>4</span><b>Select</b><small>rubric + evidence</small></div>
+      </div>
+      <div class="production-stats">
+        <div><b>8 / 8</b><span>successful fog generations</span></div>
+        <div><b>106 s</b><span>mean generation time</span></div>
+        <div><b>474 s</b><span>observed wall clock, including loads</span></div>
+        <div><b>42.1 GB</b><span>GPU memory per actor</span></div>
+      </div>
+      <details class="settings-details">
+        <summary>Show the exact fixed settings</summary>
+        <div class="settings-grid"><span>Model <b>edge/distilled</b></span><span>Steps <b>4</b></span><span>Guidance <b>4</b></span><span>Edge weight <b>0.65</b></span><span>Frames <b>93</b></span><span>Resolution <b>1280×720 generated</b></span></div>
+      </details>
+      </div>
+      </details>
+    </section>
+
+    <section class="lesson-section check" id="check" aria-labelledby="check-title">
+      <div class="section-heading">
+        <div><p class="chapter">06 · CHECK THE CUT</p><h2 id="check-title">Got it?</h2></div>
+        <p>2 questions. 30 seconds.</p>
+      </div>
+      <div class="quiz-grid">
+        <article class="quiz-card" data-question="1">
+          <p class="micro">QUESTION 1 / 2</p><h3>What changed across the 8 fog takes?</h3>
+          <button type="button" data-correct="false">The prompt</button><button type="button" data-correct="true">The random seed</button><button type="button" data-correct="false">The model weights</button>
+          <p class="quiz-feedback" aria-live="polite"></p>
+        </article>
+        <article class="quiz-card" data-question="2">
+          <p class="micro">QUESTION 2 / 2</p><h3>Why might a larger N fail to improve the final output?</h3>
+          <button type="button" data-correct="false">Sampling becomes deterministic</button><button type="button" data-correct="false">The GPU forgets early samples</button><button type="button" data-correct="true">The selector may rank candidates poorly</button>
+          <p class="quiz-feedback" aria-live="polite"></p>
+        </article>
+      </div>
+      <div class="completion" id="completion"><span>0 / 2</span><p>Complete the knowledge check.</p></div>
+    </section>
+
+    <section class="finale">
+      <p class="chapter">THE TAKEAWAY</p>
+      <h2>Generation creates <em>options</em>.<br>The judge turns options into a decision.</h2>
+      <p>The generator-selector pattern now appears in reasoning, generation, alignment, and evaluation.</p>
+      <a href="#audition" class="primary-button">Run the audition again ↑</a>
+    </section>
+
+    <section class="credits" aria-labelledby="credits-title">
+      <h2 id="credits-title">Sources & production notes</h2>
+      <div class="credit-columns">
+        <div><p><b>Created for the NeurIPS 2026 Education Track.</b></p><p>Original lesson and experiment design by Alicia Chua, Pawarit Laosunthara, and Eric Tang.</p><p>Cosmos Transfer 2.5 generated the videos. Ray distributed the runs. The selection mechanism applies beyond this model and framework.</p></div>
+        <div><a href="https://proceedings.iclr.cc/paper_files/paper/2025/hash/1b623663fd9b874366f3ce019fdfdd44-Abstract-Conference.html" target="_blank" rel="noreferrer">Snell et al. · Scaling LLM Test-Time Compute</a><a href="https://proceedings.neurips.cc/paper_files/paper/2025/hash/4ec03ed08a3fcb59e1c815b5598beff1-Abstract-Datasets_and_Benchmarks_Track.html" target="_blank" rel="noreferrer">Li et al. · WorldModelBench</a><a href="https://openaccess.thecvf.com/content/CVPR2025/html/Ma_Scaling_Inference_Time_Compute_for_Diffusion_Models_CVPR_2025_paper.html" target="_blank" rel="noreferrer">Ma et al. · Scaling Inference Time Compute for Diffusion Models</a><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Liu_Video-T1_Test-time_Scaling_for_Video_Generation_ICCV_2025_paper.html" target="_blank" rel="noreferrer">Liu et al. · Video-T1</a><a href="https://proceedings.neurips.cc/paper_files/paper/2025/hash/76227feb18ea0ee40bd15cf02c33e18e-Abstract-Conference.html" target="_blank" rel="noreferrer">Liu et al. · Improving Video Generation with Human Feedback</a></div>
+        <div><a href="https://huggingface.co/nvidia/Cosmos-Transfer2.5-2B" target="_blank" rel="noreferrer">NVIDIA · Cosmos Transfer 2.5 model card</a><a href="https://arxiv.org/abs/2511.00062" target="_blank" rel="noreferrer">NVIDIA · Cosmos 2.5 technical report</a><a href="https://research.nvidia.com/labs/cosmos-lab/cosmos-transfer1/" target="_blank" rel="noreferrer">NVIDIA · Conditional world generation</a><a href="https://wayve.ai/thinking/gaia-2/" target="_blank" rel="noreferrer">Wayve · GAIA-2 world model</a><a href="https://waabi.ai/research/unisim" target="_blank" rel="noreferrer">Waabi · UniSim neural simulation</a><a href="https://github.com/nvidia/cosmos" target="_blank" rel="noreferrer">NVIDIA Cosmos 3</a><a href="https://docs.ray.io/" target="_blank" rel="noreferrer">Ray documentation</a></div>
+      </div>
+      <p class="license-note"><b>Built on NVIDIA Cosmos.</b> Cosmos Transfer 2.5 source uses the Apache-2.0 license. Model weights use the NVIDIA Open Model License. These videos are educational outputs from the published example input. No endorsement is implied.</p>
+    </section>
+
+    <section class="closing-montage" aria-labelledby="montage-title">
+      <div class="montage-heading"><p class="chapter">A FINAL LOOK</p><h2 id="montage-title">Rain. Fog. Night. Clear.</h2></div>
+      <video src="media/montage-rain-fog-night-clear.mp4" muted loop playsinline controls preload="metadata" aria-label="4-panel montage of the same drive in rain, fog, at night, and in clear weather"></video>
+    </section>
+  </main>
+  <footer><span>CUT! Best-of-N Studio</span><span>Interactive lesson for Best-of-N selection.</span></footer>
+  <script src="app.d4694136.js"></script>
+</body>
+</html>

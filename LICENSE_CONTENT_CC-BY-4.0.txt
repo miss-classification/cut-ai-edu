@@ -1,0 +1,13 @@
+CUT! Best-of-N Studio Educational Content License
+
+Copyright 2026 Alicia Chua, Pawarit Laosunthara, and Eric Tang
+
+Except for third-party material identified in THIRD_PARTY_NOTICES.md, the original educational text, diagrams, lesson design, worksheets, and documentation in this package are licensed under the Creative Commons Attribution 4.0 International License.
+
+License: https://creativecommons.org/licenses/by/4.0/
+Legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Suggested attribution:
+"How Do You Test Weather You Cannot Schedule?" by Alicia Chua, Pawarit Laosunthara, and Eric Tang, licensed under CC BY 4.0.
+
+Third-party software, model references, source media, generated media, names, and trademarks remain subject to their own terms and are not relicensed by this notice.

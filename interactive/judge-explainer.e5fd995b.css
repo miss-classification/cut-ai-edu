@@ -1,0 +1,127 @@
+.judge-explainer {
+  margin-top: 24px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: linear-gradient(135deg, #151b22, #0d1116);
+}
+
+.judge-explainer-copy {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  column-gap: 32px;
+  align-items: end;
+}
+
+.judge-explainer-copy .micro {
+  grid-column: 1 / -1;
+}
+
+.judge-explainer-copy h3 {
+  margin: 8px 0 0;
+  font-size: clamp(1.65rem, 3vw, 2.65rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.judge-explainer-copy > p:last-child {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.judge-evidence-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.judge-evidence-flow article {
+  min-height: 166px;
+  padding: 17px;
+  border: 1px solid #343b45;
+  border-radius: 10px;
+  background: #090d12;
+}
+
+.judge-evidence-flow span,
+.judge-evidence-flow b,
+.judge-evidence-flow small {
+  display: block;
+}
+
+.judge-evidence-flow span {
+  color: var(--amber);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.judge-evidence-flow b {
+  margin-top: 22px;
+}
+
+.judge-evidence-flow small {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.judge-explainer-note {
+  margin: 12px 0 0;
+  padding: 15px 17px;
+  border-left: 3px solid var(--cyan);
+  background: #7ee7e10a;
+  color: var(--muted);
+}
+
+.judge-explainer-note b {
+  color: var(--ink);
+}
+
+.scope-note {
+  max-width: 680px;
+  margin: 10px 0 0;
+  padding-left: 12px;
+  border-left: 2px solid var(--amber);
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.score-provenance {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-style: normal;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.motion-paused *,
+.motion-paused *::before,
+.motion-paused *::after {
+  animation-play-state: paused !important;
+  transition-duration: 0s !important;
+}
+
+.weather-tabs button[aria-pressed="true"] {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+@media (max-width: 800px) {
+  .judge-explainer-copy,
+  .judge-evidence-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .judge-evidence-flow article {
+    min-height: auto;
+  }
+
+  .judge-evidence-flow b {
+    margin-top: 10px;
+  }
+}
