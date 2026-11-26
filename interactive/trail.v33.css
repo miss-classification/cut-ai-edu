@@ -30,3 +30,10 @@
 .trail-preview{display:block;width:100%;height:auto;border-radius:.4rem}
 @media(max-width:58rem){#paint-the-trail .trail-intro{grid-template-columns:7rem minmax(0,1fr)}#paint-the-trail .trail-actions{grid-column:1/-1}}
 @media(max-width:27rem){#paint-the-trail .trail-intro{grid-template-columns:minmax(0,1fr)}.trail-preview{width:8rem}}
+
+/* Phone layout (480px and narrower only; desktop and tablet unchanged) */
+@media (max-width:480px){
+  .weather-tabs button{min-width:0;flex:1 1 0}
+  .settings-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .settings-grid span{overflow-wrap:anywhere}
+}
