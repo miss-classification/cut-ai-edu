@@ -16,7 +16,7 @@ Alicia Chua, Pawarit Laosunthara, and Eric Tang · Anyscale
 
 *A recorded urban drive rendered under four conditions with NVIDIA Cosmos Transfer 2.5. Road layout, vehicles, and camera motion follow the source recording.*
 
-[Interactive lesson](https://cut-ai-edu.pages.dev/) &nbsp;|&nbsp; [Paper (PDF)](paper/cut_neurips2026_education.pdf) &nbsp;|&nbsp; [Teaching guide](interactive/teaching.html) &nbsp;|&nbsp; [Regeneration on H100 and B200](generation/docker/README.md)
+[Interactive lesson](https://cut-ai-edu.pages.dev/) &nbsp;|&nbsp; [Paper (PDF)](paper/cut_neurips2026_education.pdf) &nbsp;|&nbsp; [Teaching guide](interactive/teaching.html) &nbsp;|&nbsp; [Paint the Trail Gallery](https://paint-the-trail-gallery.pages.dev/) &nbsp;|&nbsp; [Regeneration on H100 and B200](generation/docker/README.md)
 
 </div>
 
@@ -53,7 +53,24 @@ Learners examine how the candidate budget, the rubric weights, and the gate thre
 <img src="docs/assets/many-sources.gif" width="720" alt="Recorded footage and generated conditions for Boreas, GOOSE, GrandTour, TartanDrive 2.0, and Wikimedia Commons clips">
 </div>
 
-The evidence section of the lesson includes recorded comparisons generated with Cosmos Transfer 2.5 depth control from five public sources: urban driving (Boreas), off-road driving (GOOSE, TartanDrive 2.0), a legged robot (GrandTour), and web video (Wikimedia Commons). Each clip carries its source credit and license in the footer. Additional renders, each with its prompt and judge scores, are available in the [Paint the Trail Gallery](https://paint-the-trail-gallery.pages.dev/).
+The evidence section of the lesson includes recorded comparisons generated with Cosmos Transfer 2.5 depth control from five public sources: urban driving (Boreas), off-road driving (GOOSE, TartanDrive 2.0), a legged robot (GrandTour), and web video (Wikimedia Commons). Each clip carries its source credit and license in the footer.
+
+## Paint the Trail Gallery
+
+<div align="center">
+<a href="https://paint-the-trail-gallery.pages.dev/"><img src="docs/assets/gallery-preview.gif" width="760" alt="Six gallery renders: Boreas autumn, GrandTour golden hour, GOOSE flooded mud, TartanDrive frost at dawn, GrandTour blue hour, and Boreas night rain"></a>
+</div>
+
+The [Paint the Trail Gallery](https://paint-the-trail-gallery.pages.dev/) is an optional companion to the lesson. It presents 146 renders from 31 recorded drives across five sources (TartanDrive 2.0, Boreas, GOOSE, GrandTour, and Wikimedia Commons) under nine conditions, including fog, blizzard, night rain, frost at dawn, and flooded mud.
+
+Visitors select a dataset, a drive, and a condition, then compare the generated clip with the recorded footage using a sliding divider. Each render is shown with:
+
+- the prompt sent to Cosmos Transfer 2.5, with the seed and generation time;
+- the automated judge scores from Qwen3-VL-32B-Instruct for the blind pass (photorealism, physical plausibility, temporal consistency, overall) and the paired pass (structure preservation, condition achieved, semantic consistency), each with its definition;
+- the judge's observed weather and light, implausible elements, contradictions, and paired verdict;
+- the judge instructions in full, with the target condition description for the selected weather.
+
+All renders use Cosmos Transfer 2.5 with depth control, 35 steps, and guardrails enabled, generated on NVIDIA B200 GPUs. Each drive and condition was rendered with seeds 101, 202, and 303; the gallery shows the seed selected by visual review and excludes renders with a documented failure or a judge score below 4. The Wikimedia Commons clips were reviewed visually and were not scored by the judge.
 
 ## Getting started
 

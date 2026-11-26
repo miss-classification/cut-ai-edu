@@ -64,3 +64,17 @@ build("candidate-pool", takes, [f"TAKE {i:02d}" for i in range(1, 9)], 4, 208, 1
 # Fog comparison used for the blind vote: balanced pick versus the intensity-only pick.
 build("fog-vote", [MEDIA / "directors_cut_take04.mp4", MEDIA / "directors_cut_take07.mp4"],
       ["TAKE 04", "TAKE 07"], 2, 384, 216, 3.2, "BLIND COMPARISON  /  SAME DRIVE, PROMPT, AND SETTINGS")
+
+# Paint the Trail Gallery preview: six gallery renders (best seed per drive and condition).
+# The gallery media are not part of this repository; set GALLERY_DIR to a local copy of the gallery site.
+import os
+GALLERY = Path(os.environ.get("GALLERY_DIR", "/home/ray/default/paint-the-trail-replay"))
+picks = [("v/1665705e/autumn_peak.mp4", "BOREAS / AUTUMN"),
+         ("v/c6a104e5/golden_hour_glare.mp4", "GRANDTOUR / GOLDEN HOUR"),
+         ("v/f94b4cba/flooded_mud.mp4", "GOOSE / FLOODED MUD"),
+         ("v/e28558c1/frost_dawn.mp4", "TARTANDRIVE / FROST AT DAWN"),
+         ("v/978d06c6/blue_hour_dusk.mp4", "GRANDTOUR / BLUE HOUR"),
+         ("v/284c1404/night_rain.mp4", "BOREAS / NIGHT RAIN")]
+if all((GALLERY / f).exists() for f, _ in picks):
+    build("gallery-preview", [GALLERY / f for f, _ in picks], [l for _, l in picks], 3, 256, 136, 4.0,
+          "PAINT THE TRAIL GALLERY  /  COSMOS TRANSFER 2.5 DEPTH  /  GUARDRAILS ON")
