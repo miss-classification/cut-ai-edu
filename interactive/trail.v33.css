@@ -1,0 +1,32 @@
+.trail-card {scroll-margin-block-start:7rem;margin:1.5rem 0 0;border:1px solid #39545c;border-radius:.85rem;background:#0e191e;color:#eaf2f1;overflow:hidden;}
+.trail-card .trail-intro {display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.2rem 2rem;align-items:center;padding:clamp(1rem,2.4vw,1.65rem);}
+.trail-card .trail-kicker {margin:0 0 .4rem;color:#86e2d7;font:700 .78rem/1.5 ui-monospace,monospace;letter-spacing:.10em;text-transform:uppercase;}
+.trail-card h3 {margin:0 0 .4rem;color:#f6f5ee;font-size:clamp(1.35rem,2.2vw,1.8rem);line-height:1.2;}
+.trail-card .trail-copy {margin:0;max-width:55ch;color:#bdcdd2;font-size:1rem;line-height:1.5;text-wrap:pretty;}
+.trail-card .trail-actions {display:flex;align-items:center;flex-wrap:wrap;gap:.55rem 1rem;}
+.trail-card .trail-load,.trail-card .trail-external {min-height:44px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;font-family:inherit;font-size:1rem;font-weight:650;line-height:1.4;text-align:center;}
+.trail-card .trail-load {border:1px solid #85e0d5;border-radius:.5rem;background:#8be2d6;color:#092323;padding:.55rem .95rem;cursor:pointer;}
+.trail-card .trail-load:hover {background:#b1f2e9;}
+.trail-card .trail-external,.trail-card .trail-fallback a,.trail-after a {color:#95e7df;text-decoration:underline;text-underline-offset:.22em;}
+.trail-card :is(a,button):focus-visible,.trail-after a:focus-visible {outline:3px solid #ffbe62;outline-offset:3px;}
+.trail-card [hidden] {display:none!important;}
+.trail-card .trail-panel {padding:0 clamp(1rem,2.4vw,1.65rem) 1rem;}
+.trail-card .trail-fallback,.trail-card .trail-status {margin:0;color:#c2d2d6;font-size:.94rem;line-height:1.55;}
+.trail-card .trail-fallback {padding:0 clamp(1rem,2.4vw,1.65rem) .85rem;}
+.trail-card .trail-status {padding:0 clamp(1rem,2.4vw,1.65rem) 1rem;}
+.trail-card iframe {display:block;width:100%;height:clamp(24rem,76vh,54rem);box-sizing:border-box;border:1px solid #46616a;border-radius:.5rem;background:#0a1014;}
+.projector .trail-after {margin:1.25rem 0;padding:.85rem 1rem;border-left:3px solid #69cec3;color:#c1ced3;font-size:1rem;line-height:1.55;}
+.projector .trail-after a {font-weight:650;}
+@media(max-width:55rem){.trail-card .trail-intro {grid-template-columns:minmax(0,1fr);gap:.7rem;}}
+@media(max-width:36rem){.trail-card .trail-intro {padding:1rem;}.trail-card iframe {height:72vh;min-height:22rem;}}
+@media print{.trail-card,.trail-after{display:none!important;}}
+
+#challenge .hero-copy{display:block;width:100%;grid-template-columns:none}
+#challenge #hero-title{max-width:none;width:100%;margin:0 0 .65rem;font-size:clamp(1.65rem,4.2vw,3.45rem);line-height:1.12;letter-spacing:-.04em;text-wrap:balance}
+#challenge .hero-copy .lede{max-width:70ch;margin:0}
+.journey-nav a.feature-gallery{color:#ffcb80;border:1px solid #97703e;border-radius:.5rem;background:#291f14;font-weight:700}
+#paint-the-trail{margin:1rem 0 2rem;border-color:#94713d;scroll-margin-top:9rem}
+#paint-the-trail .trail-intro{grid-template-columns:minmax(7rem,11rem) minmax(0,1fr) auto}
+.trail-preview{display:block;width:100%;height:auto;border-radius:.4rem}
+@media(max-width:58rem){#paint-the-trail .trail-intro{grid-template-columns:7rem minmax(0,1fr)}#paint-the-trail .trail-actions{grid-column:1/-1}}
+@media(max-width:27rem){#paint-the-trail .trail-intro{grid-template-columns:minmax(0,1fr)}.trail-preview{width:8rem}}

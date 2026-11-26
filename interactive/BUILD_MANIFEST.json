@@ -1,0 +1,1120 @@
+{
+  "version": "v33-featured-gallery",
+  "built": "2026-11-26",
+  "baseline": "CUT-v32-Trail-Gallery.zip",
+  "baseline_sha256": "56e95c59fa35fb5057074c4618e4f31a936f0c1ac2249f531b21508c8317078e",
+  "entry_points": {
+    "full_lesson": "index.html",
+    "presenter": "present.html",
+    "case_file": "index.html#invented-hood",
+    "present_case_revealed": "present.html#invented-hood",
+    "lessons": "index.html#lessons-learned",
+    "instructor": "teaching.html",
+    "research": "evidence.html",
+    "field_gallery": "index.html#paint-the-trail",
+    "online_gallery": "https://paint-the-trail-gallery.pages.dev/"
+  },
+  "checks": {
+    "local_links_ids_aria_and_js_syntax": "passed",
+    "scripted_interactions_and_new_deep_links": "passed",
+    "mp4_decodes": 46,
+    "unchanged_original_mp4s": 42,
+    "gif_frames": 105,
+    "gif_duration_ms": 15000,
+    "clean_apertures_and_matched_frame_tests": "evidence/picture-quality.json",
+    "collector_test": "passed on relocated fixtures; no real source masters supplied",
+    "physical_projector_or_browser_visual_test": false,
+    "deployed": false,
+    "gallery_integration": "click-to-load, close, chapter navigation, offline fallback, accessible links and projector stop 6 verified with scripted DOM checks",
+    "media_unchanged_from_v31": 46,
+    "browser_rendering": "not verified",
+    "live_gallery_framing": "not independently verified from this environment"
+  },
+  "media": [
+    {
+      "file": "media/control_edge.mp4",
+      "codec_name": "h264",
+      "width": 640,
+      "height": 360,
+      "nb_frames": "93",
+      "duration_s": 3.206897
+    },
+    {
+      "file": "media/directors_cut_take01.mp4",
+      "codec_name": "h264",
+      "width": 640,
+      "height": 360,
+      "nb_frames": "93",
+      "duration_s": 3.206897
+    },
+    {
+      "file": "media/directors_cut_take02.mp4",
+      "codec_name": "h264",
+      "width": 640,
+      "height": 360,
+      "nb_frames": "93",
+      "duration_s": 3.206897
+    },
+    {
+      "file": "media/directors_cut_take03.mp4",
+      "codec_name": "h264",
+      "width": 640,
+      "height": 360,
+      "nb_frames": "93",
+      "duration_s": 3.206897
+    },
+    {
+      "file": "media/directors_cut_take04.mp4",
+      "codec_name": "h264",
+      "width": 640,
+      "height": 360,
+      "nb_frames": "93",
+      "duration_s": 3.206897
+    },
+    {
+      "file": "media/directors_cut_take05.mp4",
+      "codec_name": "h264",
+      "width": 640,
+      "height": 360,
+      "nb_frames": "93",
+      "duration_s": 3.206897
+    },
+    {
+      "file": "media/directors_cut_take06.mp4",
+      "codec_name": "h264",
+      "width": 640,
+      "height": 360,
+      "nb_frames": "93",
+      "duration_s": 3.206897
+    },
+    {
+      "file": "media/directors_cut_take07.mp4",
+      "codec_name": "h264",
+      "width": 640,
+      "height": 360,
+      "nb_frames": "93",
+      "duration_s": 3.206897
+    },
+    {
+      "file": "media/directors_cut_take08.mp4",
+      "codec_name": "h264",
+      "width": 640,
+      "height": 360,
+      "nb_frames": "93",
+      "duration_s": 3.206897
+    },
+    {
+      "file": "media/judge_reel.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 540,
+      "nb_frames": "259",
+      "duration_s": 8.931034
+    },
+    {
+      "file": "media/montage-rain-fog-night-clear.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 640,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "media/source.mp4",
+      "codec_name": "h264",
+      "width": 640,
+      "height": 360,
+      "nb_frames": "121",
+      "duration_s": 4.037367
+    },
+    {
+      "file": "media/weather_replication_rain_take01.mp4",
+      "codec_name": "h264",
+      "width": 640,
+      "height": 360,
+      "nb_frames": "93",
+      "duration_s": 3.206897
+    },
+    {
+      "file": "media/weather_replication_rain_take02.mp4",
+      "codec_name": "h264",
+      "width": 640,
+      "height": 360,
+      "nb_frames": "93",
+      "duration_s": 3.206897
+    },
+    {
+      "file": "media/weather_replication_rain_take03.mp4",
+      "codec_name": "h264",
+      "width": 640,
+      "height": 360,
+      "nb_frames": "93",
+      "duration_s": 3.206897
+    },
+    {
+      "file": "media/weather_replication_rain_take04.mp4",
+      "codec_name": "h264",
+      "width": 640,
+      "height": 360,
+      "nb_frames": "93",
+      "duration_s": 3.206897
+    },
+    {
+      "file": "media/weather_replication_snow_take01.mp4",
+      "codec_name": "h264",
+      "width": 640,
+      "height": 360,
+      "nb_frames": "93",
+      "duration_s": 3.206897
+    },
+    {
+      "file": "media/weather_replication_snow_take02.mp4",
+      "codec_name": "h264",
+      "width": 640,
+      "height": 360,
+      "nb_frames": "93",
+      "duration_s": 3.206897
+    },
+    {
+      "file": "media/weather_replication_snow_take03.mp4",
+      "codec_name": "h264",
+      "width": 640,
+      "height": 360,
+      "nb_frames": "93",
+      "duration_s": 3.206897
+    },
+    {
+      "file": "media/weather_replication_snow_take04.mp4",
+      "codec_name": "h264",
+      "width": 640,
+      "height": 360,
+      "nb_frames": "93",
+      "duration_s": 3.206897
+    },
+    {
+      "file": "research-media/autumn.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 318,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "research-media/day.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 318,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "research-media/flood.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 318,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "research-media/glare.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 318,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "research-media/goose-frost.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 318,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "research-media/grandtour-flood.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 318,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "research-media/grandtour-fog.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 318,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "research-media/hood.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 318,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "research-media/impala-blue-hour.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 318,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "research-media/impala-flood.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 318,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "research-media/impala-fog.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 318,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "research-media/nano-tuning.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 338,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "research-media/prompt-test.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 226,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "research-media/rail-wall.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 322,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "research-media/rain.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 318,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "research-media/snow-reference.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 608,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "research-media/snow.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 318,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "research-media/tartan-flood.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 318,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "research-media/winter-fog.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 318,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "research-media/winter-golden-hour.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 318,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "research-media/winter-night-rain.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 318,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "studio-media/case-day.v31.mp4",
+      "codec_name": "h264",
+      "width": 952,
+      "height": 248,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "studio-media/case-hood.v31.mp4",
+      "codec_name": "h264",
+      "width": 952,
+      "height": 248,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    },
+    {
+      "file": "studio-media/closing-field-reel.v31.mp4",
+      "codec_name": "h264",
+      "width": 1024,
+      "height": 696,
+      "nb_frames": "465",
+      "duration_s": 29.0625
+    },
+    {
+      "file": "studio-media/judge-walkthrough.v31.mp4",
+      "codec_name": "h264",
+      "width": 1088,
+      "height": 520,
+      "nb_frames": "225",
+      "duration_s": 15.0
+    },
+    {
+      "file": "studio-media/umbrella-snow.mp4",
+      "codec_name": "h264",
+      "width": 960,
+      "height": 334,
+      "nb_frames": "93",
+      "duration_s": 5.8125
+    }
+  ],
+  "files": [
+    {
+      "path": "Case-11-Invented-Hood.svg",
+      "bytes": 434471,
+      "sha256": "bd866318f9317bdbe9cc9f82109c567183eb631802a14c59752011874591b53b"
+    },
+    {
+      "path": "DEPLOYMENT_VERSION.txt",
+      "bytes": 132,
+      "sha256": "96aca22875037b9fa85e20ce9e78ea83f705d63f4a36398aa83b28c4fe98008d"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8497,
+      "sha256": "10eb726e0780e5cf46cc920d79c0f6cdf413afc7c1328ef1f7a75ce5fe2f3872"
+    },
+    {
+      "path": "TEACHING_DESIGN.md",
+      "bytes": 5637,
+      "sha256": "5c1747cc2199ab2bbc73bed53ce2e813a3e12ba6f72c5996cffcbd966aba06f3"
+    },
+    {
+      "path": "_headers",
+      "bytes": 391,
+      "sha256": "cc79fc7312f7b91ad442f8406192480b7a0d57d38defaa131c51e06cf6250ca3"
+    },
+    {
+      "path": "cosmos-explainer.7427545f.css",
+      "bytes": 25605,
+      "sha256": "7427545f0e2dc3107942aa255f2a8d5a719c5b6931a2b6d15c25165f8654e682"
+    },
+    {
+      "path": "curated-data.v29.js",
+      "bytes": 7036,
+      "sha256": "e6a57871c32c3ae250b7fb55c4746940ffa2ace7338f2fc0db3e6298b912a708"
+    },
+    {
+      "path": "curated.v29.css",
+      "bytes": 2566,
+      "sha256": "ea293980a83bba280614e49d47daa058b672f26c620c9de3eca8d8d1d802b6b1"
+    },
+    {
+      "path": "curated.v29.js",
+      "bytes": 3284,
+      "sha256": "27f9288ba5b512fef7f8b2537215bd12ad5b3ff359f6ffab1b5b07ca42ae669e"
+    },
+    {
+      "path": "evidence.html",
+      "bytes": 25136,
+      "sha256": "49a4c053b04869417c35078681746a800ddb3f11261970fa6cbb53afb710c166"
+    },
+    {
+      "path": "evidence/README.md",
+      "bytes": 7114,
+      "sha256": "a3c46b71b6a8b09b8c608f1f508efae39bc5638759fd94cc09c7c84e3c141849"
+    },
+    {
+      "path": "evidence/field-reel.json",
+      "bytes": 7182,
+      "sha256": "0347f9b0e6497abff298228d2a003752a8a3768ae2d34a5844fba27069d242bb"
+    },
+    {
+      "path": "evidence/fog-annotations.json",
+      "bytes": 2822,
+      "sha256": "287074ec6b9ce8095a83819458fac041a7512e20acdcacd168af570bbcfd0363"
+    },
+    {
+      "path": "evidence/hood-case.json",
+      "bytes": 1590,
+      "sha256": "94489bad02090667dc7510f2a6547a3153cf6ce02a8ca2e3dd6abfc597849b96"
+    },
+    {
+      "path": "evidence/lesson-findings.json",
+      "bytes": 1456,
+      "sha256": "6c9b987d02381d75535f9ffddebf864265b9418f007bb609ddd145322898f523"
+    },
+    {
+      "path": "evidence/media-manifest.json",
+      "bytes": 14830,
+      "sha256": "1a1542655a802b30128eb91a78944db368d5643614e9562792e532f04e65dd8d"
+    },
+    {
+      "path": "evidence/picture-quality.json",
+      "bytes": 15209,
+      "sha256": "4f7a80c8a10acfaaf5be8be6750df1f2a5e2fe1b551b7ea119bb69907f82ddda"
+    },
+    {
+      "path": "evidence/prompt-example.json",
+      "bytes": 1125,
+      "sha256": "0a492c007a56b2d69844f8440c46dd1e2991c3a13760baea78d755aaa147a360"
+    },
+    {
+      "path": "evidence/reviewed-data.json",
+      "bytes": 22382,
+      "sha256": "ac20e8da70e05e952531c966dd08ec34a62f5c680f52a7c934b1febc572ede29"
+    },
+    {
+      "path": "evidence/selected-comparisons.json",
+      "bytes": 7676,
+      "sha256": "8ca64b3638c81ffeb31c0af1d5636e9ae091f54262545ac84b0b22818fed92f1"
+    },
+    {
+      "path": "evidence/walkthrough.json",
+      "bytes": 3280,
+      "sha256": "c403d7d5e225d2aa489ad3a831c2aceb85e8f62d1598edbde1e8232e4617b034"
+    },
+    {
+      "path": "field-data.v31.js",
+      "bytes": 2084,
+      "sha256": "99b523ed1e289b6ee591b99f4b4bf050f208e93fa5080a94a37ff74b45be2761"
+    },
+    {
+      "path": "field.v31.js",
+      "bytes": 7709,
+      "sha256": "2ddf7364bc0abb62cd3cee8f5b96c89fdfe684be927596c5d6ae6716dbedc6c6"
+    },
+    {
+      "path": "flow.88920b6c.css",
+      "bytes": 47119,
+      "sha256": "88920b6c63bd4ca4b6bdbefbbba7147abf31b49510ccbce7104114102a2ff1ab"
+    },
+    {
+      "path": "fog-annotations.v29.js",
+      "bytes": 2108,
+      "sha256": "4c13e2a791ce40235e8cf00bcb72638f5481a32e18ca3658a5fdb7d3bb37e3a4"
+    },
+    {
+      "path": "fog.v30.js",
+      "bytes": 19498,
+      "sha256": "2ae537350195641b9c8ac693cb9332139c9908fa609415cd7223f50b93d11b2b"
+    },
+    {
+      "path": "index.html",
+      "bytes": 74640,
+      "sha256": "2b652b5594e355baff3dcb849d73d3d53e95c011888da6e19d35327f17c3f885"
+    },
+    {
+      "path": "journey.v29.css",
+      "bytes": 15978,
+      "sha256": "cbe9d67be4076e1e946b5da977d11222eec4420fce5f0d96d8666e80dd2ff529"
+    },
+    {
+      "path": "journey.v31.js",
+      "bytes": 7107,
+      "sha256": "1afc1cb15e82e1f972485635e3e12d11bb03f5c3b55c2324dbb7b2a35dcd70fa"
+    },
+    {
+      "path": "judge-explainer.e5fd995b.css",
+      "bytes": 2290,
+      "sha256": "e5fd995bc23f151ce31a52bda4c267a868235ab780aa8f0296368ef5a2a4fe04"
+    },
+    {
+      "path": "media/control_edge.mp4",
+      "bytes": 1280816,
+      "sha256": "8edd42f905ec765dd9e2aa8ffc1eab52d3a29ff59138e4354243f8484a01bad6"
+    },
+    {
+      "path": "media/directors_cut_take01.mp4",
+      "bytes": 275104,
+      "sha256": "5ceb96c4accb637ac419d61e16f83ec46e33c2e0644c08505fc095c8760d29b1"
+    },
+    {
+      "path": "media/directors_cut_take02.mp4",
+      "bytes": 326114,
+      "sha256": "ccaac4e470266e934f035dd654817071bc27a1e08829d317071d6ed556e8b50b"
+    },
+    {
+      "path": "media/directors_cut_take03.mp4",
+      "bytes": 316128,
+      "sha256": "133a0ffb2ec65b5cece139b4f37e6b20af0b6f2a50cc16f4d2357d990107bb1e"
+    },
+    {
+      "path": "media/directors_cut_take04.mp4",
+      "bytes": 302317,
+      "sha256": "e82195c680bb25dcb3604896053964f3d7a5a472fd971ca36c4cb9bbd90c6366"
+    },
+    {
+      "path": "media/directors_cut_take05.mp4",
+      "bytes": 303228,
+      "sha256": "3dc1bcf880bb0c85c451e5060c4249ec9a12047f4189bde757efe2325e10a03d"
+    },
+    {
+      "path": "media/directors_cut_take06.mp4",
+      "bytes": 293872,
+      "sha256": "3b61dc5a0670a14ccfe65e280af8fc25908e18e7192ab6db36216dd58720c1ed"
+    },
+    {
+      "path": "media/directors_cut_take07.mp4",
+      "bytes": 300214,
+      "sha256": "c8d71a9439a98fd328c16b6652efe3c2099005dd624c1cce825c2ca98305ddc0"
+    },
+    {
+      "path": "media/directors_cut_take08.mp4",
+      "bytes": 269216,
+      "sha256": "6da41f819876710a3dc062f4c882abc4c10144de8715b1f96c3e03cc4ad94d1c"
+    },
+    {
+      "path": "media/judge_reel.mp4",
+      "bytes": 1987509,
+      "sha256": "a6d3fc963d7e55e864e7ae53ead41d9f1d81897f1599dce24dcb9c28b6b2dfcf"
+    },
+    {
+      "path": "media/montage-rain-fog-night-clear.mp4",
+      "bytes": 1277670,
+      "sha256": "9dbdc33cc61da1d7bbd262b73d0cdab624a2e107a63a3843d345f89c5da1f78d"
+    },
+    {
+      "path": "media/posters/take-01.jpg",
+      "bytes": 47662,
+      "sha256": "20418b2a3537890072f72e382581b359863b5967a37b9d0e7237507691367b69"
+    },
+    {
+      "path": "media/posters/take-02.jpg",
+      "bytes": 53377,
+      "sha256": "37947d13050c4763d1f1148c06ac247b53d40081c5476aa248628e76c8209512"
+    },
+    {
+      "path": "media/posters/take-03.jpg",
+      "bytes": 51478,
+      "sha256": "ff749b3b60195f556b12cd5507c428c0feb2bd7f85dc95ecae8822e0143a9028"
+    },
+    {
+      "path": "media/posters/take-04.jpg",
+      "bytes": 49264,
+      "sha256": "8e8a8603e89c31d1be02cad467c7fdd28df08e5a23afdf73c69712e564e4b9dd"
+    },
+    {
+      "path": "media/posters/take-05.jpg",
+      "bytes": 48949,
+      "sha256": "71e87561ad4cfb0678254207c0516682fc21fd0b4004ef0694ebb9ed1a5b1a48"
+    },
+    {
+      "path": "media/posters/take-06.jpg",
+      "bytes": 47948,
+      "sha256": "e7f84c7b687702131af9ee6a0f5a3c13652d06d52f997d8a118917231eadf2e5"
+    },
+    {
+      "path": "media/posters/take-07.jpg",
+      "bytes": 49264,
+      "sha256": "03bfe9a73d9a06f380b6fec851c10e0f668d6769990e5e9c138183c85fae140f"
+    },
+    {
+      "path": "media/posters/take-08.jpg",
+      "bytes": 46441,
+      "sha256": "a74b18fc7fef1f02e6ff3eef91ddc1a9456fe419b01a9a3aa384f5d8b7aae70d"
+    },
+    {
+      "path": "media/source.mp4",
+      "bytes": 399245,
+      "sha256": "ba5e3594d982b57aefbfc399fa1598cadd9a76c1b327257214c95edded48195e"
+    },
+    {
+      "path": "media/weather_replication_rain_take01.mp4",
+      "bytes": 334590,
+      "sha256": "691a27bc0c3369dedeef2756bc021d3d2f4cb2483a5d4802b4cd51788ffedf06"
+    },
+    {
+      "path": "media/weather_replication_rain_take02.mp4",
+      "bytes": 388352,
+      "sha256": "f4bba87b91468386cbcc08667307868712fde52e203d7e4f098d718607c4f337"
+    },
+    {
+      "path": "media/weather_replication_rain_take03.mp4",
+      "bytes": 382363,
+      "sha256": "6559f81b478dda71a09a30cfcd7947a7cd965b68076282a1a960b3842d74304c"
+    },
+    {
+      "path": "media/weather_replication_rain_take04.mp4",
+      "bytes": 364528,
+      "sha256": "bd6886b4f110af1313239cf39edf433e9ed8d2fa6ff3295e8a412e7d0c5299b4"
+    },
+    {
+      "path": "media/weather_replication_snow_take01.mp4",
+      "bytes": 330649,
+      "sha256": "70a196413fce45b9d2690d5fc0bfb91256993afae9e4aa853106cae940699692"
+    },
+    {
+      "path": "media/weather_replication_snow_take02.mp4",
+      "bytes": 390470,
+      "sha256": "629693b6c909ce9a65926fe0e5bcec9b598ecbbab5498374906334d075782a3f"
+    },
+    {
+      "path": "media/weather_replication_snow_take03.mp4",
+      "bytes": 366560,
+      "sha256": "ca88e4a565c937bac676dc0e5e1f94eebc63d2c5377e368c560fe2546b880cd9"
+    },
+    {
+      "path": "media/weather_replication_snow_take04.mp4",
+      "bytes": 356717,
+      "sha256": "1ffcea139c07d97b2c10ec46b43bddf3b3803daaac373e4778e1c8a02186b691"
+    },
+    {
+      "path": "present.html",
+      "bytes": 14451,
+      "sha256": "72d7bafd141b0af031e8d7740a2afe460b767fd6abd512f03aa3cd084313e863"
+    },
+    {
+      "path": "present.v30.css",
+      "bytes": 8002,
+      "sha256": "7aa3ee0805b7d67fa694f50cd004fee05a85d7d007da04705dce7c749bf9a507"
+    },
+    {
+      "path": "present.v31.js",
+      "bytes": 9674,
+      "sha256": "72e138ec972b17c037d004b488abb956bc3ee2521537d1467c4e1150bfaed644"
+    },
+    {
+      "path": "quality.v31.css",
+      "bytes": 4028,
+      "sha256": "3c0b0c7dc8f695a17e2e4285f29a92ac8eac1b16e721ad37095943820841567c"
+    },
+    {
+      "path": "research-data.v29.js",
+      "bytes": 17951,
+      "sha256": "045d4b2c2e624fce12af6002fd1f80c36ad13734b788c9902babca30a2e4dcb5"
+    },
+    {
+      "path": "research-media/autumn.jpg",
+      "bytes": 39171,
+      "sha256": "f76457832edc33d58a0e2e592858e52312685dd9f8136c102196d652354191e3"
+    },
+    {
+      "path": "research-media/autumn.mp4",
+      "bytes": 57954,
+      "sha256": "df2cdc6ff9635718e92def87cc3b298f213836826a64f89adc2ba807e3541a3a"
+    },
+    {
+      "path": "research-media/day.jpg",
+      "bytes": 42982,
+      "sha256": "b7bff7bc43e34f80247eed1165614d23b26b73c19b79bb5d22a2bf1458ce9f68"
+    },
+    {
+      "path": "research-media/day.mp4",
+      "bytes": 364988,
+      "sha256": "21e00df425674089d7b212b97bbd3a6f91aef8772ad672c7d2f9ac1b4c3a2cf0"
+    },
+    {
+      "path": "research-media/flood.jpg",
+      "bytes": 46126,
+      "sha256": "361a0fdf8c8aac170cbeb4321787ba556d40531f538769f37adf170d4d105622"
+    },
+    {
+      "path": "research-media/flood.mp4",
+      "bytes": 496259,
+      "sha256": "02917dab40547dabce92cf36fc5dd7b6efb505e4de1ac37a344d3b182ad789e3"
+    },
+    {
+      "path": "research-media/glare.jpg",
+      "bytes": 51223,
+      "sha256": "d3c6218679d9472930e4b0cbc560dbfbfd89ce0579ecb2a52e4323c18710f81f"
+    },
+    {
+      "path": "research-media/glare.mp4",
+      "bytes": 53536,
+      "sha256": "e0573e33367864fdcbbb8be7b37e6c05fdbd75676f70ffb7f25ed987242ada6b"
+    },
+    {
+      "path": "research-media/goose-frost.jpg",
+      "bytes": 46603,
+      "sha256": "7cb0e1af9f0bb6c90779e8eb8c253a7792a3a20c4ca731fdb4e773ccb6a1ab04"
+    },
+    {
+      "path": "research-media/goose-frost.mp4",
+      "bytes": 517838,
+      "sha256": "ae5d2d68c53937582793d799785b528d2bf7252f074c29ac7a7897f283934d29"
+    },
+    {
+      "path": "research-media/grandtour-flood.jpg",
+      "bytes": 56950,
+      "sha256": "7763221efed67d444d15234206acf39dbd72364fc025919de8c7e038d77ab717"
+    },
+    {
+      "path": "research-media/grandtour-flood.mp4",
+      "bytes": 155272,
+      "sha256": "07e63fb740d163aa6d37dbe1540bf2971ad65ed1c9025931d963e1058d1a04f8"
+    },
+    {
+      "path": "research-media/grandtour-fog.jpg",
+      "bytes": 21393,
+      "sha256": "5dc2ef4e87687779ee70897fbdb62a4d48ba531205f54500714e01aff1dfc8d1"
+    },
+    {
+      "path": "research-media/grandtour-fog.mp4",
+      "bytes": 167835,
+      "sha256": "c292086d32abb1ec0d25b216a20c0f4a951266273f9798873b0409aad559132f"
+    },
+    {
+      "path": "research-media/hood.jpg",
+      "bytes": 41788,
+      "sha256": "778d0be442f8d7339f72cd8d31b2e6a1ffe85500c6b9271ab826691a14ff1bdc"
+    },
+    {
+      "path": "research-media/hood.mp4",
+      "bytes": 392666,
+      "sha256": "7d60a92666ab4211b2a4f4997999ccda9373ba976f43fa8d0ad0a8719554d075"
+    },
+    {
+      "path": "research-media/impala-blue-hour.jpg",
+      "bytes": 41921,
+      "sha256": "14df5b1ceeb5ffd1e7fd0271c7cc20885c819b6fde997b450c2681f590a08011"
+    },
+    {
+      "path": "research-media/impala-blue-hour.mp4",
+      "bytes": 194414,
+      "sha256": "ddc5cfd726ec74f8de2ac669890d1cbf470ee0805a885d39d581b78986eb306a"
+    },
+    {
+      "path": "research-media/impala-flood.jpg",
+      "bytes": 52180,
+      "sha256": "07752c5ad86c9051d4152b17f322c6444a6fe8e0574b5d7f545c31af5e0a42cd"
+    },
+    {
+      "path": "research-media/impala-flood.mp4",
+      "bytes": 261147,
+      "sha256": "285c6b8604feef865113a321232ace89e1154e4fbe3a3c5b52237fb4386147c6"
+    },
+    {
+      "path": "research-media/impala-fog.jpg",
+      "bytes": 40798,
+      "sha256": "9517f043a99751aed9b0a97573e616541bacf4a36fee6bea1b6dd8f051a0a1bc"
+    },
+    {
+      "path": "research-media/impala-fog.mp4",
+      "bytes": 188091,
+      "sha256": "634585b9f52d93d86af409c7ffd0dab5604d7b9d29a41cbd8684dfea09fc855d"
+    },
+    {
+      "path": "research-media/nano-tuning.jpg",
+      "bytes": 50045,
+      "sha256": "f87129161be2b72831a1f41eacf92afe4922de7cb45605a6895a9ff447a19746"
+    },
+    {
+      "path": "research-media/nano-tuning.mp4",
+      "bytes": 311225,
+      "sha256": "4937ef30c5a296fd9585ddea703d8ec3fb19cbe00707bca0fd35fd6ed84130b3"
+    },
+    {
+      "path": "research-media/prompt-test.jpg",
+      "bytes": 31948,
+      "sha256": "d5369b66974582280bc1e15f74ea724633a35e1df2c0df9007ef5143db55d85f"
+    },
+    {
+      "path": "research-media/prompt-test.mp4",
+      "bytes": 173042,
+      "sha256": "0df86ab32d7029247329bab15dd5c1bfb9434bfa637a906c9564cd245e93bbb2"
+    },
+    {
+      "path": "research-media/rail-wall.jpg",
+      "bytes": 66825,
+      "sha256": "9a57b338f166f1f326ab1f27e2239534968564dc9d0e62c1327a002fca5f8d98"
+    },
+    {
+      "path": "research-media/rail-wall.mp4",
+      "bytes": 71760,
+      "sha256": "ed4d3a915dc225d49cacbe747ae0af394b7922acd4319026a4aad829830b68a4"
+    },
+    {
+      "path": "research-media/rain.jpg",
+      "bytes": 23819,
+      "sha256": "106d2d612bf283dd44d4c83adced2086a3bbbce1b8872e3b511c79c27fa7d427"
+    },
+    {
+      "path": "research-media/rain.mp4",
+      "bytes": 177272,
+      "sha256": "bf63292e8b03b4ef63b071619c00a0a7f56b8168a39c58f4a36dcb35251a6a8b"
+    },
+    {
+      "path": "research-media/snow-reference.jpg",
+      "bytes": 68849,
+      "sha256": "c6c03e9e990c1fb8c3355f2102ce0799b9eaf39650e24ea38102746d5f4f2169"
+    },
+    {
+      "path": "research-media/snow-reference.mp4",
+      "bytes": 186677,
+      "sha256": "232369c83a995afd893f76e3f74fbc6beff5b6f3a33032e4f2b6017fb99c4d9d"
+    },
+    {
+      "path": "research-media/snow.jpg",
+      "bytes": 47126,
+      "sha256": "3518c53def7dcc1fbcd69ed687ffe626b45ce3f83e12fc9edc5a61676e8a51c3"
+    },
+    {
+      "path": "research-media/snow.mp4",
+      "bytes": 504711,
+      "sha256": "ae8af24d11dd43c3eab1e6d6a8d68919f866afdc3c788318e67ad08ec4b85644"
+    },
+    {
+      "path": "research-media/tartan-flood.jpg",
+      "bytes": 52598,
+      "sha256": "76b0ff2a95288271df36f1552c0a2fa1a5566415d3746eb99f491b97ac132885"
+    },
+    {
+      "path": "research-media/tartan-flood.mp4",
+      "bytes": 602056,
+      "sha256": "9a968c083bf5ddbd8caa9d91f629befa3fc2aa7d984671381ef343ca57274ce8"
+    },
+    {
+      "path": "research-media/winter-fog.jpg",
+      "bytes": 57002,
+      "sha256": "e70a74dba25a9436d72e811789f7466e02242539acfe01b4e13a9e5160b1bc49"
+    },
+    {
+      "path": "research-media/winter-fog.mp4",
+      "bytes": 431377,
+      "sha256": "7d68a1a0d534e4b715bf4a349e6b3f16be70dcd3f536a5e30311d76abcab32ee"
+    },
+    {
+      "path": "research-media/winter-golden-hour.jpg",
+      "bytes": 49087,
+      "sha256": "4dd33172feb93b25a858d5bd7dafcb828a3aae74ba988c7d339f9827d9d6f6d3"
+    },
+    {
+      "path": "research-media/winter-golden-hour.mp4",
+      "bytes": 667993,
+      "sha256": "6012951d63e666997a938d515ea36f6c2933afc17bf1e2b57a21faed64ebaa8d"
+    },
+    {
+      "path": "research-media/winter-night-rain.jpg",
+      "bytes": 47027,
+      "sha256": "dac1e36c11a083f11cf47969be9e0664284dc1bd1366bfe0576aeab92a4194ac"
+    },
+    {
+      "path": "research-media/winter-night-rain.mp4",
+      "bytes": 645174,
+      "sha256": "dfdc82aafa61996c8bb68f9812d4737cf3e539783626e08f398964a64528fc4b"
+    },
+    {
+      "path": "research.v27.css",
+      "bytes": 14782,
+      "sha256": "30a95d7a363e51b6e19e286f22017aebd55afe6490d7709b3567436a876fac48"
+    },
+    {
+      "path": "research.v31.js",
+      "bytes": 8950,
+      "sha256": "444b73c1e0d1008048600640a73fa77ac52fee628385a20ea6da1de13ef05ca7"
+    },
+    {
+      "path": "studio-media/case-day.v31.mp4",
+      "bytes": 2553129,
+      "sha256": "cd80cd3e1b638bda7f2b69d487e6bfcb12bb0f89f0ee7effaa1e6cd4fd9bbf1f"
+    },
+    {
+      "path": "studio-media/case-day.v31.png",
+      "bytes": 312773,
+      "sha256": "12c0576b753e606c214aadde6e1564bf0fb0a10b7d5d651a0e88da90fb11bb4e"
+    },
+    {
+      "path": "studio-media/case-hood.v31.mp4",
+      "bytes": 2691734,
+      "sha256": "cc71fe864ba3a8fd5b8bf1ce2954a95ffbc6214be08b65ff9c7be93079f4070e"
+    },
+    {
+      "path": "studio-media/case-hood.v31.png",
+      "bytes": 302222,
+      "sha256": "54678b02da918b8e98bd43d2b935debd0920b4ff3453852d856f3182bda91517"
+    },
+    {
+      "path": "studio-media/closing-field-reel.v31.mp4",
+      "bytes": 11961287,
+      "sha256": "069419bd021213b0fb1646f4e10a3811361890c0f9da885a0bd4a04acb33926e"
+    },
+    {
+      "path": "studio-media/closing-field-reel.v31.png",
+      "bytes": 456131,
+      "sha256": "83325e7e02533bb7a44819edb95393ec9e9db32cdbb11a00eeaca4b19f9e323f"
+    },
+    {
+      "path": "studio-media/field-impala.v31.png",
+      "bytes": 346080,
+      "sha256": "bee397b3e23e846d05eaefaa72d7f48b9996a3052392444d7b22264d6631cfbf"
+    },
+    {
+      "path": "studio-media/field-mud.v31.png",
+      "bytes": 432558,
+      "sha256": "5c729f4bbf5a385efe81aa3240966a998b2bb5a2f4f5f9749d6958e27d7f0886"
+    },
+    {
+      "path": "studio-media/field-rain.v31.png",
+      "bytes": 282950,
+      "sha256": "d3da8ffc90f8a2f84109df6106f98bc854d5c4f71b2c97ef5c7c23d4c8860d26"
+    },
+    {
+      "path": "studio-media/field-umbrella.v31.png",
+      "bytes": 315506,
+      "sha256": "48ae3ec4f00d3ec5ab493cb06d3f48977e0c7c9c23d7579a06cabfc50083af76"
+    },
+    {
+      "path": "studio-media/hood-frame-generated.v31.png",
+      "bytes": 168730,
+      "sha256": "2fd1481d00d3dd5c8c43741a7b842b0acfd37792e63a941e9b86896dc0b836a6"
+    },
+    {
+      "path": "studio-media/hood-frame-pair.v31.png",
+      "bytes": 324365,
+      "sha256": "687b5b60ab42fc8075a83645f9248affa25e860522a3dcdc799f7381cfa3f163"
+    },
+    {
+      "path": "studio-media/hood-frame-source.v31.png",
+      "bytes": 155607,
+      "sha256": "14632dccf93ff240d0eac895dcbbc53677b1ddbf153549106ae600f90182e8df"
+    },
+    {
+      "path": "studio-media/invented-hood.v31.png",
+      "bytes": 351354,
+      "sha256": "ce2c2b40fa2e827e88f9cf5e326bd1ee69f3942d4d857211d8bd20266b85ce2c"
+    },
+    {
+      "path": "studio-media/judge-walkthrough.v31.gif",
+      "bytes": 3340099,
+      "sha256": "6bbbaf566677f2663ed27b7bea0d624bd96df090d6776d7a21cf50b82d433338"
+    },
+    {
+      "path": "studio-media/judge-walkthrough.v31.mp4",
+      "bytes": 4271057,
+      "sha256": "991374b6300f38854aba4ca3b574763e66a6e2f85df4d7c362d02afd80c30c44"
+    },
+    {
+      "path": "studio-media/judge-walkthrough.v31.png",
+      "bytes": 418359,
+      "sha256": "eaaa597b2c71b7d6f6dca1ee13230d2bd953555fa6aece9b03a87c983a54dec4"
+    },
+    {
+      "path": "studio-media/rain-01.jpg",
+      "bytes": 17513,
+      "sha256": "901fe3f38981808fe7f993ab6cf8b55ef88763c760b27fbc8b46c8e04c9c2160"
+    },
+    {
+      "path": "studio-media/rain-02.jpg",
+      "bytes": 17444,
+      "sha256": "4af077cf403becdb4267fb90d2cf4955a9f58d43ed14b074f646b154a7c2998d"
+    },
+    {
+      "path": "studio-media/rain-03.jpg",
+      "bytes": 16940,
+      "sha256": "b1eaee77bca15ac321b5426edfe0c969a3ac199c55ade02dfbc7183bacb61575"
+    },
+    {
+      "path": "studio-media/rain-04.jpg",
+      "bytes": 16628,
+      "sha256": "6080a62b866d8f7bdcd7bbdea149c388150181bd3d8de49ae5a25ab41a71c1ac"
+    },
+    {
+      "path": "studio-media/snow-01.jpg",
+      "bytes": 17520,
+      "sha256": "940755b85bef7bf62cb35572d2ac70a9cb0fd3ddb68deffd6438e28f6f5a02ab"
+    },
+    {
+      "path": "studio-media/snow-02.jpg",
+      "bytes": 17548,
+      "sha256": "08a04205ecc7fed5f54440b58f8871948652091707103061e93bcde46642c1e7"
+    },
+    {
+      "path": "studio-media/snow-03.jpg",
+      "bytes": 16927,
+      "sha256": "0e20624c80b6a24cf0a4eca2437a6c00dfc01ff9113f0e542e0c5755b0b798aa"
+    },
+    {
+      "path": "studio-media/snow-04.jpg",
+      "bytes": 16465,
+      "sha256": "79334f7b3384731f99700f7c0b069ca7b3364d58ee77a9e4dbd4c4688c1bb00a"
+    },
+    {
+      "path": "studio-media/source.jpg",
+      "bytes": 26621,
+      "sha256": "8bb391313c21c98a87ca4c6bb32e15f79107629728c00a0eb120c20811dbb8b6"
+    },
+    {
+      "path": "studio-media/trail-preview.v33.png",
+      "bytes": 184865,
+      "sha256": "924f8da73440aee9d681986b68cdee1232c03e8c770ea7246dada0219eda30af"
+    },
+    {
+      "path": "studio-media/umbrella-snow.jpg",
+      "bytes": 81173,
+      "sha256": "3b3c4fcf18cd5c125b8a958a56a8355f6c79326bec82dc524b741d2f06098cf4"
+    },
+    {
+      "path": "studio-media/umbrella-snow.mp4",
+      "bytes": 286666,
+      "sha256": "283ac8b1e60a495ee431194320c752d6150e1eecf4c4f4e5ddd0b1dda2951e49"
+    },
+    {
+      "path": "studio.v30.css",
+      "bytes": 10965,
+      "sha256": "50f79f25c3609e74611166ef75208a36aedf06bdb151ac3f9dce0a6c665995f2"
+    },
+    {
+      "path": "studio.v31.js",
+      "bytes": 2687,
+      "sha256": "9a6223cb3e8e8a18c03cb4c8a4d4f0c92c2cdbcf2cc56189a96c1c31e4aa304f"
+    },
+    {
+      "path": "styles.a8315358.css",
+      "bytes": 15130,
+      "sha256": "a8315358b507d7eae819122594eefb09f0e6dc1ddd2e24a8c5ad45fe8fb738e4"
+    },
+    {
+      "path": "teaching.html",
+      "bytes": 10938,
+      "sha256": "47937ccf9be77ef392764650e98b68540590ab9d169b43a888165d2f3746a2c1"
+    },
+    {
+      "path": "tools/collect_projector_pairs.py",
+      "bytes": 5125,
+      "sha256": "ee38875040c9767973c2455e8a27bc05af6bba32a81b1179fa0d3169eca3ba2e"
+    },
+    {
+      "path": "trail.v33.css",
+      "bytes": 3393,
+      "sha256": "9be3c4fca09251b509db1a84c7cb1ccd6dfef602e71160b6624202fc520eaf37"
+    },
+    {
+      "path": "trail.v33.js",
+      "bytes": 2723,
+      "sha256": "690cdb052d8bf7f3db85fa9c779f0afc168200e31af7038c6af7662fc94f24c4"
+    }
+  ]
+}

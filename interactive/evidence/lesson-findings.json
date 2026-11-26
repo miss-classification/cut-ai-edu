@@ -1,0 +1,33 @@
+{
+  "distinction": "Observations are from supplied lesson assets. Next tests are proposals.",
+  "findings": [
+    {
+      "topic": "Selection",
+      "lesson": "Intensity alone rewards a plume.",
+      "observation": "At N = 8, the illustrative fog rubric selects Take 07 on intensity alone. The balanced rubric selects Take 04.",
+      "next_test": "Compare both rules with independent choices on unseen drives."
+    },
+    {
+      "topic": "Target match",
+      "lesson": "Wet pavement can still miss night.",
+      "observation": "The night-rain clip received 5/5 for blind overall quality. With the target and source, the model rated condition match 2/5.",
+      "next_test": "Label wetness and time of day separately, then count failures the judge accepts."
+    },
+    {
+      "topic": "Scene structure",
+      "lesson": "A perfect score can overlook an addition.",
+      "observation": "The paired review named the striped hood yet rated structure 5/5. All 735 paired structure ratings in this batch were 5/5.",
+      "next_test": "Test additions and removals against independent labels. Measure both false acceptance and false rejection."
+    }
+  ],
+  "support": {
+    "illustrative_fog_ratings": "fog-annotations.json",
+    "hood": "hood-case.json",
+    "night_rain_record": "315464a22d1ebec3ee86",
+    "judge_records": "reviewed-data.json",
+    "paired_structure_ceiling": {
+      "paired_reviews": 735,
+      "structure_score_5": 735
+    }
+  }
+}

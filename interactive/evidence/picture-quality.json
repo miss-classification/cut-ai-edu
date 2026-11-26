@@ -1,0 +1,692 @@
+{
+  "edition": "v31",
+  "scope": "Measurements compare distributed web proxies and edited exports. Original camera and model render masters were not supplied.",
+  "supplied_showcase": {
+    "files": 339,
+    "encoded_sizes": {
+      "960,226": 56,
+      "960,318": 156,
+      "960,322": 6,
+      "960,334": 12,
+      "960,338": 7,
+      "960,416": 27,
+      "960,420": 3,
+      "960,470": 6,
+      "960,608": 8,
+      "960,622": 58
+    },
+    "original_fog_candidate_pixels": [
+      640,
+      360
+    ]
+  },
+  "preservation": {
+    "unaltered_original_mp4s_from_v30": 42,
+    "including_original_lesson_video_files": 20,
+    "original_weather_montage_pixels": [
+      960,
+      640
+    ]
+  },
+  "new_files": {
+    "reel": "studio-media/closing-field-reel.v31.mp4",
+    "reel_canvas_pixels": [
+      1024,
+      696
+    ],
+    "case_video_pixels": [
+      952,
+      248
+    ],
+    "paired_picture_pixels": [
+      472,
+      248
+    ],
+    "walkthrough_mp4_pixels": [
+      1088,
+      520
+    ],
+    "walkthrough_gif_purpose": "Reduced-size, palette-limited illustration. The MP4 is the presentation copy."
+  },
+  "crop_coordinates": {
+    "mud": {
+      "width": 472,
+      "height": 248,
+      "left": 4,
+      "right": 486,
+      "top": 50,
+      "frame_width": 960,
+      "frame_height": 318
+    },
+    "umbrella": {
+      "width": 472,
+      "height": 248,
+      "left": 4,
+      "right": 486,
+      "top": 60,
+      "frame_width": 960,
+      "frame_height": 334
+    },
+    "impala": {
+      "width": 472,
+      "height": 248,
+      "left": 4,
+      "right": 486,
+      "top": 50,
+      "frame_width": 960,
+      "frame_height": 318
+    },
+    "rain": {
+      "width": 472,
+      "height": 248,
+      "left": 4,
+      "right": 486,
+      "top": 50,
+      "frame_width": 960,
+      "frame_height": 318
+    },
+    "walkthrough": {
+      "width": 472,
+      "height": 248,
+      "left": 4,
+      "right": 486,
+      "top": 50,
+      "frame_width": 960,
+      "frame_height": 318
+    },
+    "day": {
+      "width": 472,
+      "height": 248,
+      "left": 4,
+      "right": 486,
+      "top": 50,
+      "frame_width": 960,
+      "frame_height": 318
+    },
+    "hood": {
+      "width": 472,
+      "height": 248,
+      "left": 4,
+      "right": 486,
+      "top": 50,
+      "frame_width": 960,
+      "frame_height": 318
+    }
+  },
+  "audit_method": "For each 93-frame scene, compare the decoded luma and both chroma planes with the same-size reference region. Also compare the top 3 luma rows separately. Crop bounds independently checked against the supplied compositor recipe. Source posters and the matched hood stills are pixel-identical RGB extractions.",
+  "walkthrough_sampling_beat_rgb": [
+    {
+      "mean_abs_error": 1.893,
+      "mean_squared_error": 6.942,
+      "psnr_db": 39.72,
+      "worst_frame_psnr_db": 38.6
+    },
+    {
+      "mean_abs_error": 2.132,
+      "mean_squared_error": 15.972,
+      "psnr_db": 36.1,
+      "worst_frame_psnr_db": 35.68
+    }
+  ],
+  "comparisons": [
+    {
+      "scene": "mud",
+      "view": "recorded",
+      "frames": 93,
+      "area": [
+        4,
+        50,
+        472,
+        248
+      ],
+      "destination": [
+        32,
+        204,
+        472,
+        248
+      ],
+      "luma_chroma": {
+        "Y": {
+          "mean_abs_error": 0.563,
+          "mean_squared_error": 0.791,
+          "psnr_db": 49.15,
+          "worst_frame_psnr_db": 46.45
+        },
+        "Cb": {
+          "mean_abs_error": 0.366,
+          "mean_squared_error": 0.424,
+          "psnr_db": 51.86,
+          "worst_frame_psnr_db": 50.76
+        },
+        "Cr": {
+          "mean_abs_error": 0.243,
+          "mean_squared_error": 0.257,
+          "psnr_db": 54.03,
+          "worst_frame_psnr_db": 53.39
+        }
+      },
+      "top_3_luma_rows": {
+        "mean_abs_error": 0.642,
+        "mean_squared_error": 1.01,
+        "psnr_db": 48.09,
+        "worst_frame_psnr_db": 44.38
+      }
+    },
+    {
+      "scene": "mud",
+      "view": "generated",
+      "frames": 93,
+      "area": [
+        486,
+        50,
+        472,
+        248
+      ],
+      "destination": [
+        520,
+        204,
+        472,
+        248
+      ],
+      "luma_chroma": {
+        "Y": {
+          "mean_abs_error": 0.563,
+          "mean_squared_error": 0.821,
+          "psnr_db": 48.99,
+          "worst_frame_psnr_db": 46.11
+        },
+        "Cb": {
+          "mean_abs_error": 0.273,
+          "mean_squared_error": 0.292,
+          "psnr_db": 53.47,
+          "worst_frame_psnr_db": 52.61
+        },
+        "Cr": {
+          "mean_abs_error": 0.243,
+          "mean_squared_error": 0.257,
+          "psnr_db": 54.03,
+          "worst_frame_psnr_db": 53.7
+        }
+      },
+      "top_3_luma_rows": {
+        "mean_abs_error": 0.714,
+        "mean_squared_error": 1.179,
+        "psnr_db": 47.42,
+        "worst_frame_psnr_db": 42.5
+      }
+    },
+    {
+      "scene": "umbrella",
+      "view": "recorded",
+      "frames": 93,
+      "area": [
+        4,
+        60,
+        472,
+        248
+      ],
+      "destination": [
+        32,
+        204,
+        472,
+        248
+      ],
+      "luma_chroma": {
+        "Y": {
+          "mean_abs_error": 0.926,
+          "mean_squared_error": 1.746,
+          "psnr_db": 45.71,
+          "worst_frame_psnr_db": 42.91
+        },
+        "Cb": {
+          "mean_abs_error": 0.511,
+          "mean_squared_error": 0.678,
+          "psnr_db": 49.82,
+          "worst_frame_psnr_db": 48.31
+        },
+        "Cr": {
+          "mean_abs_error": 0.373,
+          "mean_squared_error": 0.428,
+          "psnr_db": 51.82,
+          "worst_frame_psnr_db": 51.09
+        }
+      },
+      "top_3_luma_rows": {
+        "mean_abs_error": 1.198,
+        "mean_squared_error": 2.718,
+        "psnr_db": 43.79,
+        "worst_frame_psnr_db": 41.62
+      }
+    },
+    {
+      "scene": "umbrella",
+      "view": "generated",
+      "frames": 93,
+      "area": [
+        486,
+        60,
+        472,
+        248
+      ],
+      "destination": [
+        520,
+        204,
+        472,
+        248
+      ],
+      "luma_chroma": {
+        "Y": {
+          "mean_abs_error": 0.713,
+          "mean_squared_error": 1.268,
+          "psnr_db": 47.1,
+          "worst_frame_psnr_db": 45.29
+        },
+        "Cb": {
+          "mean_abs_error": 0.222,
+          "mean_squared_error": 0.234,
+          "psnr_db": 54.44,
+          "worst_frame_psnr_db": 53.63
+        },
+        "Cr": {
+          "mean_abs_error": 0.212,
+          "mean_squared_error": 0.225,
+          "psnr_db": 54.6,
+          "worst_frame_psnr_db": 53.9
+        }
+      },
+      "top_3_luma_rows": {
+        "mean_abs_error": 1.169,
+        "mean_squared_error": 2.643,
+        "psnr_db": 43.91,
+        "worst_frame_psnr_db": 41.89
+      }
+    },
+    {
+      "scene": "impala",
+      "view": "recorded",
+      "frames": 93,
+      "area": [
+        4,
+        50,
+        472,
+        248
+      ],
+      "destination": [
+        32,
+        204,
+        472,
+        248
+      ],
+      "luma_chroma": {
+        "Y": {
+          "mean_abs_error": 0.736,
+          "mean_squared_error": 1.263,
+          "psnr_db": 47.12,
+          "worst_frame_psnr_db": 45.23
+        },
+        "Cb": {
+          "mean_abs_error": 0.295,
+          "mean_squared_error": 0.331,
+          "psnr_db": 52.94,
+          "worst_frame_psnr_db": 51.36
+        },
+        "Cr": {
+          "mean_abs_error": 0.267,
+          "mean_squared_error": 0.295,
+          "psnr_db": 53.43,
+          "worst_frame_psnr_db": 52.03
+        }
+      },
+      "top_3_luma_rows": {
+        "mean_abs_error": 1.106,
+        "mean_squared_error": 2.418,
+        "psnr_db": 44.3,
+        "worst_frame_psnr_db": 40.96
+      }
+    },
+    {
+      "scene": "impala",
+      "view": "generated",
+      "frames": 93,
+      "area": [
+        486,
+        50,
+        472,
+        248
+      ],
+      "destination": [
+        520,
+        204,
+        472,
+        248
+      ],
+      "luma_chroma": {
+        "Y": {
+          "mean_abs_error": 0.443,
+          "mean_squared_error": 0.6,
+          "psnr_db": 50.35,
+          "worst_frame_psnr_db": 48.68
+        },
+        "Cb": {
+          "mean_abs_error": 0.276,
+          "mean_squared_error": 0.316,
+          "psnr_db": 53.13,
+          "worst_frame_psnr_db": 51.82
+        },
+        "Cr": {
+          "mean_abs_error": 0.259,
+          "mean_squared_error": 0.299,
+          "psnr_db": 53.37,
+          "worst_frame_psnr_db": 51.82
+        }
+      },
+      "top_3_luma_rows": {
+        "mean_abs_error": 0.671,
+        "mean_squared_error": 1.089,
+        "psnr_db": 47.76,
+        "worst_frame_psnr_db": 44.18
+      }
+    },
+    {
+      "scene": "rain",
+      "view": "recorded",
+      "frames": 93,
+      "area": [
+        4,
+        50,
+        472,
+        248
+      ],
+      "destination": [
+        32,
+        204,
+        472,
+        248
+      ],
+      "luma_chroma": {
+        "Y": {
+          "mean_abs_error": 1.104,
+          "mean_squared_error": 2.654,
+          "psnr_db": 43.89,
+          "worst_frame_psnr_db": 42.03
+        },
+        "Cb": {
+          "mean_abs_error": 0.185,
+          "mean_squared_error": 0.195,
+          "psnr_db": 55.22,
+          "worst_frame_psnr_db": 54.04
+        },
+        "Cr": {
+          "mean_abs_error": 0.168,
+          "mean_squared_error": 0.179,
+          "psnr_db": 55.6,
+          "worst_frame_psnr_db": 54.54
+        }
+      },
+      "top_3_luma_rows": {
+        "mean_abs_error": 1.027,
+        "mean_squared_error": 2.346,
+        "psnr_db": 44.43,
+        "worst_frame_psnr_db": 42.03
+      }
+    },
+    {
+      "scene": "rain",
+      "view": "generated",
+      "frames": 93,
+      "area": [
+        486,
+        50,
+        472,
+        248
+      ],
+      "destination": [
+        520,
+        204,
+        472,
+        248
+      ],
+      "luma_chroma": {
+        "Y": {
+          "mean_abs_error": 0.69,
+          "mean_squared_error": 1.118,
+          "psnr_db": 47.65,
+          "worst_frame_psnr_db": 45.82
+        },
+        "Cb": {
+          "mean_abs_error": 0.344,
+          "mean_squared_error": 0.402,
+          "psnr_db": 52.08,
+          "worst_frame_psnr_db": 50.59
+        },
+        "Cr": {
+          "mean_abs_error": 0.301,
+          "mean_squared_error": 0.345,
+          "psnr_db": 52.76,
+          "worst_frame_psnr_db": 51.31
+        }
+      },
+      "top_3_luma_rows": {
+        "mean_abs_error": 0.552,
+        "mean_squared_error": 0.836,
+        "psnr_db": 48.91,
+        "worst_frame_psnr_db": 46.71
+      }
+    },
+    {
+      "scene": "four",
+      "view": "full montage",
+      "frames": 93,
+      "area": [
+        0,
+        0,
+        960,
+        640
+      ],
+      "destination": [
+        32,
+        28,
+        960,
+        640
+      ],
+      "luma_chroma": {
+        "Y": {
+          "mean_abs_error": 0.633,
+          "mean_squared_error": 1.058,
+          "psnr_db": 47.89,
+          "worst_frame_psnr_db": 45.18
+        },
+        "Cb": {
+          "mean_abs_error": 0.301,
+          "mean_squared_error": 0.352,
+          "psnr_db": 52.66,
+          "worst_frame_psnr_db": 50.95
+        },
+        "Cr": {
+          "mean_abs_error": 0.301,
+          "mean_squared_error": 0.354,
+          "psnr_db": 52.64,
+          "worst_frame_psnr_db": 50.82
+        }
+      },
+      "top_3_luma_rows": {
+        "mean_abs_error": 0.0,
+        "mean_squared_error": 0.0,
+        "psnr_db": 168.13,
+        "worst_frame_psnr_db": 168.13
+      }
+    },
+    {
+      "scene": "day",
+      "view": "recorded",
+      "frames": 93,
+      "area": [
+        4,
+        50,
+        472,
+        248
+      ],
+      "destination": [
+        0,
+        0,
+        472,
+        248
+      ],
+      "luma_chroma": {
+        "Y": {
+          "mean_abs_error": 0.774,
+          "mean_squared_error": 1.232,
+          "psnr_db": 47.23,
+          "worst_frame_psnr_db": 44.99
+        },
+        "Cb": {
+          "mean_abs_error": 0.32,
+          "mean_squared_error": 0.346,
+          "psnr_db": 52.74,
+          "worst_frame_psnr_db": 51.81
+        },
+        "Cr": {
+          "mean_abs_error": 0.256,
+          "mean_squared_error": 0.271,
+          "psnr_db": 53.8,
+          "worst_frame_psnr_db": 52.91
+        }
+      },
+      "top_3_luma_rows": {
+        "mean_abs_error": 0.887,
+        "mean_squared_error": 1.603,
+        "psnr_db": 46.08,
+        "worst_frame_psnr_db": 43.41
+      }
+    },
+    {
+      "scene": "day",
+      "view": "generated",
+      "frames": 93,
+      "area": [
+        486,
+        50,
+        472,
+        248
+      ],
+      "destination": [
+        480,
+        0,
+        472,
+        248
+      ],
+      "luma_chroma": {
+        "Y": {
+          "mean_abs_error": 0.851,
+          "mean_squared_error": 1.442,
+          "psnr_db": 46.54,
+          "worst_frame_psnr_db": 44.6
+        },
+        "Cb": {
+          "mean_abs_error": 0.414,
+          "mean_squared_error": 0.472,
+          "psnr_db": 51.39,
+          "worst_frame_psnr_db": 50.55
+        },
+        "Cr": {
+          "mean_abs_error": 0.312,
+          "mean_squared_error": 0.335,
+          "psnr_db": 52.88,
+          "worst_frame_psnr_db": 52.19
+        }
+      },
+      "top_3_luma_rows": {
+        "mean_abs_error": 0.975,
+        "mean_squared_error": 1.876,
+        "psnr_db": 45.4,
+        "worst_frame_psnr_db": 42.21
+      }
+    },
+    {
+      "scene": "hood",
+      "view": "recorded",
+      "frames": 93,
+      "area": [
+        4,
+        50,
+        472,
+        248
+      ],
+      "destination": [
+        0,
+        0,
+        472,
+        248
+      ],
+      "luma_chroma": {
+        "Y": {
+          "mean_abs_error": 0.769,
+          "mean_squared_error": 1.228,
+          "psnr_db": 47.24,
+          "worst_frame_psnr_db": 45.21
+        },
+        "Cb": {
+          "mean_abs_error": 0.369,
+          "mean_squared_error": 0.422,
+          "psnr_db": 51.87,
+          "worst_frame_psnr_db": 50.7
+        },
+        "Cr": {
+          "mean_abs_error": 0.326,
+          "mean_squared_error": 0.361,
+          "psnr_db": 52.56,
+          "worst_frame_psnr_db": 51.44
+        }
+      },
+      "top_3_luma_rows": {
+        "mean_abs_error": 0.925,
+        "mean_squared_error": 1.71,
+        "psnr_db": 45.8,
+        "worst_frame_psnr_db": 43.69
+      }
+    },
+    {
+      "scene": "hood",
+      "view": "generated",
+      "frames": 93,
+      "area": [
+        486,
+        50,
+        472,
+        248
+      ],
+      "destination": [
+        480,
+        0,
+        472,
+        248
+      ],
+      "luma_chroma": {
+        "Y": {
+          "mean_abs_error": 0.89,
+          "mean_squared_error": 1.579,
+          "psnr_db": 46.15,
+          "worst_frame_psnr_db": 44.47
+        },
+        "Cb": {
+          "mean_abs_error": 0.43,
+          "mean_squared_error": 0.502,
+          "psnr_db": 51.12,
+          "worst_frame_psnr_db": 50.1
+        },
+        "Cr": {
+          "mean_abs_error": 0.404,
+          "mean_squared_error": 0.458,
+          "psnr_db": 51.52,
+          "worst_frame_psnr_db": 50.63
+        }
+      },
+      "top_3_luma_rows": {
+        "mean_abs_error": 0.925,
+        "mean_squared_error": 1.642,
+        "psnr_db": 45.98,
+        "worst_frame_psnr_db": 43.69
+      }
+    }
+  ]
+}

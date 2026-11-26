@@ -1,0 +1,138 @@
+{
+  "fps": 16,
+  "duration_seconds": 29.0625,
+  "chapters": [
+    {
+      "start": 0.0,
+      "end": 5.8125,
+      "title": "Flooded mud",
+      "inspection": "Follow the gravel road where water covers the ruts.",
+      "source": {
+        "file": "research-media/grandtour-flood.mp4",
+        "poster": "research-media/grandtour-flood.jpg",
+        "dataset": "GrandTour",
+        "seed": 202,
+        "supplied_file": "show_grandtour_web/grandtour_ba_31_flooded_mud.mp4",
+        "attribution": "ETH Zurich Robotic Systems Lab",
+        "source_url": "https://grandtour.leggedrobotics.com/",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sha256": "07e63fb740d163aa6d37dbe1540bf2971ad65ed1c9025931d963e1058d1a04f8",
+        "modifications": "Supplied side-by-side comparison with resampled source footage and a generated weather or lighting variant. Original credits retained. Video bytes unchanged in this revision."
+      },
+      "edit": "Matched 472 × 248 picture areas placed 1:1; labels and credits sit outside both panels."
+    },
+    {
+      "start": 5.8125,
+      "end": 11.625,
+      "title": "From umbrellas to snow",
+      "inspection": "Follow the pedestrians as the wet pavement turns white.",
+      "source": {
+        "dataset": "GrandTour",
+        "attribution": "ETH Zurich Robotic Systems Lab",
+        "source_url": "https://grandtour.leggedrobotics.com/",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "supplied_file": "grandtour/before_after_blizzard_whiteout_2024-10-01-11-29-55.mp4",
+        "sha256": "283ac8b1e60a495ee431194320c752d6150e1eecf4c4f4e5ddd0b1dda2951e49"
+      },
+      "edit": "Matched 472 × 248 picture areas placed 1:1; labels and credits sit outside both panels."
+    },
+    {
+      "start": 11.625,
+      "end": 17.4375,
+      "title": "An impala at dusk",
+      "inspection": "Track the animal’s legs and silhouette through the crossing.",
+      "source": {
+        "file": "research-media/impala-blue-hour.mp4",
+        "poster": "research-media/impala-blue-hour.jpg",
+        "dataset": "Wikimedia Commons",
+        "seed": 303,
+        "supplied_file": "show_commons_web/commons_ba_01_blue_hour_dusk.mp4",
+        "attribution": "Addshore",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Nairobi_National_Park_(August_2025)_Crossing.webm",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "sha256": "ddc5cfd726ec74f8de2ac669890d1cbf470ee0805a885d39d581b78986eb306a",
+        "modifications": "Supplied side-by-side comparison with resampled source footage and a generated weather or lighting variant. Original credits retained. Video bytes unchanged in this revision."
+      },
+      "edit": "Matched 472 × 248 picture areas placed 1:1; labels and credits sit outside both panels."
+    },
+    {
+      "start": 17.4375,
+      "end": 23.25,
+      "title": "Night rain on a forest road",
+      "inspection": "Compare the car’s path with its reflections on the wet road.",
+      "source": {
+        "file": "research-media/winter-night-rain.mp4",
+        "poster": "research-media/winter-night-rain.jpg",
+        "dataset": "Wikimedia Commons",
+        "seed": 101,
+        "supplied_file": "show_commons_web/commons_ba_13_night_rain.mp4",
+        "attribution": "Vladislav Sanikovich",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Aerial_views_of_a_car_driving_in_snow_through_a_forest.webm",
+        "license": "CC BY 3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/",
+        "sha256": "dfdc82aafa61996c8bb68f9812d4737cf3e539783626e08f398964a64528fc4b",
+        "modifications": "Supplied side-by-side comparison with resampled source footage and a generated weather or lighting variant. Original credits retained. Video bytes unchanged in this revision."
+      },
+      "edit": "Matched 472 × 248 picture areas placed 1:1; labels and credits sit outside both panels."
+    },
+    {
+      "start": 23.25,
+      "end": 29.0625,
+      "title": "One drive, four conditions",
+      "inspection": "Which visible change would make you reject a clip?",
+      "source": {
+        "file": "media/montage-rain-fog-night-clear.mp4",
+        "sha256": "9dbdc33cc61da1d7bbd262b73d0cdab624a2e107a63a3843d345f89c5da1f78d",
+        "dataset": "Original lesson",
+        "source_url": "https://github.com/miss-classification/cut-ai-edu",
+        "attribution": "CUT! Best-of-N Studio; see original media attribution and third-party notices."
+      },
+      "edit": "Original four-panel raster, 960 × 640, placed at native size."
+    }
+  ],
+  "walkthrough_frames": {
+    "file": "research-media/flood.mp4",
+    "poster": "research-media/flood.jpg",
+    "dataset": "GOOSE",
+    "attribution": "Fraunhofer IOSB, UniBW Munich, University of Koblenz",
+    "source_url": "https://goose-dataset.de/",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "seed": 101,
+    "supplied_file": "show_goose_web/goose_ba_12_flooded_mud.mp4",
+    "sha256": "02917dab40547dabce92cf36fc5dd7b6efb505e4de1ac37a344d3b182ad789e3",
+    "modifications": "Supplied side-by-side or multi-panel comparison of resampled source footage and generated variants. Original credits retained. Video bytes unchanged in this extension."
+  },
+  "study_cases": {
+    "day": {
+      "file": "research-media/day.mp4",
+      "poster": "research-media/day.jpg",
+      "dataset": "GOOSE",
+      "attribution": "Fraunhofer IOSB, UniBW Munich, University of Koblenz",
+      "source_url": "https://goose-dataset.de/",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "seed": 303,
+      "supplied_file": "fail_web/fail_04_goose_night_rain.mp4",
+      "sha256": "21e00df425674089d7b212b97bbd3a6f91aef8772ad672c7d2f9ac1b4c3a2cf0",
+      "modifications": "Supplied side-by-side or multi-panel comparison of resampled source footage and generated variants. Original credits retained. Video bytes unchanged in this extension."
+    },
+    "hood": {
+      "file": "research-media/hood.mp4",
+      "poster": "research-media/hood.jpg",
+      "dataset": "GOOSE",
+      "attribution": "Fraunhofer IOSB, UniBW Munich, University of Koblenz",
+      "source_url": "https://goose-dataset.de/",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "seed": 202,
+      "supplied_file": "fail_web/fail_11_goose_hood_frost_dawn.mp4",
+      "sha256": "7d60a92666ab4211b2a4f4997999ccda9373ba976f43fa8d0ad0a8719554d075",
+      "modifications": "Supplied side-by-side or multi-panel comparison of resampled source footage and generated variants. Original credits retained. Video bytes unchanged in this extension."
+    }
+  },
+  "note": "Source and generated panels play together. The field reel and walkthrough are edited educational comparisons. Adaptations of CC BY-SA materials retain CC BY-SA 4.0. Other source-specific terms and attribution are listed by chapter."
+}

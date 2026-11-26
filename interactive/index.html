@@ -6,52 +6,40 @@
   <meta name="theme-color" content="#080b0f">
   <meta name="description" content="A visual primer on verifier-guided test-time scaling, controllable video, Best-of-N selection, and selector design.">
   <meta name="author" content="Alicia Chua, Pawarit Laosunthara, and Eric Tang">
-  <title>CUT! A Best-of-N Audition</title>
+  <title>How Do You Test Weather You Cannot Schedule? A Visual Lesson on Verifier-Guided Test-Time Scaling for Generative Video</title>
   <link rel="stylesheet" href="styles.a8315358.css">
   <link rel="stylesheet" href="flow.88920b6c.css">
   <link rel="stylesheet" href="judge-explainer.e5fd995b.css">
   <link rel="stylesheet" href="cosmos-explainer.7427545f.css">
-</head>
+  <link rel="stylesheet" href="research.v27.css">
+  <link rel="stylesheet" href="journey.v29.css">
+  <link rel="stylesheet" href="curated.v29.css">
+<link rel="stylesheet" href="studio.v30.css"><link rel="stylesheet" href="quality.v31.css"><link rel="stylesheet" href="trail.v33.css"></head>
 <body>
   <a class="skip-link" href="#main">Skip to lesson</a>
-  <header class="topbar">
+  <header class="topbar journey-topbar">
     <a class="wordmark" href="#main" aria-label="CUT! home"><span>CUT!</span><small>Best-of-N Studio</small></a>
     <div class="top-actions">
-      <span class="live-dot"><i></i> 15-minute self-guided lesson</span>
+      <a class="cut-top-link present-link" href="present.html">Present lesson</a><span class="live-dot"><i></i> Guided visual lesson</span>
       <button class="sound-button" id="motionToggle" type="button" aria-pressed="false">Pause motion</button>
+      <a class="cut-top-link" href="#judge">Judge lab</a><a class="cut-top-link" href="evidence.html">Research notes</a>
       <button class="sound-button" id="resetLesson" type="button">Reset</button>
     </div>
   </header>
 
-  <main id="main">
-    <section class="context-stage stage lean-context" aria-labelledby="context-title">
+  <nav class="journey-nav" aria-label="Lesson chapters"><a href="#opening">Start with fog</a><a class="feature-gallery" href="#paint-the-trail">Paint the Trail Gallery</a><a href="#audition">Select a candidate</a><a href="#new-worlds">Change conditions</a><a href="#reference-check">Inspect evidence</a><a href="#judge">Judge lab</a><a href="#lessons-learned">Lessons learned</a><a href="#final-cut">The final cut</a></nav><dialog id="outputDialog" class="output-dialog" aria-labelledby="outputDialogTitle"><div><h2 id="outputDialogTitle">Generated fog</h2><button type="button" id="closeOutput">Close</button></div><video controls muted playsinline loop preload="none" aria-label="Enlarged generated weather candidate"></video></dialog><main id="main">
+    <section class="context-stage stage lean-context" id="opening" aria-labelledby="context-title">
       <div class="eyebrow"><span>NeurIPS 2026 · Education Track</span><span>Visual primer · no code required</span></div>
       <div class="lead-copy">
-        <p class="kicker">A visual lesson for autonomous driving</p>
-        <h1 id="context-title">How do you test weather<br><em>you cannot schedule?</em></h1>
+        <p class="kicker">Generative video · inference-time computation · evaluation</p>
+        <h1 id="context-title">How Do You Test Weather<br><em>You Cannot Schedule?</em></h1>
+        <p class="cut-subtitle">A Visual Lesson on Verifier-Guided Test-Time Scaling for Generative Video</p><div class="journey-core-idea"><p><b>Test-time scaling</b> means spending more computation when a model is used to solve a task.</p><p><span class="sentence">Here, <b>Best-of-N</b> generates several fog clips from one drive.</span><span class="sentence">A verifier checks the candidates and helps decide which, if any, to keep.</span></p></div>
       </div>
 
-      <div class="context-primer" aria-label="From an autonomous driving data gap to a controllable world generation system">
-        <div>
-          <span>THE PROBLEM</span>
-          <b>Critical cases are scarce</b>
-          <p>A real test fleet records whatever the road provides. It cannot safely or reliably stage dense fog, severe glare, or a nighttime hazard on demand.</p>
-        </div>
-        <i aria-hidden="true">→</i>
-        <div>
-          <span>EMERGING METHOD</span>
-          <b>Build controlled counterfactuals</b>
-          <p>Teams use simulation and generative world models to expand coverage beyond recorded miles.</p>
-        </div>
-        <i aria-hidden="true">→</i>
-        <div>
-          <span>CONCRETE IMPLEMENTATION</span>
-          <b>NVIDIA Cosmos Transfer 2.5</b>
-          <p>Transforms a recorded drive into controllable weather variants, using spatial guidance to preserve the scene across time.</p>
-        </div>
-      </div>
-      <p class="scope-note context-scope-note">Synthetic variants can probe a data pipeline. They do not certify vehicle safety.</p>
+<div class="context-primer" aria-label="Problem, method, and implementation"><div><span>THE PROBLEM</span><b>Rare weather is hard to repeat</b><p>A test fleet cannot count on dense fog appearing on the road it needs to study.</p></div><i aria-hidden="true">→</i><div><span>EMERGING METHOD</span><b>Generate a controlled variation</b><p>A video model synthesizes a sequence of frames. Text describes the change, and visual inputs guide what stays in place.</p></div><i aria-hidden="true">→</i><div><span>EXAMPLE IMPLEMENTATION</span><b>NVIDIA Cosmos Transfer 2.5</b><p>The model takes a recorded drive, an edge guide, and a fog request. A different random seed can produce a different take.</p></div></div>      <p class="scope-note context-scope-note">Synthetic variants can probe a data pipeline. They do not certify vehicle safety.</p>
 
+<div class="journey-entry"><p><b>Your task:</b> choose a fog clip, test the rule behind that choice, and defend a decision on a new scene.</p><div class="v30-route"><a class="v30-cta" href="present.html">Present the 5-minute lesson</a><a href="#challenge">Go to the fog vote</a><a href="#teaching">Classroom routes</a></div><details><summary>Learning goals and prerequisites</summary><div><p><b>Learning goals:</b> explain why more sampling changes the pool, support a choice with visual evidence, and apply a rule that can reject every take.</p><p><b>Starting knowledge:</b> no code or prior VLM experience is required. The core route suits introductory university teaching; the research notes add model and systems detail.</p><p><b>Pace:</b> allow about 15–20 minutes for the core interactions, with optional time for research notes.</p><div class="journey-definitions" aria-label="Core concepts"><p><b>Inference</b><span>A trained model produces an output from its inputs.</span></p><p><b>Test-time scaling</b><span>Extra computation is spent at inference. Here, it buys more samples.</span></p><p><b>Verifier</b><span>A verifier evaluates a candidate against stated criteria.</span></p></div>
+    </div></details></div>
       <div class="lean-episodes">
         <div class="beat-tabs" role="tablist" aria-label="3-part introduction">
           <button id="episodeTab1" type="button" role="tab" aria-selected="true" aria-controls="episode1" data-episode-target="episode1"><span>01</span>Missing cases</button>
@@ -92,7 +80,7 @@
         <article class="story-beat" id="episode2" role="tabpanel" tabindex="0" aria-labelledby="episodeTab2" hidden>
           <div class="beat-copy">
             <p class="episode-number">02 · CONTROLLED COUNTERFACTUALS</p>
-            <h2>Keep the scene. Change the weather.</h2>
+            <h2>Guide the scene. Change the weather.</h2>
             <p>Conditional world generation can build these counterfactuals. NVIDIA Cosmos Transfer 2.5 combines the original drive, a weather prompt, and an edge guide to preserve structure while restaging the conditions.</p>
             <div class="idea-chips"><span>controllable generation</span></div>
           </div>
@@ -141,9 +129,9 @@
               <div class="architecture-arrow output-arrow" aria-hidden="true"><i></i></div>
 
               <section class="architecture-output" aria-labelledby="architecture-output-title">
-                <div class="architecture-output-head"><h3 id="architecture-output-title">Output</h3><span>GENERATED VARIANT</span></div>
+                <div class="architecture-output-head"><h3 id="architecture-output-title">Output</h3><span>GENERATED VARIANT</span><a class="inspect-output" id="inspectOutput" href="media/directors_cut_take06.mp4" aria-haspopup="dialog">View larger</a></div>
                 <div class="architecture-output-frame">
-                  <video id="introWeatherVideo" src="media/directors_cut_take06.mp4" muted loop playsinline preload="metadata" data-episode-video data-loop-speed="0.82" aria-label="Restaged dashcam video with fog"></video>
+                  <video id="introWeatherVideo" controls src="media/directors_cut_take06.mp4" muted loop playsinline preload="metadata" data-episode-video data-loop-speed="0.82" aria-label="Restaged dashcam video with fog"></video>
                   <span class="output-condition"><i></i><b id="introWeatherLabel">Fog</b></span>
                 </div>
                 <div class="architecture-output-copy">
@@ -173,75 +161,45 @@
           <div class="beat-copy">
             <p class="episode-number">03 · QUALITY GATE</p>
             <h2>Generation still needs a quality gate.</h2>
-            <p>The same brief can yield weak weather, warped geometry, or unstable motion. A judge decides what enters the dataset.</p>
+            <p>The same brief can yield weak weather, warped geometry, or unstable motion. A verifier checks requirements before candidates are ranked.</p>
             <div class="idea-chips"><span>selector alignment</span></div>
           </div>
 
-          <figure class="motion-board judge-motion">
-            <div class="motion-board-head"><span>BEST-OF-N SELECTION</span><b>THE QUALITY GATE</b></div>
-            <div class="judge-motion-canvas">
-              <div class="candidate-motion-node" role="img" aria-label="A pool of unlabeled fog candidates awaiting quality review">
-                <div class="candidate-thumbs" aria-hidden="true">
-                  <video src="media/directors_cut_take01.mp4" muted loop playsinline preload="metadata" data-episode-video data-loop-speed="0.9"></video>
-                  <video src="media/directors_cut_take05.mp4" muted loop playsinline preload="metadata" data-episode-video data-loop-speed="0.9"></video>
-                  <video src="media/directors_cut_take08.mp4" muted loop playsinline preload="metadata" data-episode-video data-loop-speed="0.9"></video>
-                </div>
-                <span>N CANDIDATES</span>
-              </div>
-              <div class="signal-arrow" aria-hidden="true"><i></i><small>inspect</small></div>
-              <div class="judge-motion-node" aria-hidden="true">
-                <small>LESSON VERIFIER</small><b>Fixed illustrative ratings</b>
-                <span>weather<i style="--score:84%"></i></span>
-                <span>road<i style="--score:91%"></i></span>
-                <span>motion<i style="--score:89%"></i></span>
-                <em class="score-provenance">illustrative lesson values</em>
-              </div>
-              <div class="signal-arrow" aria-hidden="true"><i></i><small>rank</small></div>
-              <div class="kept-motion-node selection-secret" aria-hidden="true">
-                <small>REVEALED AFTER YOUR VOTE</small>
-                <div class="secret-frame"><b>?</b></div>
-                <span>SELECTED CLIP</span>
-              </div>
-              <div class="reject-flags" aria-hidden="true"><small>HARD GATE REJECTIONS</small><span>WEATHER TOO WEAK</span><span>STRUCTURE RISK</span></div>
-            </div>
-            <figcaption><b>THE LESSON</b><span>A larger pool helps only when useful candidates exist and the selector can rank them reliably.</span></figcaption>
-          </figure>
-
+<figure class="motion-board gate-worked-example"><div class="motion-board-head"><span>GATE BEFORE RANKING</span><b>ILLUSTRATIVE SCORES</b></div><div class="gate-demo"><div class="gate-demo-pool"><h3>3 candidates</h3><figure><video src="media/directors_cut_take03.mp4" muted loop playsinline preload="metadata" data-episode-video></video><figcaption>Take 03 <span>street 96</span></figcaption></figure><figure><video src="media/directors_cut_take04.mp4" muted loop playsinline preload="metadata" data-episode-video></video><figcaption>Take 04 <span>street 91</span></figcaption></figure><figure><video src="media/directors_cut_take07.mp4" muted loop playsinline preload="metadata" data-episode-video></video><figcaption>Take 07 <span>street 54</span></figcaption></figure></div><div class="gate-demo-rule"><h3>Apply a hard gate</h3><p>Minimum street fidelity</p><div class="cut-options" role="group" aria-label="Worked gate threshold"><button type="button" data-demo-gate="80" aria-pressed="true">80</button><button type="button" data-demo-gate="97" aria-pressed="false">97</button></div><p id="gateDemoReason">Take 07 is excluded before scoring. Takes 03 and 04 remain eligible.</p></div><div class="gate-demo-result" aria-live="polite"><span>THEN RANK ELIGIBLE CANDIDATES</span><b id="gateDemoResult">Take 04</b><p id="gateDemoResultNote">The balanced illustrative rubric ranks Take 04 above Take 03.</p><small>Below the gate, a high score cannot compensate.</small></div></div><figcaption><b>SELECTION OR ABSTENTION</b><span>Try threshold 97. Every candidate fails the gate, so none is selected.</span></figcaption></figure>
           <a class="beat-next" href="#challenge">Judge the clips →</a>
         </article>
       </div>
 
-      <p class="ecosystem-note">Demo outputs use Cosmos Transfer 2.5. NVIDIA directs new model development to <a href="https://github.com/NVIDIA/Cosmos" target="_blank" rel="noreferrer">Cosmos 3</a>.</p>
-      <a class="scroll-cue" href="#challenge">Start the audition <span>↓</span></a>
+      <p class="ecosystem-note">Demo outputs use Cosmos Transfer 2.5. The extended study also examines <a href="evidence.html#nano">Cosmos 3 Nano</a>.</p>
+      <a class="scroll-cue" href="#challenge">Compare the candidates <span>↓</span></a>
     </section>
 
-    <section class="hero stage" id="challenge" aria-labelledby="hero-title">
-      <div class="eyebrow"><span>01 · DIRECTOR'S CHALLENGE</span><span>About 8 seconds</span></div>
+<section class="hero stage" id="challenge" aria-labelledby="hero-title">
+      <div class="eyebrow"><span>01 · COMPARE 2 CANDIDATES</span><span>Inspect, then decide</span></div>
       <div class="hero-copy">
-        <p class="kicker">The judge is missing</p>
-        <h1 id="hero-title">Which generated video should <em>we keep?</em></h1>
-        <p class="lede">The winner enters an AV training set. Pick the version with convincing fog and an intact street.</p>
+        <h2 id="hero-title">Which fog clip would you keep?</h2>
+        <p class="lede"><span class="sentence">Both takes start with the same drive and fog request.</span><span class="sentence">Compare the haze, the lane markings, and the moving vehicles.</span></p>
       </div>
 
       <div class="cold-open-grid">
         <div class="film-frame">
           <div class="frame-head"><span><b>TAKE 03</b></span><span>A</span></div>
-          <video id="heroVideoA" src="media/directors_cut_take03.mp4" muted loop playsinline aria-label="Take 3: a sharp city street with weak fog"></video>
+          <video id="heroVideoA" src="media/directors_cut_take03.mp4" muted loop playsinline aria-label="Fog candidate 3. Inspect haze, road geometry and motion." controls="" poster="media/posters/take-03.jpg" preload="metadata"></video>
         </div>
         <div class="film-frame">
           <div class="frame-head"><span><b>TAKE 07</b></span><span>B</span></div>
-          <video id="heroVideoB" src="media/directors_cut_take07.mp4" muted loop playsinline aria-label="Take 7: a city street with a strong smoke-like fog plume"></video>
+          <video id="heroVideoB" src="media/directors_cut_take07.mp4" muted loop playsinline aria-label="Fog candidate 7. Inspect haze, road geometry and motion." controls="" poster="media/posters/take-07.jpg" preload="metadata"></video>
         </div>
       </div>
 
       <div class="hook-card">
         <div>
-          <p class="micro">CAST YOUR VOTE</p>
-          <h2>Which candidate would you keep?</h2>
+          <h2>Cast your vote</h2>
         </div>
         <div class="binary-choice" role="group" aria-label="Choose between Take 3 and Take 7">
           <button type="button" data-hook-answer="3" aria-pressed="false">A · Take 03</button>
           <button type="button" data-hook-answer="7" aria-pressed="false">B · Take 07</button>
+          <button type="button" data-hook-answer="0" aria-pressed="false">Neither</button>
           <button class="icon-button" id="heroReplay" type="button" aria-label="Replay both videos">↻</button>
         </div>
         <p id="hookFeedback" class="feedback" aria-live="polite"></p>
@@ -251,7 +209,7 @@
         <h2>You were the judge.</h2>
         <p>The generator made 2 candidates. Your priorities made the decision. Without a shared rubric, reviewers can disagree.</p>
         <div class="mini-code" aria-label="Best-of-N pseudocode">
-          <code><span>candidates</span> = generate(seeds[:N])<br><span>winner</span> = judge(candidates, rubric)</code>
+          <code><span>candidates</span> = generate(seeds[:N])<br><span>winner</span> = select(candidates, rubric)</code>
         </div>
         <div class="learning-ticket" aria-label="Learning goals">
           <span><b>Generate</b> a pool of options</span>
@@ -259,31 +217,31 @@
           <span><b>Understand</b> why more N needs a better judge</span>
         </div>
       </div>
-      <a class="scroll-cue hidden" id="startAudition" href="#audition">Open the full audition <span>↓</span></a>
+      <a class="scroll-cue hidden" id="startAudition" href="#audition">Explore the candidate pool <span>↓</span></a>
     </section>
 
     <section class="lesson-section audition" id="audition" aria-labelledby="audition-title">
       <div class="section-heading">
         <div>
-          <p class="chapter">02 · THE AUDITION</p>
-          <h2 id="audition-title">How many candidates can the judge inspect?</h2>
+          <p class="chapter">02 · EXPAND THE CANDIDATE POOL</p>
+          <h2 id="audition-title">Expand the candidate pool</h2>
         </div>
-        <p>Increasing N expands the search. It also creates more work for the judge.</p>
+        <p><span class="sentence">N is the number of takes you generate.</span><span class="sentence">Compare your options as N increases.</span></p>
       </div>
 
-      <div class="budget-console" aria-label="Best-of-N sample budget">
+      <details class="journey-background"><summary>Background: seeds, fixed settings, and test-time computation</summary><div><ul><li><b>Training</b> fits model parameters using data. <b>Inference</b> uses those parameters to generate an output.</li><li>A <b>random seed</b> initializes sampling. Different seeds can yield different outputs for the same request.</li><li>In this fog comparison, the source, prompt, model, guidance, and sampling steps stay fixed. Only the seed changes.</li><li>The pools are <b>nested</b>: N=4 contains the first 4 candidates; N=8 retains those and adds 4 more.</li><li>Test-time scaling can also allocate more denoising steps or use guided search. This lesson isolates additional samples.</li></ul><p><a href="https://openaccess.thecvf.com/content/CVPR2025/html/Ma_Scaling_Inference_Time_Compute_for_Diffusion_Models_CVPR_2025_paper.html">Ma et al., CVPR 2025</a> studies inference-time search for diffusion models. <a href="https://openaccess.thecvf.com/content/ICCV2025/html/Liu_Video-T1_Test-time_Scaling_for_Video_Generation_ICCV_2025_paper.html">Video-T1, ICCV 2025</a> extends search and verifier feedback to video.</p></div></details><div class="budget-console" aria-label="Best-of-N sample budget">
         <div class="budget-label"><span>Sample budget, N</span><output id="budgetOutput">1 take</output></div>
         <div class="budget-buttons" role="group" aria-label="Choose number of generated candidates">
           <button type="button" class="active" data-budget="1" aria-pressed="true"><b>1</b><span>first try</span></button>
           <button type="button" data-budget="2" aria-pressed="false"><b>2</b><span>1 retry</span></button>
           <button type="button" data-budget="4" aria-pressed="false"><b>4</b><span>small search</span></button>
-          <button type="button" data-budget="8" aria-pressed="false"><b>8</b><span>full audition</span></button>
+          <button type="button" data-budget="8" aria-pressed="false"><b>8</b><span>8 candidates</span></button>
         </div>
         <div class="budget-track"><i id="budgetFill"></i></div>
-        <p id="budgetNote">N=1 offers no comparison. The first sample ships.</p>
+        <p id="budgetNote">N=1 offers one candidate. It can still be rejected.</p>
       </div>
 
-      <div class="sync-bar">
+<details class="journey-background"><summary>Keep every candidate or select one?</summary><div class="pool-comparison"><article><span>RETAIN ALL N</span><b id="allNCount">1 output</b><ul><li>Keep every clip, including any failures.</li></ul></article><article><span>BEST-OF-N WITH GATES</span><b>At most 1 output</b><ul><li>Exclude clips that fail a requirement.</li><li>Keep the highest-ranked survivor, or none.</li></ul></article></div><p class="pool-cost">Both policies generate N clips. Evaluation adds work and changes what enters the collection.</p></details><div class="sync-bar">
         <div><span class="pulse"></span><strong id="visibleCount">1 take on screen</strong></div>
         <div>
           <button type="button" id="playAll">▶ Play all</button>
@@ -306,8 +264,8 @@
       <div class="section-heading reveal-heading">
         <div>
           <p class="chapter">03 · THE REVEAL</p>
-          <h2 id="reveal-title">The lesson's balanced rubric first selects Take 04 at N=4.</h2>
-        </div>
+          <h2 id="reveal-title">Take 04 ranks first.</h2>
+        <p class="reveal-note">Under the balanced rubric, it first leads at N = 4.</p></div>
         <p id="choiceComparison"></p>
       </div>
 
@@ -320,8 +278,8 @@
           <p class="micro">WHY TAKE 04?</p>
           <ul>
             <li><span>01</span><div><b>Prompt adherence</b><small>Fog spreads across the street rather than forming a local smoke cloud.</small></div></li>
-            <li><span>02</span><div><b>Structural fidelity</b><small>Road geometry, lanes, buildings, and vehicles stay coherent.</small></div></li>
-            <li><span>03</span><div><b>Temporal stability</b><small>The atmosphere and object identities remain steady through motion.</small></div></li>
+            <li><span>02</span><div><b>Structural fidelity</b><small>Inspect whether roads, lanes, buildings, and vehicles stay coherent.</small></div></li>
+            <li><span>03</span><div><b>Temporal stability</b><small>Inspect atmosphere and object identity across the clip.</small></div></li>
           </ul>
           <p class="annotation">Take 03 is sharp. It barely follows the fog prompt. Take 07 is dramatic. Its fog looks like smoke. <strong>Quality has several dimensions.</strong></p>
         </div>
@@ -330,11 +288,11 @@
       <div class="equation-card">
         <p class="micro">THE SAME IDEA, IN NOTATION</p>
         <div class="equation"><span>x<sub>1</sub>,…,x<sub>N</sub> ∼ p<sub>θ</sub>(x|c)</span><b>then</b><span>x* = arg max s(x<sub>i</sub>)</span></div>
-        <p>Research papers often call this judge a <b>verifier</b>. First apply hard gates. If no candidate is acceptable, abstain. Otherwise, score the eligible candidates with <b>s</b> and keep the highest score.</p>
+        <p><b>Weighted average:</b> multiply each criterion by its weight and divide their sum by the total weight. <b>Argmax</b> means choosing the candidate with the largest score. Research papers often call this judge a <b>verifier</b>. First apply hard gates. If no candidate is acceptable, abstain. Otherwise, score the eligible candidates with <b>s</b> and keep the highest score.</p>
       </div>
 
       <div class="n-story" aria-label="What changed as the Best-of-N budget grew">
-        <article><span>N=1</span><b>Forced choice</b><p>Take 01 wins because it is the only option.</p></article>
+        <article><span>N=1</span><b>One candidate</b><p>There is no alternative to compare. Rejection remains possible.</p></article>
         <article><span>N=2</span><b>More variety</b><p>We see a stronger atmosphere, but also a pink cast.</p></article>
         <article class="breakthrough"><span>N=4</span><b>Winner appears</b><p>Take 04 enters the pool and becomes our cut.</p></article>
         <article><span>N=8</span><b>Diminishing return</b><p>In this run, 4 more samples cost compute and the winner stays.</p></article>
@@ -345,9 +303,9 @@
       <div class="section-heading">
         <div>
           <p class="chapter">04 · THE SELECTOR BOTTLENECK</p>
-          <h2 id="selector-title">Build the judge.</h2>
+          <h2 id="selector-title">What changes the winner?</h2>
         </div>
-        <p>The videos stay fixed. Change the priorities and watch the winner change.</p>
+        <p><span class="sentence">Adjust the scoring weights or set a minimum requirement.</span></p>
       </div>
       <div class="judge-stage">
         <div class="judge-controls">
@@ -357,11 +315,11 @@
           <div class="judge-presets" role="group" aria-label="Judge presets">
             <button type="button" class="active" data-judge-preset="balanced" aria-pressed="true">Balanced</button>
             <button type="button" data-judge-preset="fidelity" aria-pressed="false">Structure first</button>
-            <button type="button" data-judge-preset="fog" aria-pressed="false">Fog only</button>
+            <button type="button" data-judge-preset="fog" aria-pressed="false">Intensity only</button>
           </div>
           <div class="judge-sliders">
             <label for="fogWeight">
-              <span><b>Weather match</b><small>Does it look like moderate fog?</small><output id="fogWeightValue" for="fogWeight">40</output></span>
+              <span><b>Atmospheric intensity</b><small>How visually strong is the atmosphere?</small><output id="fogWeightValue" for="fogWeight">40</output></span>
               <input id="fogWeight" type="range" min="0" max="100" value="40" data-judge-weight="fog">
             </label>
             <label for="structureWeight">
@@ -373,11 +331,12 @@
               <input id="stabilityWeight" type="range" min="0" max="100" value="25" data-judge-weight="stability">
             </label>
           </div>
+<details class="fog-gates"><summary>Set exclusion thresholds</summary><label for="fogStructureGate">Minimum street fidelity <output id="fogStructureGateValue">0</output><input id="fogStructureGate" type="range" min="0" max="100" value="0"></label><label for="fogStabilityGate">Minimum motion stability <output id="fogStabilityGateValue">0</output><input id="fogStabilityGate" type="range" min="0" max="100" value="0"></label><p id="fogEligible" role="status"></p><p>Try street fidelity 97. No candidate reaches it, so the selector retains none.</p></details>
           <p class="rubric-caveat">These fixed 0-to-100 values are illustrative visual ratings for the ranking exercise. Benchmark evaluation requires validated metrics and reference labels.</p>
         </div>
         <div class="judge-result" aria-live="polite">
           <div class="judge-result-head"><p class="micro">JUDGE'S PICK</p><p><b id="judgeComposite">87.7</b> / 100</p></div>
-          <video id="judgeVideo" src="media/directors_cut_take04.mp4" muted loop playsinline aria-label="Current judge winner, Take 4"></video>
+          <video id="judgeVideo" controls src="media/directors_cut_take04.mp4" muted loop playsinline aria-label="Current judge winner, Take 4"></video>
           <div class="judge-verdict">
             <span class="big-take" id="judgeTake">04</span>
             <div><h3 id="judgeTitle">Take 04</h3><p id="judgeReason">Balances the requested weather with a coherent street.</p></div>
@@ -385,9 +344,10 @@
           <div class="judge-leaderboard" id="judgeLeaderboard" aria-label="Top 3 candidates under the current rubric"></div>
         </div>
       </div>
-      <div class="warning-strip"><span>⚠</span><p><b>Try Fog only.</b> The judge rewards Take 07's smoke-like plume. More candidates give a weak judge more opportunities to optimize the wrong thing.</p></div>
+<details class="score-explanation"><summary>Inspect the evidence behind the illustrative scores</summary><div class="score-explanation-body"><p>These values make tradeoffs explicit in a teaching exercise. They were not produced by a measured metric or the VLM. Differences of a few points should not be treated as calibrated precision.</p><label for="scoreExample">Candidate to inspect</label><select id="scoreExample"><option value="1">Take 01</option><option value="2">Take 02</option><option value="3">Take 03</option><option value="4" selected>Take 04</option><option value="5">Take 05</option><option value="6">Take 06</option><option value="7">Take 07</option><option value="8">Take 08</option></select><div class="score-inspection"><video id="scoreExampleVideo" poster="media/posters/take-04.jpg" src="media/directors_cut_take04.mp4" controls muted loop playsinline preload="none" aria-label="Candidate video for inspecting the illustrative ratings"></video><div><p id="scoreObservation"></p><p id="scoreRationale"></p><p class="score-formula" id="scoreFormula"></p></div></div><details><summary>All 8 candidates and rating anchors</summary><div class="cut-table-scroll"><table><caption>Fixed teaching scores from 0 to 100</caption><thead><tr><th scope="col">Take</th><th scope="col">Intensity</th><th scope="col">Street</th><th scope="col">Stability</th></tr></thead><tbody><tr><th scope="row">01</th><td>46</td><td>91</td><td>90</td></tr><tr><th scope="row">02</th><td>72</td><td>70</td><td>64</td></tr><tr><th scope="row">03</th><td>25</td><td>96</td><td>93</td></tr><tr><th scope="row">04</th><td>84</td><td>91</td><td>89</td></tr><tr><th scope="row">05</th><td>50</td><td>89</td><td>87</td></tr><tr><th scope="row">06</th><td>58</td><td>92</td><td>90</td></tr><tr><th scope="row">07</th><td>96</td><td>54</td><td>48</td></tr><tr><th scope="row">08</th><td>86</td><td>68</td><td>61</td></tr></tbody></table></div><p><b>Intensity:</b> low values describe little atmospheric change; high values describe strong haze or plumes. <b>Street and stability:</b> high values reward apparent preservation and consistency; low values represent concerns. These are subjective anchors.</p><p>Pause and replay before judging motion. <a href="evidence/fog-annotations.json">Download the annotations and their limitations</a>.</p></details></div></details>
+      <div class="warning-strip"><span>⚠</span><p><b>Try Intensity only.</b> The judge rewards Take 07's smoke-like plume. Strong atmospheric intensity does not establish a match to moderate fog.</p></div>
 
-      <section class="judge-explainer" aria-labelledby="judge-source-title">
+      <details class="journey-method"><summary>Where can evaluation evidence come from?</summary><section class="judge-explainer" aria-labelledby="judge-source-title">
         <div class="judge-explainer-copy">
           <p class="micro">FROM LESSON TO DEPLOYMENT</p>
           <h3 id="judge-source-title">Who gives the judge its scores?</h3>
@@ -399,17 +359,17 @@
           <article><span>03</span><b>VLM review</b><small>A video-language model checks condition match and describes visible failures.</small><a href="https://proceedings.neurips.cc/paper_files/paper/2025/hash/4ec03ed08a3fcb59e1c815b5598beff1-Abstract-Datasets_and_Benchmarks_Track.html" target="_blank" rel="noreferrer">WorldModelBench, NeurIPS 2025</a></article>
           <article><span>04</span><b>Safety gate</b><small>Critical lane, object, or motion failures trigger rejection before ranking.</small></article>
         </div>
-        <p class="judge-explainer-note"><b>A VLM can contribute evidence within a broader quality gate.</b> Production signals should be calibrated against reviewed examples before they enter the decision rule. The demo uses fixed ratings; a VLM is presented as a possible extension.</p>
-      </section>
+        <p class="judge-explainer-note"><b>A VLM can contribute evidence within a broader quality gate.</b> Production signals should be calibrated against reviewed examples before they enter the decision rule. The fog exercise uses fixed ratings. <a href="#judge">Inspect actual VLM responses in the extended study.</a></p>
+      </section></details>
     </section>
 
-    <section class="lesson-section replication" id="replication" aria-labelledby="replication-title">
+<details class="journey-archive"><summary>Compare the original fog, rain, and snow runs</summary>    <section class="lesson-section replication" id="replication" aria-labelledby="replication-title">
       <div class="section-heading">
         <div>
           <p class="chapter">05 · CHANGE THE WEATHER</p>
-          <h2 id="replication-title">Roll it again: rain and snow.</h2>
+          <h2 id="replication-title">Repeat the comparison</h2>
         </div>
-        <p>Reuse the same 4 seeds. Change only the weather prompt. Variation remains.</p>
+        <p><span class="sentence">The rain and snow runs use the same 4 seeds with different weather prompts.</span></p>
       </div>
       <div class="weather-tabs" role="group" aria-label="Weather conditions">
         <button aria-pressed="true" data-weather="fog">Fog <small>8 takes</small></button>
@@ -417,13 +377,64 @@
         <button aria-pressed="false" data-weather="snow">Snow <small>4 takes</small></button>
       </div>
       <div class="weather-intro">
-        <p id="weatherPrompt">“Moderate fog fills the street… distant buildings are softened.”</p>
+        <p id="weatherPrompt">Request: add moderate fog and soften distant buildings.</p>
         <span>Compare takes under the same weather condition.</span>
       </div>
       <div class="weather-grid" id="weatherGrid"></div>
     </section>
 
-    <section class="lesson-section pipeline" id="pipeline" aria-labelledby="pipeline-title">
+</details>
+<div class="cut-lab journey-surface"><section class="cut-lab-section" id="new-worlds" aria-labelledby="worlds-title"><div class="cut-section-intro"><p class="cut-eyebrow">CONTROLLED VARIATIONS</p><h2 id="worlds-title">From city fog to flooded ground</h2><p>Which parts of the trail should survive the edit? Follow a road boundary as the camera moves.</p></div><aside class="trail-card" id="paint-the-trail" aria-labelledby="trail-title">
+  <div class="trail-intro"><img class="trail-preview" width="472" height="248" loading="lazy" src="studio-media/trail-preview.v33.png" alt="A flooded gravel track between forest trees">
+    <div><p class="trail-kicker">Interactive field gallery</p><h3 id="trail-title">Paint the Trail Gallery</h3><p class="trail-copy">Choose a weather comparison. Does the road edge stay in place as the scene changes?</p></div>
+    <div class="trail-actions"><button class="trail-load" type="button" data-trail-toggle aria-controls="trail-panel" aria-expanded="false" hidden>Explore gallery here</button><a class="trail-external" data-trail-external href="https://paint-the-trail-gallery.pages.dev/" target="_blank" rel="noopener noreferrer" aria-label="Open the Paint the Trail gallery in a new tab">Open in new tab</a></div>
+  </div>
+  <p class="trail-status" data-trail-status role="status" hidden></p>
+  <p class="trail-fallback" data-trail-fallback hidden><span data-trail-help>If the gallery stays blank, use the new-tab link above. </span><a data-trail-offline href="#selected-comparisons">Explore 10 recorded comparisons offline</a>.</p>
+  <div class="trail-panel" id="trail-panel" data-trail-panel hidden><div data-trail-frame></div></div>
+</aside>
+<div class="cut-showcase" data-showcase><div class="cut-options" role="group" aria-label="Choose a weather comparison"><button type="button" data-clip="flood" aria-pressed="true">Flooded mud</button><button type="button" data-clip="rail-wall" aria-pressed="false">Rail-yard wall</button><button type="button" data-clip="glare" aria-pressed="false">Golden hour</button><button type="button" data-clip="rain" aria-pressed="false">Night rain</button><button type="button" data-clip="snow" aria-pressed="false">Snow</button></div>
+ <figure class="cut-player"><div class="cut-player-label"><span>Recorded source <span aria-hidden="true">/</span> generated variant</span><span>Cosmos Transfer 2.5 · depth</span></div>
+ <video data-showcase-video src="research-media/flood.mp4" poster="research-media/flood.jpg" controls muted loop playsinline preload="none" aria-label="GOOSE forest path, source on the left and generated flooded mud on the right"></video>
+ <figcaption><div><b data-clip-title>Flooded mud</b><p data-clip-description>A forest path becomes a water-filled track.</p></div><span data-clip-meta>GOOSE · seed 101 · CC BY-SA 4.0</span></figcaption></figure>
+ <div class="cut-observation"><p><b>Inspect</b><span data-clip-inspect>Compare the path boundary, water surface, and apparent terrain height.</span></p><p><b>Interpret carefully</b><span data-clip-limit>Generated water has no measured depth or traversability label.</span></p></div>
+ <div class="cut-player-tools"><button type="button" data-replay>Replay comparison</button><a data-clip-download href="research-media/flood.mp4" download>Download this comparison</a></div>
+ <p class="cut-caption">Curated from 3 seeds per scene and condition. These are selected examples from a 735-render study. Their inclusion is not an acceptance-rate estimate. <a href="evidence.html#provenance">Media provenance</a></p></div>
+<details class="curated-explorer" id="selected-comparisons">
+  <summary><span><b>Explore 10 selected transformations</b><small>Flooded terrain, frost, moving wildlife, and winter roads</small></span><span class="curated-open-label">Open comparisons</span></summary>
+  <div class="curated-body">
+    <div class="curated-intro"><p class="cut-eyebrow">CHOOSE WHAT TO INSPECT</p><h3>Each scene tests a different constraint.</h3><p>Compare the recorded source on the left with the generated variant on the right. Follow one feature through time.</p></div>
+    <div class="cut-options curated-groups" role="group" aria-label="Comparison themes">
+      <button type="button" data-curated-group="terrain" aria-pressed="true">Flooded terrain</button><button type="button" data-curated-group="atmosphere" aria-pressed="false">Frost and fog</button><button type="button" data-curated-group="wildlife" aria-pressed="false">Moving wildlife</button><button type="button" data-curated-group="winter" aria-pressed="false">Winter roads</button>
+    </div>
+    <div class="curated-choices" id="curatedChoices" role="group" aria-label="Examples in the selected theme"></div>
+    <figure class="cut-player curated-player"><div class="cut-player-label"><span>Recorded source / generated variant</span><span>Cosmos Transfer 2.5 · depth</span></div><video id="curatedVideo" src="research-media/grandtour-flood.mp4" poster="research-media/grandtour-flood.jpg" controls muted loop playsinline preload="none" aria-label="GrandTour forest road, recorded source and generated flooded mud"></video><figcaption><div><b id="curatedTitle">Flooded mud</b><p id="curatedDescription">Brown water and muddy ruts replace the dry gravel surface.</p></div><span id="curatedMeta">GrandTour · seed 202</span></figcaption></figure>
+    <div class="cut-observation curated-observation" aria-live="polite"><p><b>Follow through time</b><span id="curatedPreserve">Follow the road boundary, tree trunks, and distant structures.</span></p><p><b>Inspect closely</b><span id="curatedInspect">Do water edges remain stable as the camera moves? Appearance does not establish water depth or traversability.</span></p></div>
+    <div class="cut-player-tools"><button id="curatedReplay" type="button">Replay comparison</button><a id="curatedDownload" href="research-media/grandtour-flood.mp4" download>Download comparison</a></div>
+    <p id="curatedError" class="candidate-media-error" hidden>Playback could not start. Use the download link to open this comparison.</p>
+    <p class="curated-credit"><span id="curatedAuthor">ETH Zurich Robotic Systems Lab</span> · <a id="curatedSource" href="https://grandtour.leggedrobotics.com/">Original source</a> · <a id="curatedLicense" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p>
+    <p class="cut-caption">Selections highlight changes worth inspecting. They are not validated successes or a measured acceptance rate. The Wikimedia examples come from a separate run and are outside the 735-clip judge audit below.</p>
+    <a class="curated-judge-link" href="#judge">Compare your observations with a VLM judge</a>
+  </div>
+</details>
+<p class="journey-conclusion">Follow the path, buildings, and moving objects as appearance changes. Spatial guidance provides a constraint, not a guarantee of scene preservation.</p>
+
+</section></div><div class="cut-lab journey-surface"><section class="cut-lab-section" id="reference-check" aria-labelledby="reference-title"><div class="cut-section-intro"><p class="cut-eyebrow">INSPECT THE EVIDENCE</p><h2 id="reference-title">How would you check the snow?</h2><p>Compare the generated scene with a winter recording of the same location.</p></div><div class="cut-options" role="group" aria-label="Choose an evidence comparison"><button data-evidence="snow" type="button" aria-pressed="true">Boreas · real snow</button><button data-evidence="prompt" type="button" aria-pressed="false">GOOSE · prompt test</button></div><figure class="cut-player reference-player"><div class="cut-player-label"><span id="referenceLabel">Recorded and generated snow</span><span id="referenceSource">Boreas · matched location</span></div><video id="referenceVideo" src="research-media/snow-reference.mp4" poster="research-media/snow-reference.jpg" controls muted loop playsinline preload="none" aria-label="4 panels: sunny source, generated snow with depth control, generated snow with edge control, and real snowy footage at the same road location on a different day"></video><figcaption><div><b id="referenceCaption">The same location, recorded in another season</b><p id="referenceDescription">Top left: sunny source. Top right: depth-guided generation. Bottom left: edge-guided generation. Bottom right: real snow.</p></div><a id="referenceDownload" href="research-media/snow-reference.mp4" download>Download comparison</a></figcaption></figure><div class="journey-evidence-notes"><p><b id="referenceInspectTitle">Inspect snow appearance</b><span id="referenceInspect">Compare the road surface, distant visibility, vegetation, and illumination.</span></p><p><b id="referenceLimitTitle">Account for the different day</b><span id="referenceLimit">Locations were matched using camera poses. Traffic, foliage, viewpoint, and timing differ, so the real clip is an appearance reference rather than a pixel-aligned target.</span></p></div><details id="promptDetails" hidden><summary>Why the prompt comparison matters</summary><div class="cut-details-body"><div class="journey-prompt-pair"><article><span>GENERIC REQUEST · SUMMARY</span><p>Describe a hot, dry trail with pale, cracked ground.</p></article><article><span>SCENE-AWARE REQUEST · SUMMARY</span><p>Keep asphalt dark gray, preserve the building and vehicle, and dry the vegetation around them.</p></article></div><p>The comparison holds the model and seed fixed. The prompt changes. The asphalt example exposes how broad weather language can unintentionally request a new surface material.</p><p>The scene-aware description was generated with a vision model. Its statements also need checking. These summaries are paraphrases; <a href="evidence/prompt-example.json">inspect the saved scene-aware prompt</a>.</p></div></details><div class="journey-mini-check"><p><b id="referenceQuestion">Can this real snowy drive verify every generated car and lane?</b></p><div class="cut-options" role="group" aria-label="Evidence interpretation"><button type="button" data-reference-answer="yes">Yes</button><button type="button" data-reference-answer="no">No</button></div><p id="referenceFeedback" role="status"></p></div></section></div><div class="cut-lab journey-surface"><section id="judge" class="cut-lab-section" aria-labelledby="judge-title"><div class="cut-section-intro"><p class="cut-eyebrow">THE JUDGE LAB</p><h2 id="judge-title">What does a video judge see?</h2><p>A vision-language model reads video frames alongside a written question.</p></div>
+<figure class="vlm-film"><video src="studio-media/judge-walkthrough.v31.mp4" poster="studio-media/judge-walkthrough.v31.png" controls muted playsinline preload="none" aria-label="Animated walkthrough of paired video review using the flooded trail"></video><figcaption><b>Inside a paired review</b><span>15 seconds · Recorded example · GOOSE</span></figcaption></figure>
+ <p class="cut-eyebrow v30-case-label">YOUR TURN · 2 RECORDED CASES</p><div class="cut-audit" id="judge-case"><div class="cut-options" role="group" aria-label="Choose a review case"><button type="button" data-case="hood" aria-pressed="true">1 · Frost at dawn</button><button type="button" data-case="day" aria-pressed="false">2 · Night rain</button></div>
+<figure class="cut-player"><div class="cut-player-label neutral-pair-label"><span>RECORDED SOURCE</span><span>GENERATED CANDIDATE</span></div><video id="caseVideo" src="studio-media/case-hood.v31.mp4" poster="studio-media/case-hood.v31.png" controls muted loop playsinline preload="none" aria-label="Original scene at left; generated frost at right. Inspect the foreground."></video><figcaption><div><b id="caseTitle">Case 1: frost at dawn</b><p id="caseDescription">Follow the bottom edge of the frame as the vehicle moves.</p></div><span id="caseMeta">GOOSE · seed 202 · CC BY-SA 4.0</span></figcaption></figure>
+<div class="journey-prediction"><p class="cut-eyebrow">YOUR REVIEW</p><h3 id="predictionQuestion">Does the frost edit preserve the foreground?</h3><div class="cut-options" role="group" aria-label="Record your assessment before seeing the judge"><button type="button" data-prediction="retain" aria-pressed="false">Retain for review</button><button type="button" data-prediction="reject" aria-pressed="false">Reject this candidate</button><button type="button" data-prediction="uncertain" aria-pressed="false">Need more evidence</button></div><p id="predictionFeedback" role="status">Make your own assessment, then compare it with the recorded responses.</p></div><div class="cut-reveal-prompt"><p><b>How does the model’s review compare with yours?</b></p><button type="button" id="revealJudge" aria-expanded="false" aria-controls="judgeResults">Reveal recorded judgment</button></div>
+<div id="judgeResults" hidden><div class="cut-score-grid"><div><span>Output alone: overall</span><b id="blindScore">5 / 5</b></div><div><span>Paired: structure</span><b id="structureScore">5 / 5</b></div><div><span>Paired: condition</span><b id="conditionScore">5 / 5</b></div></div><blockquote id="judgeQuote"></blockquote><p id="caseInterpretation"></p>
+<details><summary>Read the complete recorded responses</summary><div class="cut-details-body"><h4>Blind review</h4><pre id="blindJSON"></pre><h4>Paired review</h4><pre id="pairedJSON"></pre></div></details>
+<fieldset class="cut-gates"><legend>Apply explicit review rules</legend><label><input id="objectGate" type="checkbox"> Reject unrequested foreground objects</label><label><input id="weatherGate" type="checkbox"> Require the requested time of day</label><p id="gateResult" role="status">Review required. No exclusion rules are active.</p><small>Rule demonstration uses documented failure annotations. It does not run a detector or VLM in your browser.</small></fieldset></div></div>
+<details class="case-file31" id="invented-hood"><summary><span>CASE FILE 11</span> The invented racing hood</summary>
+ <p class="cf-deck">At 2.875 seconds, a thin edge is visible at the bottom of the recorded view. After the frost edit, a broad blue and pink hood covers the lower center.</p>
+ <div class="cf-pair"><figure><figcaption>Recorded source</figcaption><img src="studio-media/hood-frame-source.v31.png" width="472" height="248" loading="lazy" alt="Recorded forest track. Gravel fills the foreground, with a thin edge at the foot of the frame."></figure><figure><figcaption>Generated frost</figcaption><img src="studio-media/hood-frame-generated.v31.png" width="472" height="248" loading="lazy" alt="Generated forest track with a large striped hood across the lower center."></figure></div>
+ <div class="cf-reading"><p><b>What the model wrote</b><span>“blue and pink striped hood of the car” appears under <code>added_objects</code>.</span></p><p><b>What the model scored</b><span>Structure preservation: <strong>5/5</strong>. A rule requiring foreground objects to retain their appearance and extent would exclude this clip.</span></p></div>
+ <p class="cf-source">GOOSE · seed 202 · frame 47 of 93 · <a href="https://goose-dataset.de/">source credit</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p>
+ <p class="cf-more"><a href="research-media/hood.mp4">Play the original labelled comparison</a><a href="evidence/hood-case.json">Read the recorded response</a><a href="present.html#invented-hood">Show this case on the projector</a></p></details><details class="method-drawer"><summary>How were the ratings produced?</summary><ul><li><b>Blind:</b> the generated clip alone, sampled at 4 frames per second, with a general footage-quality question.</li><li><b>Paired:</b> source, generated clip, and target condition; both clips sampled at 3 frames per second.</li><li><b>Model:</b> Qwen3-VL-32B-Instruct, greedy decoding, up to 700 output tokens. Ratings are ordered categories from 1 to 5.</li></ul><p><a href="evidence/reviewed-data.json">Prompts and recorded results</a> · <a href="https://github.com/miss-classification/cosmos-offroad-ray/blob/1a9ac3f371b0465cdb78b4caaba4a887ad7532ab/jobs/eval_v4.py">Evaluation code</a></p></details>
+ <details class="method-drawer"><summary>What do the visual diagnostics measure?</summary><ul><li><b>Edge overlap:</b> source-edge F1 compares visible boundaries within 2 pixels. Fog can obscure a real edge.</li><li><b>Motion:</b> a source-flow warping residual measures image disagreement after motion compensation.</li><li><b>Color:</b> CIELAB chroma measures color intensity. It does not establish that the requested weather is present.</li></ul><p>The study used these custom diagnostics. VBench was not run.</p></details><section class="lessons31" id="lessons-learned" aria-labelledby="lessons31-title"><p class="cut-eyebrow">EVIDENCE AND LIMITS</p><h2 id="lessons31-title">Lessons learned</h2><div class="lr-list"><article class="lr-row"><div><span class="lr-tag">01 · SELECTION</span><h3>Intensity alone rewards a plume.</h3></div><p><b>Observed</b><span>At N = 8, the illustrative fog rubric selects Take 07 on intensity alone. The balanced rubric selects Take 04.</span></p><p><b>Next test</b><span>Compare both rules with independent choices on unseen drives.</span></p></article><article class="lr-row"><div><span class="lr-tag">02 · TARGET MATCH</span><h3>Wet pavement can still miss night.</h3></div><p><b>Observed</b><span>The night-rain clip received 5/5 for blind overall quality. With the target and source, the model rated condition match 2/5.</span></p><p><b>Next test</b><span>Label wetness and time of day separately, then count failures the judge accepts.</span></p></article><article class="lr-row"><div><span class="lr-tag">03 · SCENE STRUCTURE</span><h3>A perfect score can overlook an addition.</h3></div><p><b>Observed</b><span>The paired review named the striped hood yet rated structure 5/5. All 735 paired structure ratings in this batch were 5/5.</span></p><p><b>Next test</b><span>Test additions and removals against independent labels. Measure both false acceptance and false rejection.</span></p></article></div><details class="method-drawer lr-gaps"><summary>Open questions: timing and training value</summary><ul><li><b>Which defects fall between sampled frames?</b> Compare the 3-fps paired review with full-rate human inspection around occlusions and sudden object changes.</li><li><b>Do the variants improve perception?</b> Train comparable real-only and real-plus-synthetic baselines, then evaluate them on held-out real fog or night drives. No such downstream result is reported here.</li></ul></details><p class="cf-more"><a href="#invented-hood">Inspect the hood frame</a><a href="evidence/lesson-findings.json">Evidence behind these lessons</a></p></section><p class="v30-field-jump"><a href="#final-cut">Apply your own review in The final cut →</a></p></section>
+</div><div class="journey-deeper" id="research"><p class="chapter">CONTINUE THE INVESTIGATION</p><h2>Research notes</h2><div class="journey-research-grid"><a href="evidence.html#nano"><span>MODEL BEHAVIOR</span><b>Cosmos 3 Nano</b><p>Inspect the depth-remapping trial and the failures that remain.</p></a><a href="evidence.html#throughput"><span>SYSTEMS</span><b>Parallel generation</b><p>Explore the measured 24-request Ray benchmark and A100/B200 observations.</p></a><a href="teaching.html"><span>TEACHING &amp; REUSE</span><b>Facilitation and exercises</b><p>Session routes, learning objectives, a printable worksheet, and assessment guidance.</p></a></div></div>    <section class="lesson-section pipeline" id="pipeline" aria-labelledby="pipeline-title">
       <details class="production-details">
       <summary><span><span class="chapter">OPTIONAL · BEHIND THE CAMERA</span><b id="pipeline-title">How were the videos made?</b></span><span>Open production notes +</span></summary>
       <div class="production-body">
@@ -472,7 +483,7 @@ winner = select(takes, rubric)</code></pre>
 
     <section class="lesson-section check" id="check" aria-labelledby="check-title">
       <div class="section-heading">
-        <div><p class="chapter">06 · CHECK THE CUT</p><h2 id="check-title">Got it?</h2></div>
+        <div><p class="chapter">06 · CHECK THE CUT</p><h2 id="check-title">Check your understanding.</h2></div>
         <p>2 questions. 30 seconds.</p>
       </div>
       <div class="quiz-grid">
@@ -490,29 +501,40 @@ winner = select(takes, rubric)</code></pre>
       <div class="completion" id="completion"><span>0 / 2</span><p>Complete the knowledge check.</p></div>
     </section>
 
-    <section class="finale">
-      <p class="chapter">THE TAKEAWAY</p>
-      <h2>Generation creates <em>options</em>.<br>The judge turns options into a decision.</h2>
-      <p>The generator-selector pattern now appears in reasoning, generation, alignment, and evaluation.</p>
-      <a href="#audition" class="primary-button">Run the audition again ↑</a>
-    </section>
-
+<section class="journey-integrated-teaching" id="teaching" aria-labelledby="teaching-title"><p class="chapter">TEACHING &amp; REUSE</p><h2 id="teaching-title">Teach the lesson</h2><p>Choose a session length, then use the transfer activity to assess how learners apply the method.</p><details class="no-print"><summary>5-minute demonstration</summary><div class="cut-details-body"><p><a href="present.html">Open the projector presentation</a></p><ol class="route-list"><li><b>0:00–0:40:</b> Show how the source drive becomes a fog candidate. Introduce test-time scaling.</li><li><b>0:40–1:20:</b> Vote on 2 takes. Ask for one visual reason.</li><li><b>1:20–2:10:</b> Increase the pool to 8. Switch the rubric, then apply a street-fidelity gate of 97.</li><li><b>2:10–3:15:</b> Play the 15-second VLM walkthrough. Compare a human judgment with the recorded model response.</li><li><b>3:15–5:00:</b> Choose a final scene, reveal the edit, and name a reason to keep or reject it.</li></ol></div></details>
+<details class="no-print"><summary>15–20-minute self-guided route</summary><div class="cut-details-body"><ol class="route-list"><li><b>4 minutes:</b> opening diagram, fog vote, and sample-budget comparison.</li><li><b>3 minutes:</b> adjust the illustrative rubric and try the street-fidelity threshold of 97 to retain none.</li><li><b>3 minutes:</b> inspect flooded mud, the rail yard, and one evidence comparison.</li><li><b>5 minutes:</b> assess both judge cases, reveal recorded responses, and apply explicit rules.</li><li><b>2–5 minutes:</b> complete the worksheet or explore the model and throughput notes.</li></ol><p>These are suggested timings. Beginners may need longer.</p></div></details>
+<details class="no-print"><summary>35–40-minute classroom route</summary><div class="cut-details-body"><ol class="route-list"><li><b>0–7 minutes:</b> establish inference, conditioning, random seed, and Best-of-N. Learners record independent observations on the fog pair.</li><li><b>7–14 minutes:</b> compare N and rubric priorities. Demonstrate a threshold that excludes every candidate.</li><li><b>14–22 minutes:</b> examine the transformations and compare evidence from real snow or the prompt test.</li><li><b>22–30 minutes:</b> predict the judge's behavior. Inspect the full recorded responses and discuss the 735/735 structure-score ceiling.</li><li><b>30–40 minutes:</b> complete the worksheet in pairs, exchange critiques, and identify a held-out test for the proposed selector.</li></ol></div></details>
+<details class="no-print"><summary>Facilitation, misconceptions, and accessibility</summary><div class="cut-details-body"><ul><li><b>Before teaching:</b> test the videos and full-screen controls, choose a route, and keep the extracted site available offline.</li><li><b>More samples:</b> distinguish the best available candidate, the highest proxy score, and independently assessed usefulness.</li><li><b>Judge authority:</b> a fluent description or a score of 5 is evidence to inspect. The hood case makes the inconsistency concrete.</li><li><b>Dataset use:</b> the study does not demonstrate improved downstream perception performance or preserved ground-truth labels.</li><li><b>Accessible participation:</b> use the motion pause control, keyboard buttons, the descriptive labels, and recorded textual responses. Video descriptions support discussion but are not independent visual validation.</li><li><b>Assessment:</b> reward a justified decision and a clear evidence boundary. Do not require agreement with a predetermined favorite clip.</li></ul></div></details>
+<details><summary>Transfer activity and assessment guide</summary><section class="worksheet-start" aria-labelledby="worksheet-title"><h2 id="worksheet-title">Design a verifier for another task.</h2><p>Choose a task involving generated outputs. State what would count as useful, what would force rejection, and how you would evaluate the verifier itself.</p><form class="worksheet-grid"><label class="wide"><span>1 · Task and requested change</span><small>Example: restage a street at night while preserving road layout and vehicles.</small><textarea name="task" aria-label="Task and requested change"></textarea></label><label><span>2 · Evidence for quality</span><small>Name 2 observations or measurements. Explain what each can establish.</small><textarea name="evidence" aria-label="Evidence for quality"></textarea></label><label><span>3 · A misleading high score</span><small>Describe a plausible failure that your preferred score might miss.</small><textarea name="proxy" aria-label="Misleading high score"></textarea></label><label><span>4 · Exclusion and abstention</span><small>State a rejection rule and when no candidate should be retained.</small><textarea name="gates" aria-label="Exclusion and abstention"></textarea></label><label><span>5 · Independent validation</span><small>Describe the held-out examples and independent reviewers needed to test your rule.</small><textarea name="validation" aria-label="Independent validation"></textarea></label></form><p class="teach-note">A strong answer connects the decision rule to observable evidence and identifies a realistic way it could fail.</p></section>
+<details class="no-print"><summary>Instructor assessment guide</summary><div class="cut-details-body"><p>Use 0, 1, or 2 points per worksheet item: 0 for missing or unsupported reasoning; 1 for a plausible answer with an important gap; 2 for a clear requirement, relevant evidence, and an appropriate limitation. Total: 10 points.</p><p>For the nighttime example, a strong response distinguishes darkness and light-source behavior from generic wet-road realism. For the hood example, it identifies an unrequested foreground change despite the high score. For the real-snow comparison, it accounts for different traffic and viewpoints across days.</p><p>These are assessment anchors, not validated model scores. Accept other well-supported interpretations.</p></div></details>
+</details><p><a href="teaching.html">Open the printable guide and worksheet</a></p></section>
     <section class="credits" aria-labelledby="credits-title">
-      <h2 id="credits-title">Sources & production notes</h2>
-      <div class="credit-columns">
+      <h2 id="credits-title">Sources &amp; production notes</h2>
+      <details class="method-drawer"><summary>Open the reference list and credits</summary><div class="credit-columns">
         <div><p><b>Created for the NeurIPS 2026 Education Track.</b></p><p>Original lesson and experiment design by Alicia Chua, Pawarit Laosunthara, and Eric Tang.</p><p>Cosmos Transfer 2.5 generated the videos. Ray distributed the runs. The selection mechanism applies beyond this model and framework.</p></div>
         <div><a href="https://proceedings.iclr.cc/paper_files/paper/2025/hash/1b623663fd9b874366f3ce019fdfdd44-Abstract-Conference.html" target="_blank" rel="noreferrer">Snell et al. · Scaling LLM Test-Time Compute</a><a href="https://proceedings.neurips.cc/paper_files/paper/2025/hash/4ec03ed08a3fcb59e1c815b5598beff1-Abstract-Datasets_and_Benchmarks_Track.html" target="_blank" rel="noreferrer">Li et al. · WorldModelBench</a><a href="https://openaccess.thecvf.com/content/CVPR2025/html/Ma_Scaling_Inference_Time_Compute_for_Diffusion_Models_CVPR_2025_paper.html" target="_blank" rel="noreferrer">Ma et al. · Scaling Inference Time Compute for Diffusion Models</a><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Liu_Video-T1_Test-time_Scaling_for_Video_Generation_ICCV_2025_paper.html" target="_blank" rel="noreferrer">Liu et al. · Video-T1</a><a href="https://proceedings.neurips.cc/paper_files/paper/2025/hash/76227feb18ea0ee40bd15cf02c33e18e-Abstract-Conference.html" target="_blank" rel="noreferrer">Liu et al. · Improving Video Generation with Human Feedback</a></div>
-        <div><a href="https://huggingface.co/nvidia/Cosmos-Transfer2.5-2B" target="_blank" rel="noreferrer">NVIDIA · Cosmos Transfer 2.5 model card</a><a href="https://arxiv.org/abs/2511.00062" target="_blank" rel="noreferrer">NVIDIA · Cosmos 2.5 technical report</a><a href="https://research.nvidia.com/labs/cosmos-lab/cosmos-transfer1/" target="_blank" rel="noreferrer">NVIDIA · Conditional world generation</a><a href="https://wayve.ai/thinking/gaia-2/" target="_blank" rel="noreferrer">Wayve · GAIA-2 world model</a><a href="https://waabi.ai/research/unisim" target="_blank" rel="noreferrer">Waabi · UniSim neural simulation</a><a href="https://github.com/nvidia/cosmos" target="_blank" rel="noreferrer">NVIDIA Cosmos 3</a><a href="https://docs.ray.io/" target="_blank" rel="noreferrer">Ray documentation</a></div>
+        <div><a href="https://huggingface.co/nvidia/Cosmos-Transfer2.5-2B" target="_blank" rel="noreferrer">NVIDIA · Cosmos Transfer 2.5 model card</a><a href="https://arxiv.org/abs/2511.00062" target="_blank" rel="noreferrer">NVIDIA · Cosmos 2.5 technical report</a><a href="https://research.nvidia.com/labs/cosmos-lab/cosmos-transfer1/" target="_blank" rel="noreferrer">NVIDIA · Conditional world generation</a><a href="https://wayve.ai/thinking/gaia-2/" target="_blank" rel="noreferrer">Wayve · GAIA-2 world model</a><a href="https://waabi.ai/research/unisim" target="_blank" rel="noreferrer">Waabi · UniSim neural simulation</a><a href="https://github.com/nvidia/cosmos" target="_blank" rel="noreferrer">NVIDIA Cosmos 3</a><a href="https://www.usenix.org/conference/osdi18/presentation/moritz" target="_blank" rel="noreferrer">Moritz, Nishihara et al. · Ray (OSDI 2018)</a><a href="https://docs.ray.io/" target="_blank" rel="noreferrer">Ray documentation</a></div>
       </div>
-      <p class="license-note"><b>Built on NVIDIA Cosmos.</b> Cosmos Transfer 2.5 source uses the Apache-2.0 license. Model weights use the NVIDIA Open Model License. These videos are educational outputs from the published example input. No endorsement is implied.</p>
-    </section>
+      <p class="license-note"><b>Built on NVIDIA Cosmos.</b> Cosmos Transfer 2.5 source uses the Apache-2.0 license. Model weights use the NVIDIA Open Model License. The original fog exercise uses the published example input. Extended comparisons use attributed dataset footage. <a href="evidence.html#provenance">Media sources and licenses</a>. No endorsement is implied.</p>
+    </details></section>
 
-    <section class="closing-montage" aria-labelledby="montage-title">
-      <div class="montage-heading"><p class="chapter">A FINAL LOOK</p><h2 id="montage-title">Rain. Fog. Night. Clear.</h2></div>
-      <video src="media/montage-rain-fog-night-clear.mp4" muted loop playsinline controls preload="metadata" aria-label="4-panel montage of the same drive in rain, fog, at night, and in clear weather"></video>
-    </section>
-  </main>
-  <footer><span>CUT! Best-of-N Studio</span><span>Interactive lesson for Best-of-N selection.</span></footer>
-  <script src="app.d4694136.js"></script>
-</body>
+    <section class="field-ending" id="final-cut" aria-labelledby="final-cut-title"><header><p class="chapter">FIELD TEST · THE FINAL CUT</p><h2 id="final-cut-title">Would you keep this shot?</h2><p>Choose a scene. Reveal the edit, then defend your decision with something you can see.</p></header><div class="field-console" data-final-cut data-picture-size="native">
+ <div class="fc-tabs" role="group" aria-label="Choose a field comparison"><button type="button" data-field="impala" aria-pressed="true">Impala at dusk</button><button type="button" data-field="umbrella" aria-pressed="false">Umbrellas to snow</button><button type="button" data-field="mud" aria-pressed="false">Flooded trail</button><button type="button" data-field="rain" aria-pressed="false">Forest night rain</button></div>
+ <p class="fc-request"><b>Requested edit</b><span data-fc-target>Shift daylight to blue hour.</span></p>
+ <div class="fc-screen" data-fc-screen><video data-fc-video src="research-media/impala-blue-hour.mp4" poster="studio-media/field-impala.v31.png" aria-label="Source and generated impala crossing side by side" playsinline muted loop controls preload="none"></video><canvas data-fc-canvas width="472" height="248" hidden aria-hidden="true"></canvas><div class="fc-overlay" data-fc-overlay hidden><span data-fc-left>Recorded</span><span data-fc-right>Generated</span></div><div class="fc-divider" data-fc-divider hidden><i>‹ ›</i></div></div>
+ <div class="fc-controls"><button type="button" data-fc-play>Play scene</button><button type="button" data-fc-reveal>Reveal the edit</button><label class="fc-slider">Move divider<input data-fc-range type="range" min="0" max="100" step="1" value="100" aria-label="Position of the divider between recorded and generated footage"></label></div>
+ <p class="fc-prompt" data-fc-question>Can you still follow the impala?</p><div class="fc-verdicts" role="group" aria-label="Your retention decision"><button type="button" data-fc-vote="keep" aria-pressed="false">Keep for review</button><button type="button" data-fc-vote="reject" aria-pressed="false">Reject</button><button type="button" data-fc-vote="more" aria-pressed="false">Need more evidence</button></div>
+ <div class="fc-feedback" data-fc-feedback role="status">Name one detail in the footage that supports your choice.</div>
+ <div class="fc-links"><button type="button" class="fc-size31" data-fc-size aria-pressed="false">Enlarge picture</button><a data-fc-link href="research-media/impala-blue-hour.mp4">Open original labelled video</a><a href="evidence/field-reel.json">Sources and credits</a><small data-fc-pixels>472 × 248 per view</small></div><details class="fc-log" data-fc-log><summary>Screening log <span data-fc-count>0 / 4</span></summary><div class="fc-log-body"><p>Your decision pins the moment on screen.</p><label>Evidence for this scene <input data-fc-note type="text" maxlength="240" placeholder="Which visible detail informed your choice?" disabled></label><ul data-fc-picks aria-label="Decisions recorded in this session"></ul><button data-fc-save type="button" disabled>Save screening notes</button></div></details></div>
+  <details class="method-drawer reel-drawer"><summary>Play the 29-second closing reel</summary><video src="studio-media/closing-field-reel.v31.mp4" poster="studio-media/closing-field-reel.v31.png" muted playsinline controls preload="none" aria-label="Before-and-after reel ending with the original four weather conditions"></video><p>Flooded mud · Pedestrians in snow · Impala at dusk · Forest night rain · Original weather montage</p><p><a href="studio-media/closing-field-reel.v31.mp4" download>Download the field reel</a> · <a href="media/montage-rain-fog-night-clear.mp4">Play the original montage</a></p></details>
+  <details class="method-drawer"><summary>Field footage and attribution</summary><ul class="reel-credits"><li>Impala crossing: <a href="https://commons.wikimedia.org/wiki/File:Nairobi_National_Park_(August_2025)_Crossing.webm">Addshore, Nairobi National Park</a>, CC BY-SA 4.0.</li><li>Pedestrian crossing and flooded road: <a href="https://grandtour.leggedrobotics.com/">ETH Zurich Robotic Systems Lab, GrandTour</a>, CC BY-SA 4.0.</li><li>Forest road: <a href="https://commons.wikimedia.org/wiki/File:Aerial_views_of_a_car_driving_in_snow_through_a_forest.webm">Vladislav Sanikovich, Wikimedia Commons</a>, CC BY 3.0.</li><li>Flooded-trail judge animation: <a href="https://goose-dataset.de/">GOOSE, Fraunhofer IOSB, UniBW Munich and University of Koblenz</a>, CC BY-SA 4.0.</li></ul><p>Edited comparisons show recorded sources alongside generated variants. <a href="evidence/field-reel.json">Chapter times, original assets and licenses</a>.</p></details></section></main>
+  <footer><span>CUT! Best-of-N Studio</span><span>Guided visual lesson · v31 · 26 Nov 2026</span></footer>
+  <script src="fog.v30.js"></script>
+  <script src="research-data.v29.js"></script>
+  <script src="research.v31.js"></script>
+  <script src="curated-data.v29.js"></script>
+  <script src="curated.v29.js"></script>
+  <script src="fog-annotations.v29.js"></script>
+  <script src="journey.v31.js"></script>
+<script src="field-data.v31.js"></script><script src="field.v31.js"></script><script src="studio.v31.js"></script><script src="trail.v33.js"></script></body>
 </html>

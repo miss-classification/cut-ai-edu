@@ -21,10 +21,18 @@ The browser lesson is the primary learning artifact. The written materials suppo
 | Path | Purpose |
 | --- | --- |
 | `START_HERE.md` | Orientation, teaching routes, outcomes, and package map |
-| `interactive/index.html` | Complete offline interactive lesson |
-| `interactive/*.css` | Original layout, visual, motion, and responsive styles |
-| `interactive/*.js` | Original interaction, candidate selection, and quiz logic |
-| `interactive/media/` | Source, control, generated candidates, and closing montage |
+| `interactive/index.html` | Complete offline interactive lesson (v33, camera-ready) |
+| `interactive/present.html` | Projector mode: six stops for a poster or classroom demonstration |
+| `interactive/teaching.html` | Teaching and reuse: routes, facilitation prompts, assessment guidance, printable worksheet |
+| `interactive/evidence.html` | Evidence lab: recorded judge responses, documented failures, timings, and sources |
+| `interactive/*.css`, `interactive/*.js` | Original layout, interaction, selector, judge lab, and quiz logic |
+| `interactive/media/` | Source, control, generated fog, rain, and snow candidates, judge reel, and closing montage |
+| `interactive/studio-media/` | Judge walkthrough, documented failure cases, and field reel |
+| `interactive/research-media/` | Recorded real-versus-generated comparisons from five public sources (licenses in `interactive/evidence/media-manifest.json`) |
+| `interactive/evidence/` | Evidence inventory, recorded judge data, and media manifest |
+| `interactive/tools/` | Script used to collect the projector comparison pairs |
+| `paper/` | Camera-ready two-page paper (PDF and LaTeX source) |
+| `generation/docker/` | Container image and guide for regenerating candidates on H100 or B200 |
 
 The media folder contains 20 compressed MP4 files:
 
