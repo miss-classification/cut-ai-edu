@@ -1,5 +1,27 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
 /
-  Cache-Control: no-cache, no-store, must-revalidate
+  Cache-Control: no-cache
 
 /index.html
-  Cache-Control: no-cache, no-store, must-revalidate
+  Cache-Control: no-cache
+
+/evidence
+  Cache-Control: no-cache
+
+/evidence.html
+  Cache-Control: no-cache
+
+/teaching
+  Cache-Control: no-cache
+
+/teaching.html
+  Cache-Control: no-cache
+
+/present
+  Cache-Control: no-cache
+
+/present.html
+  Cache-Control: no-cache

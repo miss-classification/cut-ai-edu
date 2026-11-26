@@ -1,0 +1,6 @@
+{
+  "source": "configs/prompts_v4/goose_8_Asphalt_Path_surrounded_by_Snow_with_annotations__image_left_color__t1.000__e9a50aad.json",
+  "condition": "drought_summer",
+  "prompt": "It is a hot, dry midsummer day with harsh overhead sun. The paved asphalt road is dark gray and dry, with crisp edges and a light film of dust at the curbs. The snow-dusted field on the left is now parched, with straw-yellow and brown grass and dry, cracked earth. The bare trees are leafless and dusty, their branches casting short, sharp shadows. The long gray building on the right has dry, dusty walls and a roof free of snow. The yellow and white van parked nearby shows no snow, its surface dusty. The yellow road sign on the far right is clear and dry. The dark front of the vehicle's hood, visible at the very bottom edge of the frame, remains unchanged. The off-road research car drives forward on the dry track, its motion unchanged. Heat haze shimmers in the distance. Realistic, high-detail camera footage.",
+  "note": "Saved scene-aware prompt. The on-page comparison descriptions are paraphrases, not exact generic prompt text."
+}

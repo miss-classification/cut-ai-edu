@@ -1,0 +1,24 @@
+/* One comparison player keeps the expanded collection readable. */
+.cut-lab .curated-explorer{margin-top:36px;border:1px solid #45606a;border-radius:12px;background:linear-gradient(135deg,#13252b,#0c141b);overflow:hidden}
+.cut-lab .curated-explorer>summary{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px;cursor:pointer;list-style:none}
+.curated-explorer>summary::-webkit-details-marker{display:none}
+.curated-explorer>summary b{display:block;font-size:1.1rem;color:#f0f3f3;line-height:1.5}
+.curated-explorer>summary small{display:block;font-size:.9rem;line-height:1.6;color:#aabec6;margin-top:5px}
+.curated-explorer .curated-open-label{font-size:.875rem;color:#81e4db;white-space:nowrap;border:1px solid #42686c;border-radius:6px;padding:9px 12px}
+.curated-explorer[open]>summary{border-bottom:1px solid #3b5059}
+.curated-body{padding:28px}
+.curated-intro h3{font-size:1.65rem;line-height:1.3;margin:12px 0 16px}
+.curated-intro>p:last-child{max-width:780px;font-size:1rem;line-height:1.7;color:#b7c5cd}
+.curated-groups{margin-top:25px}
+.curated-choices{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 24px;padding-left:14px;border-left:2px solid #416e75}
+.curated-choices button{font:inherit;font-size:.9rem;line-height:1.4;min-height:44px;border:1px solid #425b66;background:#0b1820;color:#c8d6dd;border-radius:7px;padding:10px 14px;cursor:pointer}
+.curated-choices button:hover{border-color:#8be3dc;color:#fff}
+.curated-choices button[aria-pressed=true]{background:#244650;color:#eafffc;border-color:#7ee7e1}
+.curated-player video{width:100%;aspect-ratio:960/318;object-fit:contain;background:#04090c}
+.curated-body .curated-credit{font-size:.875rem;line-height:1.8;color:#acbdc8;margin-top:26px;overflow-wrap:anywhere}
+.curated-credit a,.curated-judge-link{color:#87e9df;text-decoration:underline;text-underline-offset:4px}
+.curated-body .cut-caption{font-size:.875rem;max-width:890px}
+.curated-judge-link{display:inline-block;margin-top:14px;font-size:1rem;line-height:1.6}
+.curated-explorer button:focus-visible,.curated-explorer>summary:focus-visible,.curated-explorer a:focus-visible{outline:3px solid #8af0e3;outline-offset:4px}
+@media(max-width:700px){.cut-lab .curated-explorer>summary{padding:20px;display:block}.curated-explorer .curated-open-label{display:inline-block;margin-top:16px}.curated-body{padding:20px 16px}.curated-intro h3{font-size:1.4rem}.curated-groups{gap:8px}.curated-groups button{flex:1 1 calc(50% - 8px)}.curated-observation{gap:20px}}
+@media print{.curated-explorer{display:none!important}}

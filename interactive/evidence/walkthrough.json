@@ -1,0 +1,34 @@
+{
+  "request_id": "87dabe390a3e2f4d6b17",
+  "dataset": "GOOSE",
+  "condition": "flooded_mud",
+  "seed": 101,
+  "review_model": "Qwen3-VL-32B-Instruct",
+  "paired_fps_per_video": 3,
+  "blind_fps": 4,
+  "paired_prompt": "Video 1 is a real camera clip. Video 2 was generated from it by a model that should keep the same scene and camera motion but show it under this target condition: Overcast day after heavy rain: muddy brown water pools fill the ruts and low parts of the ground, mud splashes, wet dark soil and glistening vegetation; standing water reflects the sky; paved roads have shallow puddles and spray..\nCompare them carefully. Return ONE JSON object and nothing else:\n{\"structure_preserved\": <1-5, same layout, terrain, objects, positions and camera motion>,\n \"condition_achieved\": <1-5, how convincingly Video 2 shows the target condition>,\n \"semantic_consistency\": <1-5, every object in Video 2 looks plausible under the target condition and nothing contradicts it>,\n \"added_objects\": [\"<objects or structures in Video 2 that are not in Video 1>\"],\n \"contradictions\": [\"<things in Video 2 that contradict the target condition or physics>\"],\n \"summary\": \"<one sentence>\"}\nUse the full 1-5 range. Be specific and strict.",
+  "blind_prompt": "Watch this video clip carefully. Judge it as camera footage. Return ONE JSON object and nothing else:\n{\"weather_and_light\": \"<short description of the weather, time of day and light you see>\",\n \"photorealism\": <1-5, 5 = indistinguishable from real camera footage>,\n \"physical_plausibility\": <1-5, do light, shadows, water, snow, reflections, materials and objects behave as in reality>,\n \"temporal_consistency\": <1-5, 5 = objects and textures stay stable, 1 = heavy morphing, flicker or popping>,\n \"overall\": <1-5>,\n \"implausible_elements\": [\"<each specific thing that does not make physical or semantic sense: floating or morphing objects, impossible light sources, objects that contradict the weather such as open umbrellas in a dry sunny scene, surfaces changing material, duplicated suns, smeared textures>\"]}\nUse the full 1-5 range. Be specific and strict.",
+  "blind": {
+    "weather_and_light": "Overcast, rainy day in a dense forest; diffused natural light with no direct sunlight; mist or fog visible in the distance; wet surfaces reflect ambient light.",
+    "photorealism": 5,
+    "physical_plausibility": 5,
+    "temporal_consistency": 5,
+    "overall": 5,
+    "implausible_elements": []
+  },
+  "paired": {
+    "structure_preserved": 5,
+    "condition_achieved": 5,
+    "semantic_consistency": 5,
+    "added_objects": [
+      "muddy brown water pools in ruts",
+      "standing water reflecting the sky",
+      "wet dark soil",
+      "glistening vegetation",
+      "mud splashes"
+    ],
+    "contradictions": [],
+    "summary": "Video 2 convincingly transforms Video 1 into an overcast, rain-soaked forest scene with muddy ruts, standing water, and glistening foliage, preserving all structural and motion elements while adding physically plausible wet conditions."
+  },
+  "animation": "Illustration using frames from the published comparison. The actual model consumed the two original clips separately. The question bubble paraphrases the recorded paired prompt."
+}

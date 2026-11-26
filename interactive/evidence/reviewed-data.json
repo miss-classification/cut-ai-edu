@@ -1,0 +1,634 @@
+{
+  "clips": [
+    {
+      "id": "flood",
+      "base": "research-media/flood",
+      "title": "Flooded mud",
+      "description": "A forest path becomes a water-filled track.",
+      "dataset": "GOOSE",
+      "seed": 101,
+      "license": "CC BY-SA 4.0",
+      "inspect": "Compare the path boundary, water surface, and apparent terrain height.",
+      "limit": "Generated water has no measured depth or traversability label.",
+      "source_file": "show_goose_web/goose_ba_12_flooded_mud.mp4"
+    },
+    {
+      "id": "rain",
+      "base": "research-media/rain",
+      "title": "Night rain",
+      "description": "An evening street becomes a wet night scene.",
+      "dataset": "Boreas",
+      "seed": 202,
+      "license": "CC BY 4.0",
+      "inspect": "Check the sky, road reflections, and the continuity of distant vehicles.",
+      "limit": "A darker image alone does not establish realistic nighttime visibility.",
+      "source_file": "show_boreas_web/boreas_ba_12_night_rain.mp4"
+    },
+    {
+      "id": "snow",
+      "base": "research-media/snow",
+      "title": "Snow",
+      "description": "A meadow track becomes snow-covered terrain.",
+      "dataset": "TartanDrive 2.0",
+      "seed": 303,
+      "license": "CC BY 4.0",
+      "inspect": "Follow the ruts and horizon as snow changes texture and visibility.",
+      "limit": "The snow appearance does not establish tire traction or surface geometry.",
+      "source_file": "show_tartan_web/tartan_ba_01_blizzard_whiteout.mp4"
+    },
+    {
+      "id": "autumn",
+      "base": "research-media/autumn",
+      "title": "Night to day",
+      "description": "A recorded night drive becomes an autumn daytime scene.",
+      "dataset": "Boreas",
+      "seed": 202,
+      "license": "CC BY 4.0",
+      "inspect": "Follow lane markings and vehicles through the lighting change.",
+      "limit": "Large appearance changes still require object and motion checks.",
+      "source_file": "show_boreas_web/boreas_ba_27_autumn_peak.mp4"
+    },
+    {
+      "id": "glare",
+      "base": "research-media/glare",
+      "title": "Sun glare",
+      "description": "A rail yard is restaged under low golden sunlight.",
+      "dataset": "GrandTour",
+      "seed": 202,
+      "license": "CC BY-SA 4.0",
+      "inspect": "Inspect the rails, shadow direction, and stability of bright regions.",
+      "limit": "Plausible-looking glare is not a calibrated camera response.",
+      "source_file": "show_grandtour_web/grandtour_ba_39_golden_hour_glare.mp4"
+    },
+    {
+      "id": "rail-wall",
+      "base": "research-media/rail-wall",
+      "title": "Rail-yard condition wall",
+      "description": "One recorded rail-yard walk and 7 selected generated conditions.",
+      "dataset": "GrandTour",
+      "seed": "see panel labels",
+      "license": "CC BY-SA 4.0",
+      "inspect": "Compare the rails, shed, and camera path across the generated conditions.",
+      "limit": "These are selected seeds. The wall does not show all attempts or a measured acceptance rate.",
+      "source_file": "show_grandtour_web/grandtour_wall_6.mp4",
+      "ratio": "960 / 322"
+    }
+  ],
+  "cases": [
+    {
+      "id": "day",
+      "base": "research-media/day",
+      "title": "Night rain stays daytime",
+      "description": "The surface becomes wet while the requested nighttime lighting is missing.",
+      "seed": 303,
+      "objectFailure": false,
+      "weatherFailure": true,
+      "request_id": "315464a22d1ebec3ee86",
+      "blind": {
+        "weather_and_light": "Overcast, rainy day in a dense forest; low light conditions with diffused natural lighting, mist or fog visible in the distance.",
+        "photorealism": 5,
+        "physical_plausibility": 5,
+        "temporal_consistency": 5,
+        "overall": 5,
+        "implausible_elements": []
+      },
+      "paired": {
+        "structure_preserved": 5,
+        "condition_achieved": 2,
+        "semantic_consistency": 2,
+        "added_objects": [
+          "rainwater flowing along the sides of the road",
+          "wet, reflective road surface",
+          "muddy ruts and puddles"
+        ],
+        "contradictions": [
+          "no visible light sources such as street lamps, vehicle lights, or building windows despite the 'night with steady rain' condition",
+          "the scene is still bright and appears to be daytime, not night",
+          "raindrops are not visible streaking through light, and there are no reflections from artificial light sources on wet surfaces"
+        ],
+        "summary": "While Video 2 correctly shows a wet, muddy road with water flowing along the sides, it fails to depict the target condition of night with steady rain and artificial lighting, as the scene remains brightly lit and lacks any visible light sources or raindrop streaks."
+      }
+    },
+    {
+      "id": "hood",
+      "base": "research-media/hood",
+      "title": "An invented hood",
+      "description": "Frost appears, but a large striped hood occupies the foreground.",
+      "seed": 202,
+      "objectFailure": true,
+      "weatherFailure": false,
+      "request_id": "88959458ef3e47d4c208",
+      "blind": {
+        "weather_and_light": "Cold, snowy morning with soft golden sunlight filtering through frost-covered trees, creating a hazy, misty atmosphere.",
+        "photorealism": 5,
+        "physical_plausibility": 5,
+        "temporal_consistency": 5,
+        "overall": 5,
+        "implausible_elements": []
+      },
+      "paired": {
+        "structure_preserved": 5,
+        "condition_achieved": 5,
+        "semantic_consistency": 5,
+        "added_objects": [
+          "hoarfrost on trees, grass, and bushes",
+          "thin frost on the road surface",
+          "pale pink and gold low sunlight",
+          "breath-like mist in the air",
+          "blue and pink striped hood of the car"
+        ],
+        "contradictions": [],
+        "summary": "Video 2 perfectly preserves the original scene structure and camera motion while convincingly transforming it into a cold, clear dawn after a hard frost, with realistic hoarfrost, mist, and golden sunlight, and no contradictions to the target condition."
+      }
+    }
+  ],
+  "scaling": [
+    {
+      "active_fraction_of_node_hours": 0.1182,
+      "active_gpu_hours": 0.5433,
+      "actor_replacements": 0,
+      "allocated_actor_gpu_hours": 0.5744,
+      "cold_start_s": 106.11,
+      "distinct_gpu_uuids": 1,
+      "distinct_hosts": 1,
+      "generation_window_s": 1958.07,
+      "infra_failures": 0,
+      "node_hours_gpu_group": 4.595,
+      "num_actors": 1,
+      "peak_mem_gb_max": 70.96,
+      "per_request_child_s_median": 79.79,
+      "per_request_child_s_min_max": [
+        79.12,
+        96.42
+      ],
+      "requests": 24,
+      "requests_per_min_generation_window": 0.735,
+      "status_counts": {
+        "generated_unreviewed": 24
+      },
+      "wall_s": 2067.75
+    },
+    {
+      "active_fraction_of_node_hours": 0.2234,
+      "active_gpu_hours": 0.5499,
+      "actor_replacements": 0,
+      "allocated_actor_gpu_hours": 0.6155,
+      "cold_start_s": 106.52,
+      "distinct_gpu_uuids": 2,
+      "distinct_hosts": 2,
+      "generation_window_s": 999.04,
+      "infra_failures": 0,
+      "node_hours_gpu_group": 2.462,
+      "num_actors": 2,
+      "peak_mem_gb_max": 70.96,
+      "per_request_child_s_median": 80.19,
+      "per_request_child_s_min_max": [
+        79.36,
+        96.62
+      ],
+      "requests": 24,
+      "requests_per_min_generation_window": 1.441,
+      "status_counts": {
+        "generated_unreviewed": 24
+      },
+      "wall_s": 1107.9
+    },
+    {
+      "active_fraction_of_node_hours": 0.4021,
+      "active_gpu_hours": 0.5584,
+      "actor_replacements": 0,
+      "allocated_actor_gpu_hours": 0.6944,
+      "cold_start_s": 105.2,
+      "distinct_gpu_uuids": 4,
+      "distinct_hosts": 4,
+      "generation_window_s": 522.19,
+      "infra_failures": 0,
+      "node_hours_gpu_group": 1.3888,
+      "num_actors": 4,
+      "peak_mem_gb_max": 70.96,
+      "per_request_child_s_median": 80.26,
+      "per_request_child_s_min_max": [
+        79.12,
+        96.7
+      ],
+      "requests": 24,
+      "requests_per_min_generation_window": 2.758,
+      "status_counts": {
+        "generated_unreviewed": 24
+      },
+      "wall_s": 624.94
+    },
+    {
+      "active_fraction_of_node_hours": 0.6495,
+      "active_gpu_hours": 0.575,
+      "actor_replacements": 0,
+      "allocated_actor_gpu_hours": 0.8853,
+      "cold_start_s": 108.04,
+      "distinct_gpu_uuids": 8,
+      "distinct_hosts": 8,
+      "generation_window_s": 280.67,
+      "infra_failures": 0,
+      "node_hours_gpu_group": 0.8853,
+      "num_actors": 8,
+      "peak_mem_gb_max": 70.96,
+      "per_request_child_s_median": 80.27,
+      "per_request_child_s_min_max": [
+        78.68,
+        98.24
+      ],
+      "requests": 24,
+      "requests_per_min_generation_window": 5.131,
+      "status_counts": {
+        "generated_unreviewed": 24
+      },
+      "wall_s": 398.39
+    }
+  ],
+  "source_commit": "1a9ac3f371b0465cdb78b4caaba4a887ad7532ab",
+  "showcase_audit": {
+    "paired_reviews": 735,
+    "structure_score_5": 735
+  },
+  "main_comparison": {
+    "means": {
+      "2.5 depth": {
+        "blind_photorealism": 4.879,
+        "blind_physical_plausibility": 4.879,
+        "blind_temporal_consistency": 4.914,
+        "blind_overall": 4.879,
+        "paired_structure_preserved": 4.983,
+        "paired_condition_achieved": 4.19,
+        "paired_semantic_consistency": 4.172,
+        "edge_f1": 0.581,
+        "warp_err": 2.533,
+        "warp_err_src": 1.434,
+        "chroma": 13.02,
+        "seconds": 166.629,
+        "n_implausible": 0.293,
+        "n_added": 2.207
+      },
+      "2.5 edge (35 steps)": {
+        "blind_photorealism": 4.845,
+        "blind_physical_plausibility": 4.828,
+        "blind_temporal_consistency": 4.845,
+        "blind_overall": 4.828,
+        "paired_structure_preserved": 4.966,
+        "paired_condition_achieved": 3.931,
+        "paired_semantic_consistency": 3.81,
+        "edge_f1": 0.744,
+        "warp_err": 1.917,
+        "warp_err_src": 1.434,
+        "chroma": 14.628,
+        "seconds": 162.83,
+        "n_implausible": 0.397,
+        "n_added": 2.172
+      },
+      "2.5 edge 0.5 + depth 0.5": {
+        "blind_photorealism": 4.793,
+        "blind_physical_plausibility": 4.741,
+        "blind_temporal_consistency": 4.741,
+        "blind_overall": 4.741,
+        "paired_structure_preserved": 5.0,
+        "paired_condition_achieved": 4.034,
+        "paired_semantic_consistency": 3.948,
+        "edge_f1": 0.67,
+        "warp_err": 2.027,
+        "warp_err_src": 1.434,
+        "chroma": 12.646,
+        "seconds": 183.436,
+        "n_implausible": 0.534,
+        "n_added": 2.172
+      },
+      "2.5 edge 1.0 + vis 0.2": {
+        "blind_photorealism": 4.81,
+        "blind_physical_plausibility": 4.776,
+        "blind_temporal_consistency": 4.897,
+        "blind_overall": 4.776,
+        "paired_structure_preserved": 5.0,
+        "paired_condition_achieved": 2.983,
+        "paired_semantic_consistency": 2.983,
+        "edge_f1": 0.839,
+        "warp_err": 2.22,
+        "warp_err_src": 1.434,
+        "chroma": 9.967,
+        "seconds": 204.611,
+        "n_implausible": 0.414,
+        "n_added": 1.121
+      },
+      "2.5 edge distilled (4 steps)": {
+        "blind_photorealism": 4.672,
+        "blind_physical_plausibility": 4.655,
+        "blind_temporal_consistency": 4.621,
+        "blind_overall": 4.655,
+        "paired_structure_preserved": 5.0,
+        "paired_condition_achieved": 3.948,
+        "paired_semantic_consistency": 3.81,
+        "edge_f1": 0.844,
+        "warp_err": 2.688,
+        "warp_err_src": 1.434,
+        "chroma": 13.682,
+        "seconds": 33.458,
+        "n_implausible": 0.724,
+        "n_added": 1.948
+      },
+      "Cosmos 3 depth": {
+        "blind_photorealism": 4.351,
+        "blind_physical_plausibility": 4.228,
+        "blind_temporal_consistency": 4.281,
+        "blind_overall": 4.246,
+        "paired_structure_preserved": 5.0,
+        "paired_condition_achieved": 3.965,
+        "paired_semantic_consistency": 3.93,
+        "edge_f1": 0.615,
+        "warp_err": 2.956,
+        "warp_err_src": 1.427,
+        "chroma": 11.17,
+        "seconds": 222.597,
+        "n_implausible": 1.421,
+        "n_added": 1.649
+      },
+      "Cosmos 3 depth+edge": {
+        "blind_photorealism": 4.228,
+        "blind_physical_plausibility": 4.211,
+        "blind_temporal_consistency": 4.228,
+        "blind_overall": 4.211,
+        "paired_structure_preserved": 5.0,
+        "paired_condition_achieved": 3.526,
+        "paired_semantic_consistency": 3.404,
+        "edge_f1": 0.85,
+        "warp_err": 2.703,
+        "warp_err_src": 1.427,
+        "chroma": 9.784,
+        "seconds": 360.048,
+        "n_implausible": 1.456,
+        "n_added": 1.123
+      },
+      "Cosmos 3 edge": {
+        "blind_photorealism": 4.719,
+        "blind_physical_plausibility": 4.719,
+        "blind_temporal_consistency": 4.737,
+        "blind_overall": 4.719,
+        "paired_structure_preserved": 4.982,
+        "paired_condition_achieved": 3.561,
+        "paired_semantic_consistency": 3.526,
+        "edge_f1": 0.901,
+        "warp_err": 2.334,
+        "warp_err_src": 1.427,
+        "chroma": 10.832,
+        "seconds": 221.852,
+        "n_implausible": 0.596,
+        "n_added": 1.368
+      }
+    },
+    "counts": {
+      "2.5 depth": {
+        "generated_unreviewed": 58,
+        "guardrail_blocked": 0
+      },
+      "2.5 edge (35 steps)": {
+        "generated_unreviewed": 58,
+        "guardrail_blocked": 0
+      },
+      "2.5 edge 0.5 + depth 0.5": {
+        "generated_unreviewed": 58,
+        "guardrail_blocked": 0
+      },
+      "2.5 edge 1.0 + vis 0.2": {
+        "generated_unreviewed": 58,
+        "guardrail_blocked": 0
+      },
+      "2.5 edge distilled (4 steps)": {
+        "generated_unreviewed": 58,
+        "guardrail_blocked": 0
+      },
+      "Cosmos 3 depth": {
+        "generated_unreviewed": 57,
+        "guardrail_blocked": 1
+      },
+      "Cosmos 3 depth+edge": {
+        "generated_unreviewed": 57,
+        "guardrail_blocked": 1
+      },
+      "Cosmos 3 edge": {
+        "generated_unreviewed": 57,
+        "guardrail_blocked": 1
+      }
+    }
+  },
+  "tuning": {
+    "means": {
+      "2.5 depth (v4)": {
+        "blind_photorealism": 4.938,
+        "blind_physical_plausibility": 4.938,
+        "blind_temporal_consistency": 4.938,
+        "blind_overall": 4.938,
+        "paired_structure_preserved": 5.0,
+        "paired_condition_achieved": 4.188,
+        "paired_semantic_consistency": 4.188,
+        "edge_f1": 0.589,
+        "warp_err": 2.355,
+        "warp_err_src": 1.182,
+        "chroma": 12.963,
+        "seconds": 164.584,
+        "n_implausible": 0.188,
+        "n_added": 2.062
+      },
+      "C3 depth (v4)": {
+        "blind_photorealism": 4.0,
+        "blind_physical_plausibility": 3.625,
+        "blind_temporal_consistency": 3.688,
+        "blind_overall": 3.688,
+        "paired_structure_preserved": 5.0,
+        "paired_condition_achieved": 4.062,
+        "paired_semantic_consistency": 4.0,
+        "edge_f1": 0.52,
+        "warp_err": 2.968,
+        "warp_err_src": 1.182,
+        "chroma": 12.188,
+        "seconds": 227.581,
+        "n_implausible": 2.5,
+        "n_added": 1.188
+      },
+      "C3 depth native": {
+        "blind_photorealism": 4.312,
+        "blind_physical_plausibility": 4.188,
+        "blind_temporal_consistency": 4.125,
+        "blind_overall": 4.188,
+        "paired_structure_preserved": 5.0,
+        "paired_condition_achieved": 4.062,
+        "paired_semantic_consistency": 4.062,
+        "edge_f1": 0.537,
+        "warp_err": 2.81,
+        "warp_err_src": 1.182,
+        "chroma": 13.891,
+        "seconds": 231.288,
+        "n_implausible": 1.75,
+        "n_added": 1.562
+      },
+      "C3 depth remap": {
+        "blind_photorealism": 4.312,
+        "blind_physical_plausibility": 4.125,
+        "blind_temporal_consistency": 4.125,
+        "blind_overall": 4.125,
+        "paired_structure_preserved": 5.0,
+        "paired_condition_achieved": 4.0,
+        "paired_semantic_consistency": 3.938,
+        "edge_f1": 0.539,
+        "warp_err": 2.547,
+        "warp_err_src": 1.182,
+        "chroma": 11.87,
+        "seconds": 230.694,
+        "n_implausible": 1.688,
+        "n_added": 1.625
+      },
+      "C3 depth remap cg1.0": {
+        "blind_photorealism": 4.438,
+        "blind_physical_plausibility": 4.25,
+        "blind_temporal_consistency": 4.188,
+        "blind_overall": 4.25,
+        "paired_structure_preserved": 5.0,
+        "paired_condition_achieved": 4.25,
+        "paired_semantic_consistency": 4.25,
+        "edge_f1": 0.371,
+        "warp_err": 1.591,
+        "warp_err_src": 1.182,
+        "chroma": 12.29,
+        "seconds": 197.65,
+        "n_implausible": 1.312,
+        "n_added": 1.062
+      },
+      "C3 depth remap+native": {
+        "blind_photorealism": 4.188,
+        "blind_physical_plausibility": 3.938,
+        "blind_temporal_consistency": 3.875,
+        "blind_overall": 3.938,
+        "paired_structure_preserved": 5.0,
+        "paired_condition_achieved": 4.125,
+        "paired_semantic_consistency": 4.062,
+        "edge_f1": 0.541,
+        "warp_err": 2.595,
+        "warp_err_src": 1.182,
+        "chroma": 13.499,
+        "seconds": 230.419,
+        "n_implausible": 1.812,
+        "n_added": 1.25
+      },
+      "C3 depth+edge (v4)": {
+        "blind_photorealism": 4.25,
+        "blind_physical_plausibility": 4.25,
+        "blind_temporal_consistency": 4.25,
+        "blind_overall": 4.25,
+        "paired_structure_preserved": 5.0,
+        "paired_condition_achieved": 3.5,
+        "paired_semantic_consistency": 3.375,
+        "edge_f1": 0.877,
+        "warp_err": 2.072,
+        "warp_err_src": 1.182,
+        "chroma": 10.883,
+        "seconds": 366.919,
+        "n_implausible": 1.562,
+        "n_added": 1.25
+      },
+      "C3 depth+edge remap": {
+        "blind_photorealism": 4.312,
+        "blind_physical_plausibility": 4.312,
+        "blind_temporal_consistency": 4.375,
+        "blind_overall": 4.312,
+        "paired_structure_preserved": 5.0,
+        "paired_condition_achieved": 3.5,
+        "paired_semantic_consistency": 3.375,
+        "edge_f1": 0.879,
+        "warp_err": 2.027,
+        "warp_err_src": 1.182,
+        "chroma": 10.606,
+        "seconds": 372.862,
+        "n_implausible": 1.312,
+        "n_added": 0.938
+      },
+      "C3 edge (v4)": {
+        "blind_photorealism": 4.812,
+        "blind_physical_plausibility": 4.812,
+        "blind_temporal_consistency": 4.812,
+        "blind_overall": 4.812,
+        "paired_structure_preserved": 5.0,
+        "paired_condition_achieved": 3.5,
+        "paired_semantic_consistency": 3.375,
+        "edge_f1": 0.926,
+        "warp_err": 1.721,
+        "warp_err_src": 1.182,
+        "chroma": 11.074,
+        "seconds": 227.188,
+        "n_implausible": 0.375,
+        "n_added": 0.938
+      },
+      "C3 edge native": {
+        "blind_photorealism": 4.75,
+        "blind_physical_plausibility": 4.75,
+        "blind_temporal_consistency": 4.75,
+        "blind_overall": 4.75,
+        "paired_structure_preserved": 5.0,
+        "paired_condition_achieved": 3.5,
+        "paired_semantic_consistency": 3.5,
+        "edge_f1": 0.927,
+        "warp_err": 1.755,
+        "warp_err_src": 1.182,
+        "chroma": 13.273,
+        "seconds": 230.812,
+        "n_implausible": 0.562,
+        "n_added": 0.812
+      }
+    },
+    "counts": {
+      "2.5 depth (v4)": {
+        "generated_unreviewed": 16
+      },
+      "C3 depth (v4)": {
+        "generated_unreviewed": 16
+      },
+      "C3 depth native": {
+        "generated_unreviewed": 16
+      },
+      "C3 depth remap": {
+        "generated_unreviewed": 16
+      },
+      "C3 depth remap cg1.0": {
+        "generated_unreviewed": 16
+      },
+      "C3 depth remap+native": {
+        "generated_unreviewed": 16
+      },
+      "C3 depth+edge (v4)": {
+        "generated_unreviewed": 16
+      },
+      "C3 depth+edge remap": {
+        "generated_unreviewed": 16
+      },
+      "C3 edge (v4)": {
+        "generated_unreviewed": 16
+      },
+      "C3 edge native": {
+        "generated_unreviewed": 16
+      }
+    }
+  },
+  "b200_probe": {
+    "clip_id": "meadows_2023-09-14-12-07-28__image_left_color__t3.000__470d61dd",
+    "condition": "snow",
+    "device": "NVIDIA B200",
+    "generate_s": 172.1,
+    "guardrails": true,
+    "guidance": 3,
+    "load_s": 64.7,
+    "num_steps": 35,
+    "peak_mem_gb": 63.33,
+    "probe": "depth",
+    "prompt_set": "conditions_v2",
+    "rc": 0,
+    "seed": 101,
+    "wall_s": 239.1
+  },
+  "judge_prompts": {
+    "BLIND_Q": "Watch this video clip carefully. Judge it as camera footage. Return ONE JSON object and nothing else:\n{\"weather_and_light\": \"<short description of the weather, time of day and light you see>\",\n \"photorealism\": <1-5, 5 = indistinguishable from real camera footage>,\n \"physical_plausibility\": <1-5, do light, shadows, water, snow, reflections, materials and objects behave as in reality>,\n \"temporal_consistency\": <1-5, 5 = objects and textures stay stable, 1 = heavy morphing, flicker or popping>,\n \"overall\": <1-5>,\n \"implausible_elements\": [\"<each specific thing that does not make physical or semantic sense: floating or morphing objects, impossible light sources, objects that contradict the weather such as open umbrellas in a dry sunny scene, surfaces changing material, duplicated suns, smeared textures>\"]}\nUse the full 1-5 range. Be specific and strict.",
+    "PAIRED_Q": "Video 1 is a real camera clip. Video 2 was generated from it by a model that should keep the same scene and camera motion but show it under this target condition: {cond}.\nCompare them carefully. Return ONE JSON object and nothing else:\n{{\"structure_preserved\": <1-5, same layout, terrain, objects, positions and camera motion>,\n \"condition_achieved\": <1-5, how convincingly Video 2 shows the target condition>,\n \"semantic_consistency\": <1-5, every object in Video 2 looks plausible under the target condition and nothing contradicts it>,\n \"added_objects\": [\"<objects or structures in Video 2 that are not in Video 1>\"],\n \"contradictions\": [\"<things in Video 2 that contradict the target condition or physics>\"],\n \"summary\": \"<one sentence>\"}}\nUse the full 1-5 range. Be specific and strict."
+  }
+}

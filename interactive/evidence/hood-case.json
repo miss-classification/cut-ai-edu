@@ -1,0 +1,38 @@
+{
+  "case": 11,
+  "model": "Qwen3-VL-32B-Instruct",
+  "dataset": "GOOSE",
+  "generation_condition": "frost_dawn",
+  "seed": 202,
+  "request_id": "88959458ef3e47d4c208",
+  "frame": {
+    "source_file": "research-media/hood.mp4",
+    "index_zero_based": 46,
+    "time_seconds": 2.875,
+    "comparison_fps": 16
+  },
+  "blind": {
+    "weather_and_light": "Cold, snowy morning with soft golden sunlight filtering through frost-covered trees, creating a hazy, misty atmosphere.",
+    "photorealism": 5,
+    "physical_plausibility": 5,
+    "temporal_consistency": 5,
+    "overall": 5,
+    "implausible_elements": []
+  },
+  "paired": {
+    "structure_preserved": 5,
+    "condition_achieved": 5,
+    "semantic_consistency": 5,
+    "added_objects": [
+      "hoarfrost on trees, grass, and bushes",
+      "thin frost on the road surface",
+      "pale pink and gold low sunlight",
+      "breath-like mist in the air",
+      "blue and pink striped hood of the car"
+    ],
+    "contradictions": [],
+    "summary": "Video 2 perfectly preserves the original scene structure and camera motion while convincingly transforming it into a cold, clear dawn after a hard frost, with realistic hoarfrost, mist, and golden sunlight, and no contradictions to the target condition."
+  },
+  "decision_rule": "A policy requiring foreground objects to preserve appearance and extent would exclude the clip. This is an explicit teaching policy.",
+  "visual_observation": "A thin edge is visible at the bottom of the recorded view. The generated frost clip shows a broad blue-and-pink striped hood in the lower center."
+}

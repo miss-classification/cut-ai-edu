@@ -56,3 +56,17 @@ NVIDIA, Cosmos, and Ray names may be trademarks of their respective owners. Thei
 ## Original-resource licenses
 
 Original educational content is licensed under CC BY 4.0. Original code is licensed under Apache 2.0. See `LICENSE_SCOPE.md`. These licenses do not relicense third-party software, model materials, media, publications, names, or marks.
+
+## Dataset media in the v33 extension
+
+The camera-ready lesson (v33) adds recorded comparisons generated from five public sources. Each clip's dataset, attribution, license, seed, and checksum are listed in `interactive/evidence/media-manifest.json` and shown in the video footers.
+
+| Source | License of the source footage | Derived clips in this repository |
+| --- | --- | --- |
+| [TartanDrive 2.0](https://theairlab.org/TartanDrive2/) (AirLab, Carnegie Mellon University) | CC BY 4.0 | CC BY 4.0 |
+| [Boreas](https://www.boreas.utias.utoronto.ca/) (University of Toronto) | CC BY 4.0 | CC BY 4.0 |
+| [GOOSE](https://goose-dataset.de/) (Fraunhofer IOSB, UniBW Munich, University of Koblenz) | CC BY-SA 4.0 | CC BY-SA 4.0 (share-alike) |
+| [GrandTour](https://grandtour.leggedrobotics.com/) (ETH Zurich) | CC BY-SA 4.0 | CC BY-SA 4.0 (share-alike) |
+| Wikimedia Commons, per file | CC BY 3.0 or CC BY-SA 4.0 | Same license as each source file |
+
+The CC BY 4.0 license of the original educational content does not apply to these clips. Reuse them under the license listed for each one.

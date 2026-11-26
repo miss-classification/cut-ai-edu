@@ -1,0 +1,110 @@
+\documentclass{article}
+
+% Official NeurIPS 2026 style, Education Track, camera-ready. No checklist (per the Call for Educational Resources).
+\PassOptionsToPackage{numbers,sort&compress}{natbib}
+\usepackage[education, final]{neurips_2026}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
+\usepackage[hidelinks]{hyperref}
+
+\title{How Do You Test Weather You Cannot Schedule?\\
+\large A Visual Lesson on Verifier-Guided Test-Time Scaling for Generative Video}
+
+\author{%
+  Alicia Chua\\
+  Anyscale
+  \And
+  Pawarit Laosunthara\\
+  Anyscale
+  \And
+  Eric Tang\\
+  Anyscale
+}
+
+\begin{document}
+\maketitle
+
+\section{The concept}
+
+How would you test a perception system on the same drive in clear weather and dense fog? A test fleet cannot schedule both conditions. A video generation model can produce another version of a recorded scene. Here, NVIDIA Cosmos Transfer 2.5 takes a drive, a fog request, and an edge guide that traces scene boundaries. The guide helps preserve the street, but a candidate can still distort a lane marking or a moving car.
+
+\emph{Inference} is the stage when a trained model produces an output. \emph{Test-time scaling} spends additional computation at this stage. We use it to sample $N$ candidates from a fixed generator $p$, given source video $v$ and condition $c$. Only the random seed changes. A verifier checks each candidate against the application rubric $r$, and hard gates define the eligible set $E$ of candidates that meet every requirement:
+\begin{equation*}
+ y_1,\ldots,y_N \sim p(\cdot\mid v,c),
+ \qquad y^\star=\arg\max_{i\in E}\, s_r(y_i;v,c)\ \ \text{if } E\neq\emptyset.
+\end{equation*}
+Keeping all $N$ candidates retains every failure alongside any useful clips. Best-of-$N$ first excludes candidates that fail a requirement, then selects the highest-scoring survivor. If none qualifies, it abstains. Both generate $N$ clips; selection adds evaluation work.
+
+A larger pool offers more opportunities for a useful result and more chances to exploit a weak score. If a judge rewards fog intensity alone, a local plume can outrank more plausible street fog. Learners compare both rankings.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  box/.style={draw, rounded corners=2pt, align=center, minimum width=2.75cm, minimum height=0.85cm, font=\scriptsize, fill=black!4},
+  arr/.style={-{Stealth[length=2mm]}, thick}]
+\node[box] (a) {\textbf{SOURCE + CONDITION}\\hold the task fixed};
+\node[box, right=of a] (b) {\textbf{$N$ CANDIDATES}\\vary the seed};
+\node[box, right=of b] (c) {\textbf{RUBRIC + GATES}\\score what matters};
+\node[box, right=of c] (d) {\textbf{SELECT / ABSTAIN}\\make the decision};
+\draw[arr] (a) -- (b); \draw[arr] (b) -- (c); \draw[arr] (c) -- (d);
+\end{tikzpicture}
+\caption{Generation creates options. The selector converts those options into a decision.}
+\end{figure}
+
+\section{Level and prerequisite knowledge}
+
+The core route is designed for first-time NeurIPS attendees and first-year university students. Learners first compare two clips by eye. The opening introduces conditioning and random seeds before asking them to interpret a weighted average or choose the highest score. The advanced route examines verifier design and its limits. The browser exercises require no code, diffusion equations, or GPU.
+
+\section{Learning objectives and outcomes}
+
+\begin{enumerate}[leftmargin=*, itemsep=0pt, topsep=1pt, parsep=0pt]
+  \item \textbf{Explain} Best-of-$N$ as generation, scoring, and selection.
+  \item \textbf{Identify} what is fixed in a controlled comparison and why changing only the seed produces a meaningful candidate pool.
+  \item \textbf{Apply} a weighted rubric and hard rejection gates to select a candidate or abstain.
+  \item \textbf{Analyze} the tradeoff among larger $N$, diversity, compute cost, and selector workload.
+  \item \textbf{Diagnose} proxy optimization when an incomplete criterion rewards an undesirable candidate.
+  \item \textbf{Create} a selector for another task and assign evidence to humans, metrics, multimodal models, or hard gates.
+\end{enumerate}
+
+\section{Teaching materials and learning journey}
+
+CUT! Best-of-N Studio opens with a recorded street, an edge guide, and a generated fog clip. Learners inspect the haze and lane markings, then vote between two candidates before seeing their scores. The browser includes a five-minute demonstration, a self-guided route, and a longer classroom route with facilitation prompts and a printable worksheet.
+
+The pools are nested: $N=4$ contains the first four takes; $N=8$ keeps those four and adds four more. The source, prompt, model, guidance, control weight, frame count, and inference steps stay fixed. Learners inspect a candidate alongside its visual observation, score rationale, and weighted calculation. The observations support discussion; they do not uniquely determine a numerical rating.
+
+At $N=8$, intensity alone favors Take 07, with its smoke-like plume. The balanced rubric favors Take 04. Setting the minimum street fidelity to 97 excludes all eight. The worksheet asks learners to explain that abstention, then design a selector for another task and specify how they would test its decisions.
+
+The original package includes 16 fog, rain, and snow variants, source and edge videos, generation settings and seeds, a scoring script, a notebook, and educator materials. Ray distributes the offline generation work. The revised site adds recorded field comparisons and an optional online gallery. The core activities run offline from the extracted package. Lesson: \href{https://cut-ai-edu.pages.dev/}{\texttt{cut-ai-edu.pages.dev}}; materials: \href{https://github.com/miss-classification/cut-ai-edu}{\texttt{github.com/miss-classification/cut-ai-edu}}.
+
+\paragraph{Scope of the educational judge.} The fog exercise uses fixed illustrative annotations. A separate extension follows a recorded Qwen3-VL-32B-Instruct review from sampled video frames and a prompt to a description and ratings. In a frost-at-dawn clip, the judge lists an added striped hood yet awards structure preservation 5/5. Learners compare the frames and decide whether to reject the clip. No model runs in the browser. Estimating verifier error requires independent labels; improved performance on real drives has not been established.
+
+\paragraph{Originality, accessibility, and reuse.} This is an original teaching treatment, not a new algorithm or autonomous-vehicle benchmark. Writing, diagrams, interactions, experiments, and lesson structure were created for this track. Third-party components are attributed. Keyboard controls, visible focus, descriptive labels, muted playback, reduced-motion behavior, text explanations, and offline use support reuse.
+
+\section{Linked papers and frontier relevance}
+
+Recent work studies verifier-guided video search~\cite{videot1}, diffusion candidates and verifier alignment~\cite{ma2025}, video reward models from human feedback~\cite{videofeedback}, human-aligned judging for application-driven video~\cite{worldmodelbench}, limits from verifier imperfection~\cite{roc}, and inference-time coverage and reward hacking~\cite{huang2025}.
+
+\begin{ack}
+All authors are employed by Anyscale, the developer of Ray. No third-party funding.
+\end{ack}
+
+{\small
+\setlength{\bibsep}{1pt}
+\begin{thebibliography}{6}
+\bibitem{videot1} F. Liu et al. \href{https://openaccess.thecvf.com/content/ICCV2025/html/Liu_Video-T1_Test-time_Scaling_for_Video_Generation_ICCV_2025_paper.html}{Video-T1: Test-Time Scaling for Video Generation}. \emph{ICCV}, 2025.
+\bibitem{ma2025} N. Ma et al. \href{https://openaccess.thecvf.com/content/CVPR2025/html/Ma_Scaling_Inference_Time_Compute_for_Diffusion_Models_CVPR_2025_paper.html}{Scaling Inference Time Compute for Diffusion Models}. \emph{CVPR}, 2025.
+\bibitem{videofeedback} J. Liu et al. \href{https://proceedings.neurips.cc/paper_files/paper/2025/hash/76227feb18ea0ee40bd15cf02c33e18e-Abstract-Conference.html}{Improving Video Generation with Human Feedback}. \emph{NeurIPS}, 2025.
+\bibitem{worldmodelbench} D. Li et al. \href{https://proceedings.neurips.cc/paper_files/paper/2025/hash/4ec03ed08a3fcb59e1c815b5598beff1-Abstract-Datasets_and_Benchmarks_Track.html}{WorldModelBench: Judging Video Generation Models As World Models}. \emph{NeurIPS}, 2025.
+\bibitem{roc} F. E. Dorner et al. \href{https://proceedings.iclr.cc/paper_files/paper/2026/hash/f4d943fad13060f97dee47e5200367a8-Abstract-Conference.html}{ROC-n-reroll: How Verifier Imperfection Affects Test-Time Scaling}. \emph{ICLR}, 2026.
+\bibitem{huang2025} A. Huang et al. \href{https://proceedings.mlr.press/v267/huang25c.html}{Is Best-of-N the Best of Them? Coverage, Scaling, and Optimality in Inference-Time Alignment}. \emph{ICML}, 2025.
+\end{thebibliography}}
+
+\end{document}
