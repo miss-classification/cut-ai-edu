@@ -1,8 +1,8 @@
 # Regenerate the candidates on H100 or B200
 
-This folder holds one container image for regenerating the lesson's fog, rain, and snow candidates on NVIDIA H100 (Hopper) or B200 (Blackwell) GPUs. The browser lesson does not need any of this.
+This folder holds one container image for regenerating the lesson's fog, rain, and snow candidates on NVIDIA H100 (Hopper) or B200 (Blackwell) GPUs. The browser lesson does not require this setup.
 
-## What you need
+## Requirements
 
 - A Linux machine with NVIDIA H100 or B200 GPUs, NVIDIA driver 580 or newer (CUDA 13), Docker, and the NVIDIA Container Toolkit.
 - A Hugging Face account that has accepted the terms for [`nvidia/Cosmos-Transfer2.5-2B`](https://huggingface.co/nvidia/Cosmos-Transfer2.5-2B) and its guardrail models, and a read token.
@@ -66,7 +66,7 @@ Outputs are written to `$DATA/cosmos-runs/<experiment>/`. Guardrails are on by d
 
 Push the image to a registry your cluster can pull from and use it as the cluster image (on Anyscale, as the container image in the compute configuration). Every node must see the same shared storage at `/mnt/user_storage` and `/mnt/cluster_storage`. Run the same `plan` and `run` commands on the head node with the same flags.
 
-## What to expect
+## Reproducibility notes
 
 - The settings are those recorded for the lesson: `edge/distilled`, 4 denoising steps, guidance 4, 93 frames, edge weight 0.65, guardrails on. The seeds are listed in the experiment files.
 - The lesson's candidates were generated on NVIDIA L40S GPUs. On other GPUs, and with a different model-weight revision, the outputs will differ. Byte-identical regeneration is not claimed. See `docs/REPRODUCIBILITY.md`.

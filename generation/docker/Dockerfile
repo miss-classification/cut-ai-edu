@@ -3,16 +3,16 @@
 # Build from the repository root:
 #   docker build -f generation/docker/Dockerfile -t cut-cosmos:cu130 .
 #
-# What is inside:
+# Contents:
 #   - Ray 2.60 on Python 3.13 with CUDA 13 (base image), so one image covers Hopper and Blackwell.
 #   - NVIDIA Cosmos Transfer 2.5 source at the revision the lesson recorded (2ff49d0), in /opt/cosmos-transfer2.5.
 #   - The Cosmos Python environment, built with the same steps as generation/cosmos_ray/bootstrap.py,
 #     in /opt/cosmos-venvs/cu130-py313. It lives in the image, so no node rebuilds it at run time.
 #   - The cosmos_ray wrapper from this repository in /home/ray/cut-ai-edu/generation.
 #
-# What is NOT inside, on purpose:
-#   - Model weights and Hugging Face credentials. Mount a cache at run time and pass the token as an
-#     environment variable. Accept the model terms on Hugging Face first.
+# Excluded:
+#   - Model weights and Hugging Face credentials. Mount a model cache at run time and pass the token as an
+#     environment variable after accepting the model terms on Hugging Face.
 #
 # Host requirement: NVIDIA driver 580 or newer (CUDA 13) and the NVIDIA Container Toolkit.
 
