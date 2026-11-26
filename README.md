@@ -16,7 +16,7 @@ Alicia Chua, Pawarit Laosunthara, and Eric Tang · Anyscale
 
 *A recorded urban drive rendered under four conditions with NVIDIA Cosmos Transfer 2.5. Road layout, vehicles, and camera motion follow the source recording.*
 
-[Interactive lesson](https://cut-ai-edu.pages.dev/) &nbsp;|&nbsp; [Paper (PDF)](paper/cut_neurips2026_education.pdf) &nbsp;|&nbsp; [Teaching guide](interactive/teaching.html) &nbsp;|&nbsp; [Paint the Trail Gallery](https://paint-the-trail-gallery.pages.dev/) &nbsp;|&nbsp; [Regeneration on H100 and B200](generation/docker/README.md)
+[Interactive lesson](https://cut-ai-edu.pages.dev/) &nbsp;|&nbsp; [Paper (PDF)](paper/cut_neurips2026_education.pdf) &nbsp;|&nbsp; [Teaching guide](https://cut-ai-edu.pages.dev/teaching) &nbsp;|&nbsp; [Paint the Trail Gallery](https://paint-the-trail-gallery.pages.dev/) &nbsp;|&nbsp; [Regeneration on H100 and B200](generation/docker/README.md)
 
 </div>
 
@@ -84,12 +84,12 @@ python -m http.server 8000
 
 Then open `http://localhost:8000/interactive/`. The lesson requires no account, network connection, GPU, model download, or package installation.
 
-| Page | Purpose |
-| --- | --- |
-| `interactive/index.html` | Full lesson: problem framing, blind comparison, candidate budget, selector and gates, judge lab, and transfer to rain and snow |
-| `interactive/present.html` | Projector mode for poster sessions and classrooms, with six stops controlled by the arrow keys |
-| `interactive/teaching.html` | Teaching routes of 5, 15, and 30 to 40 minutes, facilitation prompts, assessment guidance, and a printable worksheet |
-| `interactive/evidence.html` | Recorded judge responses, documented failure cases, measured timings, and data sources |
+| Page | Online | Purpose |
+| --- | --- | --- |
+| `interactive/index.html` | [Open](https://cut-ai-edu.pages.dev/) | Full lesson: problem framing, blind comparison, candidate budget, selector and gates, judge lab, and transfer to rain and snow |
+| `interactive/present.html` | [Open](https://cut-ai-edu.pages.dev/present) | Projector mode for poster sessions and classrooms, with six stops controlled by the arrow keys |
+| `interactive/teaching.html` | [Open](https://cut-ai-edu.pages.dev/teaching) | Teaching routes of 5, 15, and 30 to 40 minutes, facilitation prompts, assessment guidance, and a printable worksheet |
+| `interactive/evidence.html` | [Open](https://cut-ai-edu.pages.dev/evidence) | Recorded judge responses, documented failure cases, measured timings, and data sources |
 
 ## Scores and annotations
 
@@ -138,10 +138,10 @@ The [container guide](generation/docker/README.md) covers the source clip downlo
 | Role | Starting point | Time |
 | --- | --- | ---: |
 | Learner | [Interactive lesson](https://cut-ai-edu.pages.dev/) | 5 to 15 min |
-| Presenter | `interactive/present.html` | 5 min |
-| Instructor | `interactive/teaching.html`, [teaching guide](docs/TEACHING_GUIDE.md), [worksheet](docs/LEARNER_WORKSHEET.md) | 15 to 40 min |
+| Presenter | [Projector mode](https://cut-ai-edu.pages.dev/present) | 5 min |
+| Instructor | [Teaching page](https://cut-ai-edu.pages.dev/teaching), [teaching guide](docs/TEACHING_GUIDE.md), [worksheet](docs/LEARNER_WORKSHEET.md) | 15 to 40 min |
 | Reviewer of the selector | [Rubric and scoring](docs/RUBRIC_AND_SCORING.md), [notebook](notebooks/selector_lab.ipynb) | 15 min |
-| Reviewer of the evidence | `interactive/evidence.html`, [reproducibility record](docs/REPRODUCIBILITY.md), [media provenance](docs/MEDIA_PROVENANCE.md) | 10 min |
+| Reviewer of the evidence | [Evidence page](https://cut-ai-edu.pages.dev/evidence), [reproducibility record](docs/REPRODUCIBILITY.md), [media provenance](docs/MEDIA_PROVENANCE.md) | 10 min |
 | Practitioner regenerating media | [H100 and B200 container](generation/docker/README.md), [Ray cluster guide](generation/README.md) | Varies |
 
 ## Scope
